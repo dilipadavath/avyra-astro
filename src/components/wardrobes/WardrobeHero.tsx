@@ -3,7 +3,7 @@ import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 
 const WardrobeHero = () => {
   return (
-    <section className="pt-40 md:pt-48 pb-24 relative overflow-hidden min-h-[60vh] flex items-end">
+    <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[50vh] flex items-end">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

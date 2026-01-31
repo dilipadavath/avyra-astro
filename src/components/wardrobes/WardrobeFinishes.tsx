@@ -33,13 +33,13 @@ const colorOptions = [
 
 const WardrobeFinishes = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-8 relative">
       <div className="container-premium">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Paintbrush className="w-8 h-8 text-primary" />
@@ -54,7 +54,7 @@ const WardrobeFinishes = () => {
         </motion.div>
 
         {/* Finish Options */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {finishOptions.map((finish, index) => (
             <motion.div
               key={index}
@@ -81,7 +81,7 @@ const WardrobeFinishes = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-foreground/60 mb-12"
+          className="text-center text-foreground/60 mb-6"
         >
           Each finish is applied over AVYRA's engineered structure, ensuring beauty backed by strength.
         </motion.p>

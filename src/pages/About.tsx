@@ -112,7 +112,7 @@ const About = () => {
       
       <main className="relative z-10">
         {/* Hero Section with Background Image */}
-        <section className="pt-40 md:pt-48 pb-24 relative overflow-hidden min-h-[60vh] flex items-end">
+        <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[50vh] flex items-end">
           {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -160,9 +160,9 @@ const About = () => {
         </section>
 
         {/* Intro Section with Image */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -203,13 +203,13 @@ const About = () => {
         </section>
 
         {/* Carcass Foundation Section */}
-        <section className="py-20 bg-card relative">
+        <section className="py-8 bg-card relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-6"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
                 The Foundation: AVYRA Kitchen Carcass
@@ -302,9 +302,9 @@ const About = () => {
         </section>
 
         {/* Honeycomb Section with Image */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -362,13 +362,13 @@ const About = () => {
         </section>
 
         {/* Strength & Durability Section */}
-        <section className="py-20 bg-card">
+        <section className="py-8 bg-card">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-6"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
                 Strength That Lasts Decades
@@ -379,7 +379,7 @@ const About = () => {
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
               {[
                 { icon: "✓", text: "Do not swell" },
                 { icon: "✓", text: "Do not crack" },
@@ -412,9 +412,9 @@ const About = () => {
         </section>
 
         {/* Hygiene Section */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -474,9 +474,9 @@ const About = () => {
         </section>
 
         {/* Aluminium Kitchens Section */}
-        <section className="py-20 bg-card">
+        <section className="py-8 bg-card">
           <div className="container-premium">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -537,13 +537,13 @@ const About = () => {
         </section>
 
         {/* Door & Shutter Options */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-6"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
                 Door & Shutter Options: Design Without Limits
@@ -597,9 +597,9 @@ const About = () => {
         </section>
 
         {/* Hardware & Countertops */}
-        <section className="py-20 bg-card">
+        <section className="py-8 bg-card">
           <div className="container-premium">
-            <div className="grid lg:grid-cols-2 gap-12">
+            <div className="grid lg:grid-cols-2 gap-8">
               {/* Hardware */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -682,13 +682,13 @@ const About = () => {
         </section>
 
         {/* Material Comparison */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-6"
             >
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
                 Material Comparison
@@ -758,13 +758,13 @@ const About = () => {
         </section>
 
         {/* SS vs Aluminium Comparison */}
-        <section className="py-20 bg-card">
+        <section className="py-8 bg-card">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="text-center mb-6"
             >
               <div className="flex items-center justify-center gap-3 mb-6">
                 <Scale className="w-8 h-8 text-primary" />
@@ -846,7 +846,7 @@ const About = () => {
         </section>
 
         {/* Competitive Pricing */}
-        <section className="py-20 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -889,7 +889,7 @@ const About = () => {
         </section>
 
         {/* AVYRA Promise */}
-        <section className="py-20 bg-card relative overflow-hidden">
+        <section className="py-8 bg-card relative overflow-hidden">
           {/* Decorative elements */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
           
@@ -911,7 +911,7 @@ const About = () => {
                 Every AVYRA kitchen represents:
               </p>
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                 {[
                   { title: "Structural Integrity", desc: "Built to last decades" },
                   { title: "Thoughtful Engineering", desc: "Every detail matters" },

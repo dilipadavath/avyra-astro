@@ -21,7 +21,7 @@ const KitchenPromise = () => {
   return (
     <>
       {/* Competitive Pricing Section */}
-      <section className="py-20 relative">
+      <section className="py-8 relative">
         <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -63,7 +63,7 @@ const KitchenPromise = () => {
       </section>
 
       {/* Promise Section */}
-      <section className="py-20 bg-card relative overflow-hidden">
+      <section className="py-8 bg-card relative overflow-hidden">
         {/* Decorative gold lines */}
         <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
         <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
