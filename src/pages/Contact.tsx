@@ -65,12 +65,12 @@ const Contact = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 w-full max-w-4xl mx-4 bg-white rounded-2xl shadow-2xl overflow-hidden"
+          className="relative z-10 w-full max-w-4xl mx-4 bg-charcoal/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-border/30"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
             {/* Left Side - Form */}
             <div className="p-8 md:p-10">
-              <h1 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-8">
+              <h1 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-8">
                 Get In Touch
               </h1>
 
@@ -80,7 +80,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Input
@@ -89,7 +89,7 @@ const Contact = () => {
                   value={formData.mobile}
                   onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Input
@@ -98,22 +98,22 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Select 
                   value={formData.subject} 
                   onValueChange={(value) => setFormData({ ...formData, subject: value })}
                 >
-                  <SelectTrigger className="bg-white border-gray-300 text-gray-900 h-12 rounded-md focus:border-primary data-[placeholder]:text-gray-500">
+                  <SelectTrigger className="bg-charcoal-light border-border text-foreground h-12 rounded-md focus:border-primary data-[placeholder]:text-muted-foreground">
                     <SelectValue placeholder="Select Subject" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white border-gray-300">
-                    <SelectItem value="general" className="text-gray-900 focus:bg-primary focus:text-white">General Enquiry</SelectItem>
-                    <SelectItem value="design" className="text-gray-900 focus:bg-primary focus:text-white">Design Consultation</SelectItem>
-                    <SelectItem value="service" className="text-gray-900 focus:bg-primary focus:text-white">Service Request</SelectItem>
-                    <SelectItem value="business" className="text-gray-900 focus:bg-primary focus:text-white">Business Collaboration</SelectItem>
-                    <SelectItem value="other" className="text-gray-900 focus:bg-primary focus:text-white">Other</SelectItem>
+                  <SelectContent className="bg-charcoal border-border">
+                    <SelectItem value="general" className="text-foreground focus:bg-primary focus:text-primary-foreground">General Enquiry</SelectItem>
+                    <SelectItem value="design" className="text-foreground focus:bg-primary focus:text-primary-foreground">Design Consultation</SelectItem>
+                    <SelectItem value="service" className="text-foreground focus:bg-primary focus:text-primary-foreground">Service Request</SelectItem>
+                    <SelectItem value="business" className="text-foreground focus:bg-primary focus:text-primary-foreground">Business Collaboration</SelectItem>
+                    <SelectItem value="other" className="text-foreground focus:bg-primary focus:text-primary-foreground">Other</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -122,13 +122,13 @@ const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 rounded-md resize-none focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground rounded-md resize-none focus:border-primary"
                 />
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 h-auto font-medium"
+                  className="btn-primary-gold px-8 py-3 h-auto font-medium"
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
@@ -136,12 +136,12 @@ const Contact = () => {
             </div>
 
             {/* Right Side - Contact Info */}
-            <div className="p-8 md:p-10 bg-gray-50 flex flex-col justify-center">
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-4">
+            <div className="p-8 md:p-10 bg-charcoal-light/50 flex flex-col justify-center">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-4">
                 Stay Connected
               </h2>
               
-              <p className="text-gray-600 leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8">
                 Ready to transform your space with premium SS 304 stainless steel kitchens or aluminium wardrobes? 
                 Book a consultation and let's create something extraordinary together in Hyderabad, Vijayawada, 
                 Telangana & Andhra Pradesh.
@@ -150,7 +150,7 @@ const Contact = () => {
               <div className="space-y-4 mb-8">
                 <a
                   href="tel:+919689684222"
-                  className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   <span>+91 968 968 4222</span>
@@ -158,7 +158,7 @@ const Contact = () => {
 
                 <a
                   href="mailto:support@avyra.co.in"
-                  className="flex items-center gap-3 text-gray-700 hover:text-primary transition-colors"
+                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
                   <span>support@avyra.co.in</span>
@@ -171,7 +171,7 @@ const Contact = () => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all"
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -180,7 +180,7 @@ const Contact = () => {
                   href="https://wa.me/919689684222"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-primary hover:border-primary transition-all"
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
                   aria-label="WhatsApp"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
