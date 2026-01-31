@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GalleryHero from "@/components/gallery/GalleryHero";
 
 import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
@@ -14,19 +15,17 @@ const galleryImages = [
   { src: heroKitchen1, category: "Kitchen", title: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
   { src: heroKitchen3, category: "Kitchen", title: "SS 304 Honeycomb Kitchen Design Vijayawada" },
-  { src: heroInterior, category: "Interior", title: "Stainless Steel Storage Solutions Andhra Pradesh" },
   { src: heroKitchen4, category: "Kitchen", title: "Premium Aluminium Modular Kitchen South India" },
   { src: heroKitchen1, category: "Kitchen", title: "Contemporary SS 304 Kitchen Hyderabad" },
+  { src: heroInterior, category: "Colour Palettes", title: "Premium Colour Palette Options" },
 ];
 
-const categories = ["Kitchen", "Wardrobe", "Colour Palettes", "Interior", "All"];
+const categories = ["Kitchen", "Wardrobe", "Colour Palettes"];
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Kitchen");
 
-  const filteredImages = selectedCategory === "All"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === selectedCategory);
+  const filteredImages = galleryImages.filter(img => img.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
@@ -123,33 +122,17 @@ const Gallery = () => {
       <Header />
 
       <main>
-        {/* Hero */}
-        <section className="pt-28 md:pt-32 pb-8 bg-charcoal">
-          <div className="container-premium text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <h1 className="heading-display text-gold-gradient mb-4">
-                Gallery 
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Explore our portfolio of premium SS 304 stainless steel honeycomb kitchens, aluminium wardrobes, 
-                and interior solutions crafted for homes across Hyderabad, Vijayawada, Telangana & South India.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <GalleryHero />
 
         {/* Filters */}
-        <section className="py-6 border-b border-border/30">
+        <section className="py-3 border-b border-border/30">
           <div className="container-premium">
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 text-sm font-medium tracking-wider uppercase transition-all ${
+                  className={`px-5 py-1.5 text-sm font-medium tracking-wider uppercase transition-all ${
                     selectedCategory === category
                       ? "bg-primary text-primary-foreground"
                       : "bg-transparent text-muted-foreground hover:text-foreground border border-border"
@@ -163,11 +146,11 @@ const Gallery = () => {
         </section>
 
         {/* Gallery Grid */}
-        <section className="section-padding">
+        <section className="py-6">
           <div className="container-premium">
             <motion.div
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
             >
               <AnimatePresence mode="popLayout">
                 {filteredImages.map((image, index) => (
