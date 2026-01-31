@@ -31,17 +31,28 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     setIsSubmitting(false);
     toast.success("Thank you! We'll get back to you soon.");
-    setFormData({ name: "", mobile: "", email: "", subject: "", message: "" });
+    setFormData({
+      name: "",
+      mobile: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
   };
+
+  const inputClasses =
+    "bg-[hsl(0_0%_12%)] border border-border text-foreground placeholder:text-muted-foreground rounded-md focus:border-border focus:ring-0 focus:outline-none";
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad</title>
+        <title>
+          Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad
+        </title>
         <meta
           name="description"
           content="Contact AVYRA to book a consultation for premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Call +91 968 968 4222."
@@ -52,7 +63,7 @@ const Contact = () => {
       <Header />
 
       <main className="flex-1 relative flex items-center justify-center py-20 md:py-24">
-        {/* Background Image with Overlay */}
+        {/* Background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroKitchen})` }}
@@ -60,7 +71,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        {/* Content Card */}
+        {/* Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,7 +79,7 @@ const Contact = () => {
           className="relative z-10 w-full max-w-4xl mx-4 bg-charcoal/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-border/30"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* Left Side - Form */}
+            {/* Left: Form */}
             <div className="p-8 md:p-10">
               <h1 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-8">
                 Get In Touch
@@ -78,51 +89,68 @@ const Contact = () => {
                 <Input
                   placeholder="Your Name"
                   value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, name: e.target.value })
+                  }
                   required
-                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
+                  className={`${inputClasses} h-12`}
                 />
 
                 <Input
                   type="tel"
                   placeholder="Mobile Number"
                   value={formData.mobile}
-                  onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, mobile: e.target.value })
+                  }
                   required
-                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
+                  className={`${inputClasses} h-12`}
                 />
 
                 <Input
                   type="email"
                   placeholder="Email Address"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   required
-                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
+                  className={`${inputClasses} h-12`}
                 />
 
                 <Select
                   value={formData.subject}
-                  onValueChange={(value) => setFormData({ ...formData, subject: value })}
+                  onValueChange={(value) =>
+                    setFormData({ ...formData, subject: value })
+                  }
                 >
-                  <SelectTrigger className="bg-charcoal-light border-border text-foreground h-12 rounded-md focus:border-primary data-[placeholder]:text-muted-foreground">
+                  <SelectTrigger
+                    className={`${inputClasses} h-12 data-[placeholder]:text-muted-foreground`}
+                  >
                     <SelectValue placeholder="Select Subject" />
                   </SelectTrigger>
+
                   <SelectContent className="bg-[hsl(0_0%_12%)] border-border">
-                    <SelectItem value="general" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">General Enquiry</SelectItem>
-                    <SelectItem value="design" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Design Consultation</SelectItem>
-                    <SelectItem value="service" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Service Request</SelectItem>
-                    <SelectItem value="business" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Business Collaboration</SelectItem>
-                    <SelectItem value="other" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Other</SelectItem>
+                    <SelectItem value="general">General Enquiry</SelectItem>
+                    <SelectItem value="design">
+                      Design Consultation
+                    </SelectItem>
+                    <SelectItem value="service">Service Request</SelectItem>
+                    <SelectItem value="business">
+                      Business Collaboration
+                    </SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
 
                 <Textarea
                   placeholder="Your Message"
                   value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   rows={4}
-                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground rounded-md resize-none focus:border-primary"
+                  className={`${inputClasses} resize-none`}
                 />
 
                 <Button
@@ -135,22 +163,22 @@ const Contact = () => {
               </form>
             </div>
 
-            {/* Right Side - Contact Info */}
+            {/* Right: Info */}
             <div className="p-8 md:p-10 bg-charcoal-light/50 flex flex-col justify-center">
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-4">
                 Stay Connected
               </h2>
 
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Ready to transform your space with premium SS 304 stainless steel kitchens or aluminium wardrobes?
-                Book a consultation and let's create something extraordinary together in Hyderabad, Vijayawada,
-                Telangana & Andhra Pradesh.
+                Ready to transform your space with premium SS 304 stainless steel
+                kitchens or aluminium wardrobes? Book a consultation and let's
+                create something extraordinary together.
               </p>
 
               <div className="space-y-4 mb-8">
                 <a
                   href="tel:+919689684222"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   <span>+91 968 968 4222</span>
@@ -158,41 +186,21 @@ const Contact = () => {
 
                 <a
                   href="mailto:support@avyra.co.in"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
                   <span>support@avyra.co.in</span>
                 </a>
               </div>
 
-              {/* Social Icons */}
-              <div className="flex items-center gap-4">
-                <a
-                  href="tel:+919689684222"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
-                  aria-label="Phone"
-                >
-                  <Phone className="w-5 h-5" />
-                </a>
+              <div className="flex gap-4">
                 <a
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
-                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center hover:text-primary hover:border-primary transition-all"
                 >
                   <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://wa.me/919689684222"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
-                  aria-label="WhatsApp"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                  </svg>
                 </a>
               </div>
             </div>
