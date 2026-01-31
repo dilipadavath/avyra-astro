@@ -28,7 +28,7 @@ import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
-  mobile: z.string().trim().min(1, "Mobile number is required").regex(/^[+]?[\d\s-]{10,15}$/, "Please enter a valid phone number"),
+  mobile: z.string().trim().min(1, "Mobile number is required").regex(/^\d{10}$/, "Please enter a valid 10-digit phone number"),
   email: z.string().trim().min(1, "Email is required").email("Please enter a valid email address"),
   subject: z.string().optional(),
   message: z.string().optional(),
@@ -123,8 +123,13 @@ const Contact = () => {
                           <Input
                             type="number"
                             placeholder="Mobile Number"
+                            maxLength={10}
+                            onInput={(e) => {
+                              const target = e.target as HTMLInputElement;
+                              target.value = target.value.slice(0, 10);
+                            }}
                             {...field}
-                            className={`${inputClasses} h-12`}
+                            className={`${inputClasses} h-12 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                           />
                         </FormControl>
                         <FormMessage />
