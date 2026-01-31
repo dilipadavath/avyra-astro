@@ -8,6 +8,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 
 const faqs = [
   {
@@ -54,7 +55,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
         <title>FAQs | AVYRA - SS 304 Stainless Steel Kitchens & Aluminium Wardrobes</title>
         <meta
@@ -66,48 +67,48 @@ const FAQ = () => {
 
       <Header />
 
-      <main>
-        <section className="section-padding pt-28 md:pt-32 bg-secondary/30">
-          <div className="container-premium">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-8"
-            >
-              <h1 className="heading-section mb-4">
-                <span className="text-gold-gradient">Frequently Asked Questions</span>
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Find answers to common questions about our services, materials, and process.
-              </p>
-            </motion.div>
+      <main className="flex-1 relative flex items-center justify-center pt-28 md:pt-32 pb-12 md:pb-16">
+        {/* Background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroKitchen})` }}
+        >
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="max-w-3xl mx-auto"
-            >
-              <Accordion type="single" collapsible className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    value={`item-${index}`}
-                    className="card-premium px-6 border-border/50 rounded-lg"
-                  >
-                    <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-5">
-                      <span className="font-serif text-lg">{faq.question}</span>
-                    </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
-                      {faq.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </motion.div>
+        {/* Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative z-10 w-full max-w-4xl mx-4 bg-charcoal/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-border/30"
+        >
+          <div className="p-8 md:p-10">
+            <h1 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-4">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-muted-foreground mb-8">
+              Find answers to common questions about our services, materials, and process.
+            </p>
+
+            <Accordion type="single" collapsible className="space-y-4">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className="bg-[hsl(0_0%_12%)] px-6 border border-border/50 rounded-lg"
+                >
+                  <AccordionTrigger className="text-left text-foreground hover:text-primary hover:no-underline py-5">
+                    <span className="font-serif text-lg">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground leading-relaxed pb-5">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
-        </section>
+        </motion.div>
       </main>
 
       <Footer />
