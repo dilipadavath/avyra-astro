@@ -80,7 +80,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Input
@@ -89,7 +89,7 @@ const Contact = () => {
                   value={formData.mobile}
                   onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Input
@@ -98,22 +98,22 @@ const Contact = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 h-12 rounded-md focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground h-12 rounded-md focus:border-primary"
                 />
                 
                 <Select 
                   value={formData.subject} 
                   onValueChange={(value) => setFormData({ ...formData, subject: value })}
                 >
-                  <SelectTrigger className="bg-white border-gray-300 text-gray-900 h-12 rounded-md focus:border-primary data-[placeholder]:text-gray-500">
+                  <SelectTrigger className="bg-charcoal-light border-border text-foreground h-12 rounded-md focus:border-primary data-[placeholder]:text-muted-foreground">
                     <SelectValue placeholder="Select Subject" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white border-gray-300">
-                    <SelectItem value="general" className="text-gray-900 focus:bg-primary focus:text-primary-foreground">General Enquiry</SelectItem>
-                    <SelectItem value="design" className="text-gray-900 focus:bg-primary focus:text-primary-foreground">Design Consultation</SelectItem>
-                    <SelectItem value="service" className="text-gray-900 focus:bg-primary focus:text-primary-foreground">Service Request</SelectItem>
-                    <SelectItem value="business" className="text-gray-900 focus:bg-primary focus:text-primary-foreground">Business Collaboration</SelectItem>
-                    <SelectItem value="other" className="text-gray-900 focus:bg-primary focus:text-primary-foreground">Other</SelectItem>
+                  <SelectContent className="bg-charcoal border-border">
+                    <SelectItem value="general" className="text-foreground focus:bg-primary focus:text-primary-foreground">General Enquiry</SelectItem>
+                    <SelectItem value="design" className="text-foreground focus:bg-primary focus:text-primary-foreground">Design Consultation</SelectItem>
+                    <SelectItem value="service" className="text-foreground focus:bg-primary focus:text-primary-foreground">Service Request</SelectItem>
+                    <SelectItem value="business" className="text-foreground focus:bg-primary focus:text-primary-foreground">Business Collaboration</SelectItem>
+                    <SelectItem value="other" className="text-foreground focus:bg-primary focus:text-primary-foreground">Other</SelectItem>
                   </SelectContent>
                 </Select>
 
@@ -122,7 +122,7 @@ const Contact = () => {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={4}
-                  className="bg-white border-gray-300 text-gray-900 placeholder:text-gray-500 rounded-md resize-none focus:border-primary"
+                  className="bg-charcoal-light border-border text-foreground placeholder:text-muted-foreground rounded-md resize-none focus:border-primary"
                 />
 
                 <Button
