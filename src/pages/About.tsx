@@ -593,7 +593,7 @@ const About = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer className="relative z-10" />
     </div>
   );
 };
