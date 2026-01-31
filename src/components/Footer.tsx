@@ -1,10 +1,15 @@
 import { Instagram, Phone, Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const Footer = () => {
+interface FooterProps {
+  className?: string;
+}
+
+const Footer = ({ className }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-charcoal-dark border-t border-border/30">
+    <footer className={cn("bg-charcoal-dark border-t border-border/30", className)}>
       <div className="container-premium py-6 md:py-5">
         <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-4 py-3 text-sm text-muted-foreground">
           {/* FAQs Link */}
