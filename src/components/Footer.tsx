@@ -5,10 +5,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-charcoal-dark border-t border-border/30">
-      <div className="container-premium py-5">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-3 text-sm text-muted-foreground">
-          <div className="flex items-center gap-6">
-                       <a
+      <div className="container-premium py-6 md:py-5">
+        <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between md:gap-4 py-3 text-sm text-muted-foreground">
+          {/* FAQs Link */}
+          <div className="flex items-center">
+            <a
               href="/faq"
               className="hover:text-primary transition-colors font-medium"
             >
@@ -16,7 +17,8 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="flex items-center gap-6">
+          {/* Contact Info & Copyright */}
+          <div className="flex flex-col items-center gap-3 md:flex-row md:gap-6 text-center">
             <a
               href="tel:+919689684222"
               className="hover:text-primary transition-colors"
@@ -32,6 +34,7 @@ const Footer = () => {
             <p>© {currentYear} AVYRA. All rights reserved.</p>
           </div>
 
+          {/* Social Icons */}
           <div className="flex items-center gap-4">
             <a
               href="tel:+919689684222"
