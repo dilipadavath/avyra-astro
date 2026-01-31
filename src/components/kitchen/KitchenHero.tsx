@@ -33,7 +33,7 @@ const KitchenHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-4xl mx-auto"
+          className="text-left max-w-4xl"
         >
           <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
             AVYRA Kitchens
