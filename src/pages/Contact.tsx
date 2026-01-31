@@ -211,7 +211,7 @@ const Contact = () => {
             </div>
 
             {/* Right: Info */}
-            <div className="p-8 md:p-10 bg-charcoal-light/50 flex flex-col justify-center">
+            <div className="p-8 md:p-10 bg-charcoal-light/50 justify-center">
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-4">
                 Stay Connected
               </h2>
