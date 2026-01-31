@@ -108,12 +108,12 @@ const Contact = () => {
                   <SelectTrigger className="bg-charcoal-light border-border text-foreground h-12 rounded-md focus:border-primary data-[placeholder]:text-muted-foreground">
                     <SelectValue placeholder="Select Subject" />
                   </SelectTrigger>
-                  <SelectContent className="bg-charcoal border-border">
-                    <SelectItem value="general" className="text-foreground focus:bg-primary focus:text-primary-foreground">General Enquiry</SelectItem>
-                    <SelectItem value="design" className="text-foreground focus:bg-primary focus:text-primary-foreground">Design Consultation</SelectItem>
-                    <SelectItem value="service" className="text-foreground focus:bg-primary focus:text-primary-foreground">Service Request</SelectItem>
-                    <SelectItem value="business" className="text-foreground focus:bg-primary focus:text-primary-foreground">Business Collaboration</SelectItem>
-                    <SelectItem value="other" className="text-foreground focus:bg-primary focus:text-primary-foreground">Other</SelectItem>
+                  <SelectContent className="bg-[hsl(0_0%_12%)] border-border">
+                    <SelectItem value="general" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">General Enquiry</SelectItem>
+                    <SelectItem value="design" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Design Consultation</SelectItem>
+                    <SelectItem value="service" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Service Request</SelectItem>
+                    <SelectItem value="business" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Business Collaboration</SelectItem>
+                    <SelectItem value="other" className="text-foreground hover:bg-[hsl(0_0%_18%)] focus:bg-[hsl(0_0%_18%)] focus:text-foreground">Other</SelectItem>
                   </SelectContent>
                 </Select>
 
