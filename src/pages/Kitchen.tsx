@@ -1,273 +1,166 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { ChevronRight, Flame, Droplets, ShieldCheck, Bug, Sparkles, Factory } from "lucide-react";
-import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
-import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
-import heroKitchen4 from "@/assets/hero-kitchen-4.jpg";
-
-const benefits = [
-  { icon: Flame, title: "Heat Resistant", description: "Withstands high Indian cooking temperatures" },
-  { icon: Droplets, title: "Waterproof", description: "100% moisture and water resistant" },
-  { icon: ShieldCheck, title: "Rust-Proof", description: "SS 304 grade ensures zero corrosion" },
-  { icon: Bug, title: "Termite Resistant", description: "Completely insect and pest proof" },
-  { icon: Sparkles, title: "Easy to Clean", description: "Smooth, hygienic stainless steel surfaces" },
-  { icon: Factory, title: "Premium Build", description: "Precision manufactured honeycomb carcass" },
-];
+import KitchenHero from "@/components/kitchen/KitchenHero";
+import KitchenIntro from "@/components/kitchen/KitchenIntro";
+import KitchenCarcass from "@/components/kitchen/KitchenCarcass";
+import KitchenStrength from "@/components/kitchen/KitchenStrength";
+import KitchenHygiene from "@/components/kitchen/KitchenHygiene";
+import KitchenAluminium from "@/components/kitchen/KitchenAluminium";
+import KitchenDoors from "@/components/kitchen/KitchenDoors";
+import KitchenHardware from "@/components/kitchen/KitchenHardware";
+import KitchenComparison from "@/components/kitchen/KitchenComparison";
+import KitchenTypes from "@/components/kitchen/KitchenTypes";
+import KitchenPromise from "@/components/kitchen/KitchenPromise";
 
 const Kitchen = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative overflow-hidden">
+      {/* Rich marble/granite texture background - matching About page */}
+      <div 
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          background: `
+            radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.18) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 70%, rgba(139, 90, 43, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% 50%, rgba(80, 50, 30, 0.12) 0%, transparent 70%),
+            radial-gradient(ellipse at 30% 80%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
+            linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 6%) 100%)
+          `
+        }}
+      />
+      
+      {/* Marble veining texture overlay */}
+      <div 
+        className="fixed inset-0 opacity-50 pointer-events-none"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='marble'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='6' seed='15' stitchTiles='stitch'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='100'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble)' fill='%23201510'/%3E%3C/svg%3E")`,
+          backgroundSize: '800px 800px',
+          mixBlendMode: 'overlay'
+        }}
+      />
+      
+      {/* Gold dust particles effect */}
+      <div 
+        className="fixed inset-0 opacity-35 pointer-events-none"
+        style={{
+          backgroundImage: `
+            radial-gradient(1.5px 1.5px at 10% 20%, rgba(201, 162, 39, 0.9) 50%, transparent 50%),
+            radial-gradient(1px 1px at 25% 45%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
+            radial-gradient(2px 2px at 40% 15%, rgba(201, 162, 39, 0.8) 50%, transparent 50%),
+            radial-gradient(1px 1px at 55% 70%, rgba(201, 162, 39, 0.6) 50%, transparent 50%),
+            radial-gradient(1.5px 1.5px at 70% 35%, rgba(201, 162, 39, 0.75) 50%, transparent 50%),
+            radial-gradient(1px 1px at 85% 55%, rgba(201, 162, 39, 0.65) 50%, transparent 50%),
+            radial-gradient(1.5px 1.5px at 15% 75%, rgba(201, 162, 39, 0.5) 50%, transparent 50%),
+            radial-gradient(1px 1px at 90% 85%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
+            radial-gradient(1.5px 1.5px at 35% 90%, rgba(201, 162, 39, 0.55) 50%, transparent 50%),
+            radial-gradient(1px 1px at 60% 5%, rgba(201, 162, 39, 0.8) 50%, transparent 50%)
+          `,
+          backgroundSize: '500px 500px'
+        }}
+      />
+      
+      {/* Sweeping gold light streaks */}
+      <div className="fixed top-[10%] -left-20 w-[70%] h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -rotate-12 blur-[2px] pointer-events-none" />
+      <div className="fixed top-[25%] -right-20 w-[55%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/40 to-transparent transform rotate-8 blur-[1px] pointer-events-none" />
+      <div className="fixed top-[45%] -left-10 w-[45%] h-[1px] bg-gradient-to-r from-transparent via-primary/35 to-transparent transform -rotate-5 pointer-events-none" />
+      <div className="fixed top-[65%] -right-10 w-[40%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/45 to-transparent transform rotate-10 blur-[1px] pointer-events-none" />
+      <div className="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
+      
       <Helmet>
-  {/* ===============================
-      PRIMARY SEO
-  =============================== */}
-  <title>
-    SS 304 Stainless Steel Honeycomb Kitchens in Hyderabad | Modular Kitchen Manufacturers | AVYRA
-  </title>
+        {/* PRIMARY SEO */}
+        <title>
+          SS 304 Stainless Steel Honeycomb Kitchens in Hyderabad | Modular Kitchen Manufacturers | AVYRA
+        </title>
+        <meta
+          name="description"
+          content="AVYRA manufactures premium SS 304 & SS 316 stainless steel honeycomb kitchens and aluminium modular kitchens in Hyderabad, Telangana, Andhra Pradesh & South India. Rust-proof, termite-proof, hygienic kitchens built for Indian homes."
+        />
+        <meta
+          name="keywords"
+          content="SS 304 stainless steel kitchen Hyderabad, SS 304 honeycomb kitchen manufacturers, stainless steel modular kitchen India, aluminium modular kitchen Telangana, premium kitchen manufacturers Hyderabad"
+        />
+        <link rel="canonical" href="https://www.avyra.co.in/kitchen" />
 
-  <meta
-    name="description"
-    content="AVYRA manufactures premium SS 304 stainless steel honeycomb kitchens and aluminium modular kitchens in Hyderabad, Telangana, Andhra Pradesh & South India. Rust-proof, termite-proof, hygienic kitchens built for Indian homes."
-  />
+        {/* OPEN GRAPH */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avyra.co.in/kitchen" />
+        <meta
+          property="og:title"
+          content="SS 304 Stainless Steel Honeycomb Kitchens | AVYRA Hyderabad"
+        />
+        <meta
+          property="og:description"
+          content="Premium SS 304 stainless steel honeycomb and aluminium modular kitchens engineered for durability, hygiene, and Indian cooking needs across Hyderabad & South India."
+        />
+        <meta property="og:site_name" content="AVYRA" />
+        <meta
+          property="og:image"
+          content="https://www.avyra.co.in/images/og-avyra-kitchen.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
 
-  <meta
-    name="keywords"
-    content="SS 304 stainless steel kitchen Hyderabad, SS 304 honeycomb kitchen manufacturers, stainless steel modular kitchen India, aluminium modular kitchen Telangana, premium kitchen manufacturers Hyderabad"
-  />
+        {/* TWITTER */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="SS 304 Stainless Steel Honeycomb Kitchens | AVYRA"
+        />
+        <meta
+          name="twitter:description"
+          content="Premium SS 304 stainless steel honeycomb and aluminium modular kitchens in Hyderabad & South India."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.avyra.co.in/images/og-avyra-kitchen.jpg"
+        />
 
-  <link rel="canonical" href="https://www.avyra.co.in/kitchen" />
-
-  {/* ===============================
-      OPEN GRAPH
-  =============================== */}
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.avyra.co.in/kitchen" />
-  <meta
-    property="og:title"
-    content="SS 304 Stainless Steel Honeycomb Kitchens | AVYRA Hyderabad"
-  />
-  <meta
-    property="og:description"
-    content="Premium SS 304 stainless steel honeycomb and aluminium modular kitchens engineered for durability, hygiene, and Indian cooking needs across Hyderabad & South India."
-  />
-  <meta property="og:site_name" content="AVYRA" />
-  <meta
-    property="og:image"
-    content="https://www.avyra.co.in/images/og-avyra-kitchen.jpg"
-  />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-  {/* ===============================
-      TWITTER
-  =============================== */}
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta
-    name="twitter:title"
-    content="SS 304 Stainless Steel Honeycomb Kitchens | AVYRA"
-  />
-  <meta
-    name="twitter:description"
-    content="Premium SS 304 stainless steel honeycomb and aluminium modular kitchens in Hyderabad & South India."
-  />
-  <meta
-    name="twitter:image"
-    content="https://www.avyra.co.in/images/og-avyra-kitchen.jpg"
-  />
-
-  {/* ===============================
-      STRUCTURED DATA – Product / Service Page
-  =============================== */}
-  <script type="application/ld+json">
-    {JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: "SS 304 Stainless Steel Honeycomb Kitchens",
-      serviceType: "Modular Kitchen Manufacturing",
-      provider: {
-        "@type": "LocalBusiness",
-        name: "AVYRA",
-        url: "https://www.avyra.co.in",
-        logo: "https://www.avyra.co.in/images/logo.png",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Hyderabad",
-          addressRegion: "Telangana",
-          addressCountry: "IN",
-        },
-      },
-      areaServed: [
-        "Hyderabad",
-        "Telangana",
-        "Andhra Pradesh",
-        "South India"
-      ],
-      description:
-        "Manufacturing and installation of premium SS 304 stainless steel honeycomb kitchens and aluminium modular kitchens designed for Indian homes.",
-    })}
-  </script>
-</Helmet>
+        {/* STRUCTURED DATA */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "SS 304 Stainless Steel Honeycomb Kitchens",
+            serviceType: "Modular Kitchen Manufacturing",
+            provider: {
+              "@type": "LocalBusiness",
+              name: "AVYRA",
+              url: "https://www.avyra.co.in",
+              logo: "https://www.avyra.co.in/images/logo.png",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Hyderabad",
+                addressRegion: "Telangana",
+                addressCountry: "IN",
+              },
+            },
+            areaServed: [
+              "Hyderabad",
+              "Telangana",
+              "Andhra Pradesh",
+              "South India"
+            ],
+            description:
+              "Manufacturing and installation of premium SS 304 stainless steel honeycomb kitchens and aluminium modular kitchens designed for Indian homes.",
+          })}
+        </script>
+      </Helmet>
 
       <Header />
       
-      <main>
-        {/* Hero */}
-        <section className="relative h-screen min-h-[700px] flex items-end pb-16 md:pb-24">
-          <div className="absolute inset-0">
-            <img 
-              src={heroKitchen1} 
-              alt="SS 304 Stainless Steel Modular Kitchen in Hyderabad by AVYRA" 
-              className="w-full h-full object-cover" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-          </div>
-          
-          {/* Gold vignette edges */}
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: `
-              radial-gradient(ellipse at top left, rgba(201, 162, 39, 0.15) 0%, transparent 40%),
-              radial-gradient(ellipse at top right, rgba(201, 162, 39, 0.1) 0%, transparent 35%),
-              radial-gradient(ellipse at bottom left, rgba(201, 162, 39, 0.12) 0%, transparent 30%),
-              radial-gradient(ellipse at bottom right, rgba(201, 162, 39, 0.08) 0%, transparent 35%)
-            `
-          }} />
-          
-          {/* Decorative gold lines */}
-          <div className="absolute top-24 left-0 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
-          <div className="absolute top-32 right-0 w-1/3 h-[1px] bg-gradient-to-l from-transparent via-primary/40 to-transparent" />
-          <div className="absolute bottom-28 left-0 w-2/3 h-[1px] bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
-          
-          <div className="container-premium relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-left"
-            >
-              <h1 className="heading-display text-gold-gradient mb-6 drop-shadow-lg">
-                SS 304 Stainless Steel Kitchens
-              </h1>
-              <p className="text-lg text-foreground/90 mb-8 drop-shadow-md">
-                Premium SS 304 stainless steel honeycomb and aluminium modular kitchens engineered for 
-                modern Indian homes in Hyderabad, Vijayawada, Telangana & Andhra Pradesh. Hygienic, durable, and built to last a lifetime.
-              </p>
-              <Button asChild className="btn-primary-gold group">
-                <a href="/contact">
-                  Book Consultation
-                  <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </a>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* SS304 Section */}
-        <section className="section-padding bg-charcoal">
-          <div className="container-premium">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="heading-section text-gold-gradient mb-6">
-                  About SS 304 Stainless Steel Honeycomb Kitchens
-                </h2>
-                <p className="text-foreground/80 leading-relaxed mb-6">
-                  SS 304 is a premium food-grade stainless steel widely used in professional 
-                  kitchens across Hyderabad, Telangana, and South India due to its superior strength, 
-                  hygiene, and honeycomb carcass construction that provides exceptional durability.
-                </p>
-                <h3 className="text-xl font-serif text-primary mb-4">Benefits of SS 304 Stainless Steel Kitchen</h3>
-                <ul className="space-y-3">
-                  {["100% rust-proof SS 304 grade steel", "Termite-proof honeycomb construction", "Waterproof & moisture resistant", "Fire-resistant for Indian cooking", 
-                    "Highly hygienic & easy to clean", "Extremely durable - lasts 25+ years", 
-                    "Ideal for Hyderabad, Vijayawada & South India climate"].map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3 text-foreground/80">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="rounded-lg overflow-hidden"
-              >
-                <img 
-                  src={heroKitchen3} 
-                  alt="SS 304 Stainless Steel Honeycomb Kitchen Design in Telangana" 
-                  className="w-full h-auto" 
-                />
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Grid */}
-        <section className="section-padding bg-background">
-          <div className="container-premium">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="heading-section text-gold-gradient text-center mb-16"
-            >
-              Why Choose AVYRA's SS 304 Stainless Steel Kitchens
-            </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="card-premium p-6 text-center hover-lift"
-                >
-                  <benefit.icon className="w-10 h-10 text-primary mx-auto mb-4" />
-                  <h3 className="font-serif text-lg text-foreground mb-2">{benefit.title}</h3>
-                  <p className="text-sm text-muted-foreground">{benefit.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Gallery Preview */}
-        <section className="section-padding bg-charcoal">
-          <div className="container-premium">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.img
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                src={heroKitchen3}
-                alt="Premium Stainless Steel Modular Kitchen Hyderabad"
-                className="rounded-lg w-full h-80 object-cover"
-              />
-              <motion.img
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                src={heroKitchen4}
-                alt="Aluminium Modular Kitchen Design Andhra Pradesh"
-                className="rounded-lg w-full h-80 object-cover"
-              />
-            </div>
-            <div className="text-center mt-10">
-              <Button asChild variant="outline" className="btn-outline-gold">
-                <a href="/gallery">View Full Kitchen Gallery</a>
-              </Button>
-            </div>
-          </div>
-        </section>
+      <main className="relative z-10">
+        <KitchenHero />
+        <KitchenIntro />
+        <KitchenCarcass />
+        <KitchenStrength />
+        <KitchenHygiene />
+        <KitchenAluminium />
+        <KitchenDoors />
+        <KitchenHardware />
+        <KitchenComparison />
+        <KitchenTypes />
+        <KitchenPromise />
       </main>
 
       <Footer />
