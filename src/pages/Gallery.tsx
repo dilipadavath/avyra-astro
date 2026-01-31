@@ -122,16 +122,16 @@ const Gallery = () => {
 
       <main>
         {/* Hero */}
-        <section className="pt-28 md:pt-32 pb-8 bg-charcoal">
+        <section className="pt-24 md:pt-28 pb-4 bg-charcoal">
           <div className="container-premium text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h1 className="heading-display text-gold-gradient mb-4">
+              <h1 className="heading-display text-gold-gradient mb-2">
                 Gallery
               </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
                 Explore our portfolio of premium SS 304 stainless steel honeycomb kitchens, aluminium wardrobes, 
                 and interior solutions crafted for homes across Hyderabad, Vijayawada, Telangana & South India.
               </p>
@@ -140,14 +140,14 @@ const Gallery = () => {
         </section>
 
         {/* Filters */}
-        <section className="py-6 border-b border-border/30">
+        <section className="py-3 border-b border-border/30">
           <div className="container-premium">
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap justify-center gap-3">
               {categories.map((category) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-6 py-2 text-sm font-medium tracking-wider uppercase transition-all ${
+                  className={`px-5 py-1.5 text-sm font-medium tracking-wider uppercase transition-all ${
                     selectedCategory === category
                       ? "bg-primary text-primary-foreground"
                       : "bg-transparent text-muted-foreground hover:text-foreground border border-border"
@@ -161,11 +161,11 @@ const Gallery = () => {
         </section>
 
         {/* Gallery Grid */}
-        <section className="section-padding">
+        <section className="py-6">
           <div className="container-premium">
             <motion.div
               layout
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
             >
               <AnimatePresence mode="popLayout">
                 {filteredImages.map((image, index) => (
