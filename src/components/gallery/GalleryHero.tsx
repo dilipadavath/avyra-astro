@@ -3,7 +3,7 @@ import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
 
 const GalleryHero = () => {
   return (
-    <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[50vh] flex items-end">
+    <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[20vh] flex items-end">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

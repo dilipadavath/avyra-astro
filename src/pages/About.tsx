@@ -112,7 +112,7 @@ const About = () => {
       
       <main className="relative z-10">
         {/* Hero Section with Background Image */}
-        <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[50vh] flex items-end">
+        <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[20vh] flex items-end">
           {/* Background Image */}
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
