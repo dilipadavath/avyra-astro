@@ -72,7 +72,7 @@ const Contact = () => {
 
       <Header />
 
-      <main className="flex-1 relative flex items-center justify-center py-20 md:py-24">
+      <main className="flex-1 relative flex items-center justify-center pt-28 md:pt-32 pb-12 md:pb-16">
         {/* Background */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
