@@ -3,7 +3,7 @@ import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 
 const WardrobeHero = () => {
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden flex items-end pb-16 md:pb-24">
+    <section className="relative h-screen min-h-[700px] overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -28,25 +28,28 @@ const WardrobeHero = () => {
       <div className="absolute top-32 right-0 w-1/3 h-[1px] bg-gradient-to-l from-transparent via-primary/40 to-transparent" />
       <div className="absolute bottom-20 left-0 w-2/3 h-[1px] bg-gradient-to-r from-primary/50 via-primary/30 to-transparent" />
       
-      <div className="container-premium relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-left"
-        >
-          <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
-            AVYRA Wardrobes
-          </h1>
-          <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
-            Engineered Strength. Designed Elegance.
-          </p>
-          <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl drop-shadow-sm">
-            A wardrobe is not just storage — it is a daily companion. It is opened and closed countless times, 
-            carries significant weight, protects personal belongings, and plays a major role in defining the 
-            look of a bedroom or dressing space.
-          </p>
-        </motion.div>
+      {/* Content (match Home hero left-edge alignment) */}
+      <div className="relative z-10 h-full flex items-end pb-16 md:pb-24">
+        <div className="container-premium w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
+          >
+            <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
+              AVYRA Wardrobes
+            </h1>
+            <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
+              Engineered Strength. Designed Elegance.
+            </p>
+            <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl drop-shadow-sm">
+              A wardrobe is not just storage — it is a daily companion. It is opened and closed countless times,
+              carries significant weight, protects personal belongings, and plays a major role in defining the
+              look of a bedroom or dressing space.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
