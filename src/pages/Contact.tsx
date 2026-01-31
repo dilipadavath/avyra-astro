@@ -1,6 +1,8 @@
-import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -15,33 +17,41 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
 import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  mobile: z.string().trim().min(1, "Mobile number is required").regex(/^[+]?[\d\s-]{10,15}$/, "Please enter a valid phone number"),
+  email: z.string().trim().min(1, "Email is required").email("Please enter a valid email address"),
+  subject: z.string().optional(),
+  message: z.string().optional(),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    mobile: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
-    setIsSubmitting(false);
-    toast.success("Thank you! We'll get back to you soon.");
-    setFormData({
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
       name: "",
       mobile: "",
       email: "",
       subject: "",
       message: "",
-    });
+    },
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    toast.success("Thank you! We'll get back to you soon.");
+    form.reset();
   };
 
   const inputClasses =
@@ -85,82 +95,114 @@ const Contact = () => {
                 Get In Touch
               </h1>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <Input
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  required
-                  className={`${inputClasses} h-12`}
-                />
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            placeholder="Your Name"
+                            {...field}
+                            className={`${inputClasses} h-12`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <Input
-                  type="tel"
-                  placeholder="Mobile Number"
-                  value={formData.mobile}
-                  onChange={(e) =>
-                    setFormData({ ...formData, mobile: e.target.value })
-                  }
-                  required
-                  className={`${inputClasses} h-12`}
-                />
+                  <FormField
+                    control={form.control}
+                    name="mobile"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            type="tel"
+                            placeholder="Mobile Number"
+                            {...field}
+                            className={`${inputClasses} h-12`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <Input
-                  type="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                  className={`${inputClasses} h-12`}
-                />
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            type="email"
+                            placeholder="Email Address"
+                            {...field}
+                            className={`${inputClasses} h-12`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
 
-                <Select
-                  value={formData.subject}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, subject: value })
-                  }
-                >
-                  <SelectTrigger
-                    className={`${inputClasses} h-12 data-[placeholder]:text-muted-foreground`}
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem>
+                        <Select onValueChange={field.onChange} value={field.value}>
+                          <FormControl>
+                            <SelectTrigger
+                              className={`${inputClasses} h-12 data-[placeholder]:text-muted-foreground`}
+                            >
+                              <SelectValue placeholder="Select Subject" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-[hsl(0_0%_12%)] border-border">
+                            <SelectItem value="general">General Enquiry</SelectItem>
+                            <SelectItem value="design">Design Consultation</SelectItem>
+                            <SelectItem value="service">Service Request</SelectItem>
+                            <SelectItem value="business">Business Collaboration</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Your Message (optional)"
+                            {...field}
+                            rows={4}
+                            className={`${inputClasses} resize-none`}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <Button
+                    type="submit"
+                    disabled={form.formState.isSubmitting}
+                    className="btn-primary-gold px-8 py-3 h-auto font-medium"
                   >
-                    <SelectValue placeholder="Select Subject" />
-                  </SelectTrigger>
-
-                  <SelectContent className="bg-[hsl(0_0%_12%)] border-border">
-                    <SelectItem value="general">General Enquiry</SelectItem>
-                    <SelectItem value="design">
-                      Design Consultation
-                    </SelectItem>
-                    <SelectItem value="service">Service Request</SelectItem>
-                    <SelectItem value="business">
-                      Business Collaboration
-                    </SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <Textarea
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  rows={4}
-                  className={`${inputClasses} resize-none`}
-                />
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="btn-primary-gold px-8 py-3 h-auto font-medium"
-                >
-                  {isSubmitting ? "Submitting..." : "Submit"}
-                </Button>
-              </form>
+                    {form.formState.isSubmitting ? "Submitting..." : "Submit"}
+                  </Button>
+                </form>
+              </Form>
             </div>
 
             {/* Right: Info */}
