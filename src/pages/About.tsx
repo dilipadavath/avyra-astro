@@ -7,51 +7,28 @@ import { Compass, ShieldCheck, Settings } from "lucide-react";
 // Import images
 import teamMeeting from "@/assets/team-meeting.jpg";
 import teamCollaboration from "@/assets/team-collaboration.jpg";
+import marbleBackground from "@/assets/marble-background.jpg";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Rich marble/granite texture background */}
+    <div className="min-h-screen relative overflow-hidden">
+      {/* Dark marble texture background - covering entire page */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: `
-            radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.18) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 70%, rgba(139, 90, 43, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(80, 50, 30, 0.12) 0%, transparent 70%),
-            radial-gradient(ellipse at 30% 80%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
-            linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 6%) 100%)
-          `
+          backgroundImage: `url(${marbleBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
         }}
       />
       
-      {/* Marble veining texture overlay */}
+      {/* Subtle dark overlay for better text readability */}
       <div 
-        className="fixed inset-0 opacity-50 pointer-events-none"
+        className="fixed inset-0 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='marble'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='6' seed='15' stitchTiles='stitch'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='100'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble)' fill='%23201510'/%3E%3C/svg%3E")`,
-          backgroundSize: '800px 800px',
-          mixBlendMode: 'overlay'
-        }}
-      />
-      
-      {/* Gold dust particles effect */}
-      <div 
-        className="fixed inset-0 opacity-35 pointer-events-none"
-        style={{
-          backgroundImage: `
-            radial-gradient(1.5px 1.5px at 10% 20%, rgba(201, 162, 39, 0.9) 50%, transparent 50%),
-            radial-gradient(1px 1px at 25% 45%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
-            radial-gradient(2px 2px at 40% 15%, rgba(201, 162, 39, 0.8) 50%, transparent 50%),
-            radial-gradient(1px 1px at 55% 70%, rgba(201, 162, 39, 0.6) 50%, transparent 50%),
-            radial-gradient(1.5px 1.5px at 70% 35%, rgba(201, 162, 39, 0.75) 50%, transparent 50%),
-            radial-gradient(1px 1px at 85% 55%, rgba(201, 162, 39, 0.65) 50%, transparent 50%),
-            radial-gradient(1.5px 1.5px at 15% 75%, rgba(201, 162, 39, 0.5) 50%, transparent 50%),
-            radial-gradient(1px 1px at 90% 85%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
-            radial-gradient(1.5px 1.5px at 35% 90%, rgba(201, 162, 39, 0.55) 50%, transparent 50%),
-            radial-gradient(1px 1px at 60% 5%, rgba(201, 162, 39, 0.8) 50%, transparent 50%)
-          `,
-          backgroundSize: '500px 500px'
+          background: 'rgba(0, 0, 0, 0.25)'
         }}
       />
       
