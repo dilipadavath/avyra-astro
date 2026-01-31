@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import GalleryHero from "@/components/gallery/GalleryHero";
 
 import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
@@ -121,23 +122,7 @@ const Gallery = () => {
       <Header />
 
       <main>
-        {/* Hero */}
-        <section className="pt-24 md:pt-28 pb-4 bg-charcoal">
-          <div className="container-premium text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <h1 className="heading-display text-gold-gradient mb-2">
-                Gallery
-              </h1>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
-                Explore our portfolio of premium SS 304 stainless steel honeycomb kitchens, aluminium wardrobes, 
-                and interior solutions crafted for homes across Hyderabad, Vijayawada, Telangana & South India.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <GalleryHero />
 
         {/* Filters */}
         <section className="py-3 border-b border-border/30">
