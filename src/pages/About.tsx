@@ -10,6 +10,9 @@ import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
 import heroKitchen4 from "@/assets/hero-kitchen-4.jpg";
 import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 import heroInterior from "@/assets/hero-interior-5.jpg";
+import aboutTeamDiscussion from "@/assets/about-team-discussion.png";
+import aboutInstallation from "@/assets/about-installation.png";
+import aboutClientDiscussion from "@/assets/about-client-discussion.png";
 
 const About = () => {
   return (
@@ -185,8 +188,8 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={heroKitchen1} 
-                    alt="Premium AVYRA SS 304 Stainless Steel Kitchen" 
+                    src={aboutTeamDiscussion} 
+                    alt="AVYRA Team Discussion - Premium Kitchen Consultation" 
                     className="w-full h-[350px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
@@ -348,8 +351,8 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={heroKitchen3} 
-                    alt="AVYRA Honeycomb Kitchen Construction" 
+                    src={aboutInstallation} 
+                    alt="AVYRA Kitchen Installation Process" 
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
@@ -419,8 +422,8 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={heroKitchen4} 
-                    alt="Hygienic AVYRA Stainless Steel Kitchen" 
+                    src={aboutClientDiscussion} 
+                    alt="AVYRA Client Consultation - Stainless Steel Kitchen Planning" 
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
