@@ -116,7 +116,7 @@ const About = () => {
         </section>
 
         {/* Introduction Section */}
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -159,7 +159,7 @@ const About = () => {
         </section>
 
         {/* Philosophy Section */}
-        <section className="py-12 bg-card relative">
+        <section className="py-8 bg-card relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -220,7 +220,7 @@ const About = () => {
         </section>
 
         {/* Engineering First Section */}
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -286,7 +286,7 @@ const About = () => {
         </section>
 
         {/* Modern Lifestyles Section */}
-        <section className="py-12 bg-card relative">
+        <section className="py-8 bg-card relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -338,7 +338,7 @@ const About = () => {
         </section>
 
         {/* Trust & Transparency Section */}
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -403,7 +403,7 @@ const About = () => {
         </section>
 
         {/* Quality Section */}
-        <section className="py-12 bg-card relative">
+        <section className="py-8 bg-card relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -455,7 +455,7 @@ const About = () => {
         </section>
 
         {/* Customization Section */}
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -506,7 +506,7 @@ const About = () => {
         </section>
 
         {/* Indian Conditions Section */}
-        <section className="py-12 bg-card relative">
+        <section className="py-8 bg-card relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -558,7 +558,7 @@ const About = () => {
         </section>
 
         {/* Vision Section */}
-        <section className="py-12 relative">
+        <section className="py-8 relative">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
