@@ -33,7 +33,7 @@ const KitchenHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-left max-w-4xl"
+          className="text-left"
         >
           <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
             AVYRA Kitchens
@@ -41,7 +41,7 @@ const KitchenHero = () => {
           <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
             Engineered for Strength. Designed for Living.
           </p>
-          <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl mx-auto drop-shadow-sm">
+          <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl drop-shadow-sm">
             At AVYRA, kitchens are not built as furniture — they are engineered as long-term living systems. 
             Every AVYRA kitchen is designed to perform flawlessly under Indian cooking conditions while 
             maintaining elegance, hygiene, and durability for decades.

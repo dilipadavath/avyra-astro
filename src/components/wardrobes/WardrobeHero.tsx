@@ -33,7 +33,7 @@ const WardrobeHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-left max-w-4xl"
+          className="text-left"
         >
           <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
             AVYRA Wardrobes
@@ -41,7 +41,7 @@ const WardrobeHero = () => {
           <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
             Engineered Strength. Designed Elegance.
           </p>
-          <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl mx-auto drop-shadow-sm">
+          <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl drop-shadow-sm">
             A wardrobe is not just storage — it is a daily companion. It is opened and closed countless times, 
             carries significant weight, protects personal belongings, and plays a major role in defining the 
             look of a bedroom or dressing space.
