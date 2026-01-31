@@ -14,19 +14,17 @@ const galleryImages = [
   { src: heroKitchen1, category: "Kitchen", title: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
   { src: heroKitchen3, category: "Kitchen", title: "SS 304 Honeycomb Kitchen Design Vijayawada" },
-  { src: heroInterior, category: "Interior", title: "Stainless Steel Storage Solutions Andhra Pradesh" },
   { src: heroKitchen4, category: "Kitchen", title: "Premium Aluminium Modular Kitchen South India" },
   { src: heroKitchen1, category: "Kitchen", title: "Contemporary SS 304 Kitchen Hyderabad" },
+  { src: heroInterior, category: "Colour Palettes", title: "Premium Colour Palette Options" },
 ];
 
-const categories = ["All", "Kitchen", "Wardrobe", "Interior"];
+const categories = ["Kitchen", "Wardrobe", "Colour Palettes"];
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("Kitchen");
 
-  const filteredImages = selectedCategory === "All"
-    ? galleryImages
-    : galleryImages.filter(img => img.category === selectedCategory);
+  const filteredImages = galleryImages.filter(img => img.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-background">
