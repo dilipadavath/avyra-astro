@@ -124,7 +124,7 @@ const Gallery = () => {
 
       <main>
         {/* Hero */}
-        <section className="pt-40 md:pt-48 pb-16 bg-charcoal">
+        <section className="pt-28 md:pt-32 pb-8 bg-charcoal">
           <div className="container-premium text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -142,7 +142,7 @@ const Gallery = () => {
         </section>
 
         {/* Filters */}
-        <section className="py-8 border-b border-border/30">
+        <section className="py-6 border-b border-border/30">
           <div className="container-premium">
             <div className="flex flex-wrap justify-center gap-4">
               {categories.map((category) => (

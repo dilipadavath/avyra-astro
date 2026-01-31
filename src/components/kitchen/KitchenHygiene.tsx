@@ -16,13 +16,13 @@ const suitableFor = [
 
 const KitchenHygiene = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-8 relative">
       <div className="container-premium">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-6"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <Sparkles className="w-8 h-8 text-primary" />
@@ -36,7 +36,7 @@ const KitchenHygiene = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

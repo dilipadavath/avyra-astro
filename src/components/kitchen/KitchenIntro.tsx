@@ -3,9 +3,9 @@ import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 
 const KitchenIntro = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-8 relative">
       <div className="container-premium">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}

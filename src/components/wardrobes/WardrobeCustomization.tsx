@@ -19,9 +19,9 @@ const hardwareBenefits = [
 
 const WardrobeCustomization = () => {
   return (
-    <section className="py-20 bg-card relative">
+    <section className="py-8 bg-card relative">
       <div className="container-premium">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Internal Customization */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

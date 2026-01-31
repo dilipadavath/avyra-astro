@@ -13,13 +13,13 @@ const KitchenCarcass = () => {
   return (
     <>
       {/* Carcass Foundation Section */}
-      <section className="py-20 bg-card relative">
+      <section className="py-8 bg-card relative">
         <div className="container-premium">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-6"
           >
             <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
               The Foundation: AVYRA Kitchen Carcass
@@ -31,7 +31,7 @@ const KitchenCarcass = () => {
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Premium SS Construction */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -112,9 +112,9 @@ const KitchenCarcass = () => {
       </section>
 
       {/* Honeycomb Section with Image */}
-      <section className="py-20 relative">
+      <section className="py-8 relative">
         <div className="container-premium">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}

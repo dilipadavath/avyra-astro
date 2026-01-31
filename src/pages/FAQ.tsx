@@ -67,13 +67,13 @@ const FAQ = () => {
       <Header />
 
       <main>
-        <section className="section-padding pt-32 md:pt-40 bg-secondary/30">
+        <section className="section-padding pt-28 md:pt-32 bg-secondary/30">
           <div className="container-premium">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-16"
+              className="text-center mb-8"
             >
               <h1 className="heading-section mb-4">
                 <span className="text-gold-gradient">Frequently Asked Questions</span>
