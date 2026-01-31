@@ -131,7 +131,7 @@ const Gallery = () => {
               animate={{ opacity: 1, y: 0 }}
             >
               <h1 className="heading-display text-gold-gradient mb-4">
-                Our Gallery
+                Gallery
               </h1>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 Explore our portfolio of premium SS 304 stainless steel honeycomb kitchens, aluminium wardrobes, 
