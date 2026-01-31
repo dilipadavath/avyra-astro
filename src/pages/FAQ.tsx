@@ -107,6 +107,10 @@ const FAQ = () => {
                 </AccordionItem>
               ))}
             </Accordion>
+            <p className="text-muted-foreground mt-8 text-center">
+  Everything you need to know about our materials, services, and process.
+</p>
+
           </div>
         </motion.div>
       </main>

@@ -145,7 +145,7 @@ const About = () => {
               className="text-center max-w-4xl mx-auto"
             >
               <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
-                AVYRA Kitchens
+                About us
               </h1>
               <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
                 Engineered for Strength. Designed for Living.

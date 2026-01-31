@@ -188,7 +188,7 @@ const Contact = () => {
                       <FormItem>
                         <FormControl>
                           <Textarea
-                            placeholder="Your Message (optional)"
+                            placeholder="We'd love to hear your ideas"
                             {...field}
                             rows={4}
                             className={`${inputClasses} resize-none`}
