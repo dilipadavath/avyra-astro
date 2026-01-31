@@ -157,7 +157,7 @@ const Wardrobes = () => {
         <WardrobePromise />
       </main>
 
-      <Footer />
+      <Footer className="relative z-10" />
     </div>
   );
 };
