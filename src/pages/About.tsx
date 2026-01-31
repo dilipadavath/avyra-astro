@@ -24,11 +24,11 @@ const About = () => {
         }}
       />
       
-      {/* Subtle dark overlay for better text readability */}
+      {/* Dark overlay for better text readability */}
       <div 
         className="fixed inset-0 pointer-events-none"
         style={{
-          background: 'rgba(0, 0, 0, 0.25)'
+          background: 'rgba(0, 0, 0, 0.45)'
         }}
       />
       
@@ -117,7 +117,7 @@ const About = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-semibold text-gold-gradient mb-6">
                   About AVYRA
                 </h2>
-                <p className="text-foreground/80 leading-relaxed text-lg">
+                <p className="text-foreground leading-relaxed text-lg drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   AVYRA was founded on a belief: that living spaces should do more than look beautiful — they should 
                   elevate your everyday living experience. We provide refined design solutions marked by precision, quality, 
                   and innovation.
@@ -178,7 +178,7 @@ const About = () => {
                 <h2 className="text-3xl md:text-4xl font-display font-semibold text-gold-gradient mb-6">
                   The AVYRA Team
                 </h2>
-                <p className="text-foreground/80 leading-relaxed text-lg mb-8">
+                <p className="text-foreground leading-relaxed text-lg mb-8 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Driven by passion and expertise, our team of designers, engineers, and project managers collaborate seamlessly 
                   to transform visions into elegant and functional spaces.
                 </p>
@@ -265,10 +265,10 @@ const About = () => {
                     <Compass className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4">
+                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Precision
                 </h3>
-                <p className="text-foreground/70 leading-relaxed">
+                <p className="text-foreground leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Engineered solutions that are durable and meticulously crafted.
                 </p>
               </motion.div>
@@ -286,10 +286,10 @@ const About = () => {
                     <ShieldCheck className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4">
+                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Transparency
                 </h3>
-                <p className="text-foreground/70 leading-relaxed">
+                <p className="text-foreground leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Honest processes with clear pricing and reliable timelines.
                 </p>
               </motion.div>
@@ -307,10 +307,10 @@ const About = () => {
                     <Settings className="w-10 h-10 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4">
+                <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground mb-4 drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Customization
                 </h3>
-                <p className="text-foreground/70 leading-relaxed">
+                <p className="text-foreground leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
                   Tailored designs that cater to your unique lifestyle & needs.
                 </p>
               </motion.div>
