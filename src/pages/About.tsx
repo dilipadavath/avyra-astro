@@ -108,9 +108,6 @@ const About = () => {
               <h1 className="heading-display text-gold-gradient mb-4 drop-shadow-lg">
                 About AVYRA
               </h1>
-              <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-4 italic drop-shadow-md">
-                Living Redefined
-              </p>
             </motion.div>
           </div>
         </section>
