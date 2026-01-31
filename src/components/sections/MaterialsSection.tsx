@@ -58,7 +58,7 @@ const MaterialsSection = () => {
             Materials That Define Durability
           </h2>
           <p className="text-muted-foreground text-lg">
-            Built with Stainless Steel &x Aluminium
+            Built with Stainless Steel & Aluminium
           </p>
         </motion.div>
 
