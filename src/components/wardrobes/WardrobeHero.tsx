@@ -43,7 +43,7 @@ const WardrobeHero = () => {
             <p className="text-xl md:text-2xl font-serif text-foreground/90 mb-8 italic drop-shadow-md">
               Engineered Strength. Designed Elegance.
             </p>
-            <p className="text-foreground/80 leading-relaxed text-lg max-w-3xl drop-shadow-sm">
+            <p className="text-foreground/80 leading-relaxed text-lg drop-shadow-sm">
               A wardrobe is not just storage — it is a daily companion. It is opened and closed countless times,
               carries significant weight, protects personal belongings, and plays a major role in defining the
               look of a bedroom or dressing space.
