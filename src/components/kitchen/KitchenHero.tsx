@@ -3,7 +3,7 @@ import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 
 const KitchenHero = () => {
   return (
-    <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[50vh] flex items-end">
+    <section className="relative h-screen min-h-[700px] overflow-hidden flex items-end pb-16 md:pb-24">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
