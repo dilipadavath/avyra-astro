@@ -217,9 +217,7 @@ const Contact = () => {
               </h2>
 
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Ready to transform your space with premium SS 304 stainless steel
-                kitchens or aluminium wardrobes? Book a consultation and let's
-                create something extraordinary together.
+                Transform your home with precision-crafted SS 304 kitchens and aluminium wardrobes. Book a consultation and experience design without compromise.
               </p>
 
               <div className="space-y-4 mb-8">
