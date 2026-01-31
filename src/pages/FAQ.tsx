@@ -12,44 +12,49 @@ import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 
 const faqs = [
   {
-    question: "What materials do you use for kitchen and wardrobe interiors?",
+    question: "What materials are used for AVYRA kitchens?",
     answer:
-      "We specialize in Stainless Steel 304 and premium Aluminium for all our interior solutions. SS304 is food-safe, rust-proof, and highly durable, while Aluminium offers a lightweight, corrosion-resistant alternative with a modern finish.",
+      "AVYRA kitchens are built using Stainless Steel 304 and Aluminium structures, ensuring superior strength, hygiene, durability, and long-term performance compared to conventional wooden kitchens.",
   },
   {
-    question: "How long does the installation process take?",
+    question: "What countertop options are available for AVYRA kitchens?",
     answer:
-      "The timeline varies based on project scope. A standard modular kitchen typically takes 15-25 working days from design approval to installation. Wardrobe installations range from 7-15 days. We provide a detailed timeline during the design proposal phase.",
+      "AVYRA offers premium kitchen countertop options including natural stone, granite, quartz, sintered stone, and other advanced engineered stone surfaces, allowing customers to choose based on usage, aesthetics, and budget.",
   },
   {
-    question: "Do you offer customization for unique spaces?",
+    question: "What door options are available for AVYRA wardrobes?",
     answer:
-      "Absolutely. Every project is tailored to your specific requirements. We conduct detailed site measurements and work closely with you to design solutions that maximize space efficiency while matching your aesthetic preferences.",
+      "AVYRA wardrobes can be customized with lacquered glass, sintered stone, leather-finished doors, fabric-finished doors, and aluminium profile sliding or hinged door systems.",
   },
   {
-    question: "What is included in your pricing?",
+    question: "Are AVYRA wardrobes suitable for humid climates?",
     answer:
-      "Our transparent pricing includes design consultation, materials, manufacturing, delivery, and professional installation. We provide itemized quotations so you understand exactly what you're paying for. There are no hidden costs.",
+      "Yes. AVYRA wardrobes made using Stainless Steel 304 and Aluminium are resistant to moisture, humidity, termites, and fungus, making them ideal for humid and coastal regions.",
   },
   {
-    question: "What warranty do you provide?",
+    question: "What is sintered stone and why does AVYRA use it?",
     answer:
-      "We offer a comprehensive 10-year warranty on our stainless steel and aluminium structures. This covers manufacturing defects, structural integrity, and surface finish. Hardware components carry their respective manufacturer warranties.",
+      "Sintered stone is an advanced engineered surface known for its heat resistance, scratch resistance, stain resistance, and durability. AVYRA uses it for its premium appearance and long-lasting performance.",
   },
   {
-    question: "How do I get started with a consultation?",
+    question: "Does AVYRA provide complete interior solutions?",
     answer:
-      "Simply fill out our consultation form or contact us directly via phone or WhatsApp. We'll schedule a free initial consultation to understand your requirements, followed by a site visit for detailed measurements and technical evaluation.",
+      "Yes. AVYRA provides complete interior solutions including kitchens, wardrobes, false ceilings, lighting, storage units, TV units, wall paneling, and other customized interior works.",
   },
   {
-    question: "Do you work in areas outside your primary location?",
+    question: "Can AVYRA customize interiors as per my home and budget?",
     answer:
-      "Yes, we undertake projects across the region. For locations outside our primary service area, additional logistics charges may apply. Contact us with your project location for specific details.",
+      "Absolutely. AVYRA offers fully customized interior solutions tailored to your home layout, lifestyle requirements, design preferences, and budget, without compromising on quality.",
   },
   {
-    question: "Can I see samples of materials before finalizing?",
+    question: "What warranty does AVYRA provide?",
     answer:
-      "Of course. During the design phase, we provide physical samples of all materials, finishes, and hardware options. You can also visit our showroom to experience the quality firsthand before making any decisions.",
+      "AVYRA provides a lifetime warranty on Stainless Steel and Aluminium structures. Warranty for other materials and finishes is offered as per the respective manufacturing company's warranty terms.",
+  },
+  {
+    question: "Does AVYRA provide after-sales support?",
+    answer:
+      "Yes. AVYRA provides reliable after-sales support to ensure long-term performance, customer satisfaction, and peace of mind after project completion.",
   },
 ];
 
