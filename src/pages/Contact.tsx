@@ -121,7 +121,7 @@ const Contact = () => {
                       <FormItem>
                         <FormControl>
                           <Input
-                            type="tel"
+                            type="number"
                             placeholder="Mobile Number"
                             {...field}
                             className={`${inputClasses} h-12`}
