@@ -188,7 +188,7 @@ const WardrobePromise = () => {
                 </a>
               </Button>
               <Button asChild className="btn-outline-gold bg-transparent text-white hover:bg-white hover:text-background hover:border-white">
-                <a href="/gallery">View Gallery</a>
+                <a href="/gallery?category=Wardrobe">View Gallery</a>
               </Button>
             </div>
           </motion.div>

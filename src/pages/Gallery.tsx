@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -162,7 +163,16 @@ const galleryImages = [
 const categories = ["Kitchen", "Wardrobe"];
 
 const Gallery = () => {
-  const [selectedCategory, setSelectedCategory] = useState("Kitchen");
+  const [searchParams] = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const initialCategory = categoryParam && categories.includes(categoryParam) ? categoryParam : "Kitchen";
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [categoryParam]);
 
   const filteredImages = galleryImages.filter(img => img.category === selectedCategory);
 
