@@ -76,15 +76,93 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+
       <Helmet>
         <title>
           Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad
         </title>
+
         <meta
           name="description"
           content="Contact AVYRA to book a consultation for premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Call +91 968 968 4222."
         />
+
         <link rel="canonical" href="https://www.avyra.co.in/contact" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avyra.co.in/contact" />
+        <meta
+          property="og:title"
+          content="Contact AVYRA | Premium SS 304 Kitchens & Wardrobes"
+        />
+        <meta
+          property="og:description"
+          content="Book a premium interior consultation with AVYRA for SS 304 stainless steel honeycomb kitchens and aluminium wardrobes."
+        />
+        <meta property="og:site_name" content="AVYRA" />
+        <meta
+          property="og:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* ===============================
+      TWITTER
+  =============================== */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact AVYRA | Premium Interior Consultation"
+        />
+        <meta
+          name="twitter:description"
+          content="Speak with AVYRA experts for SS 304 stainless steel kitchens and aluminium wardrobes engineered for long-term durability."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+
+        {/* ===============================
+      STRUCTURED DATA
+  =============================== */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact AVYRA",
+            url: "https://www.avyra.co.in/contact",
+            mainEntity: {
+              "@type": "LocalBusiness",
+              name: "AVYRA",
+              url: "https://www.avyra.co.in",
+              logo: "https://www.avyra.co.in/images/logo.png",
+              description:
+                "Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes engineered for long-term durability.",
+              telephone: "+91-9689684222",
+              email: "info@avyra.co.in",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Hyderabad",
+                addressRegion: "Telangana",
+                addressCountry: "IN",
+              },
+              areaServed: [
+                "Hyderabad",
+                "Vijayawada",
+                "Telangana",
+                "Andhra Pradesh",
+                "South India",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-9689684222",
+                contactType: "Customer Consultation",
+              },
+            },
+          })}
+        </script>
       </Helmet>
 
       <Header />

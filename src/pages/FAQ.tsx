@@ -62,12 +62,115 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Helmet>
-        <title>FAQs | AVYRA - SS 304 Stainless Steel Kitchens & Aluminium Wardrobes</title>
+        {/* ===============================
+      PRIMARY SEO
+  =============================== */}
+        <title>
+          FAQs | AVYRA – SS 304 Stainless Steel Kitchens & Aluminium Wardrobes
+        </title>
+
         <meta
           name="description"
-          content="Find answers to common questions about AVYRA's premium SS 304 stainless steel kitchens and aluminium wardrobes. Learn about materials, installation, pricing, and warranty."
+          content="Find answers to common questions about AVYRA’s SS 304 stainless steel honeycomb kitchens and aluminium wardrobes, including materials, durability, installation, and warranty."
         />
+
         <link rel="canonical" href="https://www.avyra.co.in/faq" />
+
+        {/* ===============================
+      OPEN GRAPH
+  =============================== */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avyra.co.in/faq" />
+        <meta
+          property="og:title"
+          content="FAQs | AVYRA – Stainless Steel & Aluminium Kitchens"
+        />
+        <meta
+          property="og:description"
+          content="Get clear answers about AVYRA’s SS 304 stainless steel honeycomb kitchens, aluminium wardrobes, materials, durability, and long-term performance."
+        />
+        <meta property="og:site_name" content="AVYRA" />
+        <meta
+          property="og:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* ===============================
+      TWITTER
+  =============================== */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="FAQs | AVYRA – Premium Kitchen & Wardrobe Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Answers to common questions about SS 304 stainless steel kitchens, aluminium wardrobes, durability, installation, and warranty by AVYRA."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+
+        {/* ===============================
+      STRUCTURED DATA – FAQ
+  =============================== */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "What materials are used for AVYRA kitchens?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "AVYRA kitchens are built using Stainless Steel 304 and Aluminium structures, ensuring superior strength, hygiene, durability, and long-term performance compared to conventional wooden kitchens."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "What countertop options are available for AVYRA kitchens?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "AVYRA offers premium kitchen countertop options including natural stone, granite, quartz, sintered stone, and other advanced engineered stone surfaces."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Are AVYRA wardrobes suitable for humid climates?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Yes. AVYRA wardrobes made using Stainless Steel 304 and Aluminium are resistant to moisture, humidity, termites, and fungus, making them ideal for humid and coastal regions."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "What warranty does AVYRA provide?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "AVYRA provides a lifetime warranty on Stainless Steel and Aluminium structures. Warranty for other materials and finishes is provided as per respective manufacturer terms."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Does AVYRA provide after-sales support?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text:
+                    "Yes. AVYRA provides reliable after-sales support to ensure long-term performance, customer satisfaction, and peace of mind after project completion."
+                }
+              }
+            ]
+          })}
+        </script>
+
       </Helmet>
 
       <Header />
@@ -113,8 +216,8 @@ const FAQ = () => {
               ))}
             </Accordion>
             <p className="text-muted-foreground mt-8 text-center">
-  Everything you need to know about our materials, services, and process.
-</p>
+              Everything you need to know about our materials, services, and process.
+            </p>
 
           </div>
         </motion.div>

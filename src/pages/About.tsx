@@ -18,7 +18,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Rich marble/granite texture background */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none"
         style={{
           background: `
@@ -30,9 +30,9 @@ const About = () => {
           `
         }}
       />
-      
+
       {/* Gold dust particles effect */}
-      <div 
+      <div
         className="fixed inset-0 opacity-35 pointer-events-none"
         style={{
           backgroundImage: `
@@ -46,28 +46,60 @@ const About = () => {
           backgroundSize: '500px 500px'
         }}
       />
-      
+
       {/* Sweeping gold light streaks */}
       <div className="fixed top-[10%] -left-20 w-[70%] h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -rotate-12 blur-[2px] pointer-events-none" />
       <div className="fixed top-[45%] -left-10 w-[45%] h-[1px] bg-gradient-to-r from-transparent via-primary/35 to-transparent transform -rotate-5 pointer-events-none" />
       <div className="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
-      
+
       <Helmet>
         <title>About AVYRA | Premium Living Solutions - Hyderabad, Vijayawada</title>
+
         <meta
           name="description"
           content="AVYRA is a design-led living solutions brand specializing in stainless steel kitchens, aluminium kitchens, and engineered interior solutions. Living Redefined."
         />
+
         <meta
           name="keywords"
           content="AVYRA about, premium interiors Hyderabad, stainless steel kitchen brand, aluminium kitchen India, living solutions Telangana"
         />
+
         <link rel="canonical" href="https://www.avyra.co.in/about" />
+
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.avyra.co.in/about" />
-        <meta property="og:title" content="About AVYRA | Premium Living Solutions" />
-        <meta property="og:description" content="Living Redefined. AVYRA brings together aesthetics, durability, functionality, and innovation under one roof." />
+        <meta
+          property="og:title"
+          content="About AVYRA | Premium Living Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Living Redefined. AVYRA is a design-led brand specializing in stainless steel and aluminium kitchens, wardrobes, and engineered interiors."
+        />
         <meta property="og:site_name" content="AVYRA" />
+        <meta
+          property="og:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="About AVYRA | Premium Living Solutions"
+        />
+        <meta
+          name="twitter:description"
+          content="Living Redefined. AVYRA creates engineered stainless steel and aluminium living solutions built for long-term durability."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -78,30 +110,38 @@ const About = () => {
               "@type": "LocalBusiness",
               name: "AVYRA",
               url: "https://www.avyra.co.in",
-              description: "Design-led living solutions brand specializing in stainless steel and aluminium kitchens, wardrobes, and engineered interiors.",
+              logo: "https://www.avyra.co.in/images/logo.png",
+              description:
+                "Design-led living solutions brand specializing in SS 304 stainless steel kitchens, aluminium kitchens, wardrobes, and engineered interiors.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Hyderabad",
                 addressRegion: "Telangana",
                 addressCountry: "IN",
               },
-              areaServed: ["Hyderabad", "Vijayawada", "Telangana", "Andhra Pradesh"],
+              areaServed: [
+                "Hyderabad",
+                "Vijayawada",
+                "Telangana",
+                "Andhra Pradesh",
+                "South India",
+              ],
             },
           })}
         </script>
       </Helmet>
 
       <Header />
-      
+
       <main className="relative z-10">
         {/* Hero Section */}
         <section className="pt-28 md:pt-32 pb-12 relative overflow-hidden min-h-[25vh] flex items-end">
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${heroKitchen1})` }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-charcoal-dark/70 via-charcoal-dark/60 to-charcoal-dark/90" />
-          
+
           <div className="container-premium relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -136,7 +176,7 @@ const About = () => {
                   At its core, AVYRA is not just an interiors or kitchen company. It is a <span className="text-primary font-semibold">design-led living solutions brand</span> that brings together aesthetics, durability, functionality, and innovation under one roof.
                 </p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -145,9 +185,9 @@ const About = () => {
                 className="relative"
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutTeamMeeting} 
-                    alt="AVYRA Team - Premium Interior Consultation" 
+                  <img
+                    src={aboutTeamMeeting}
+                    alt="AVYRA Team - Premium Interior Consultation"
                     className="w-full h-[350px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
@@ -230,14 +270,14 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutEngineering} 
-                    alt="AVYRA Engineering Excellence" 
+                  <img
+                    src={aboutEngineering}
+                    alt="AVYRA Engineering Excellence"
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -254,7 +294,7 @@ const About = () => {
                 <p className="text-foreground/70 mb-6">
                   One of the strongest pillars of AVYRA is its engineering-first approach. Design is important, but without strong structural integrity, even the most beautiful interiors fail over time.
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-4">
                   {[
                     "Material Science",
@@ -277,7 +317,7 @@ const About = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <p className="text-foreground/70 mt-6">
                   This is why AVYRA specializes in <span className="text-primary font-semibold">stainless steel kitchens, aluminium kitchens, and engineered interior solutions</span>, which outperform conventional wooden interiors in Indian conditions.
                 </p>
@@ -358,7 +398,7 @@ const About = () => {
                 <p className="text-foreground/70 mb-6">
                   AVYRA believes that trust is built through clarity. From the first consultation to final installation, the brand maintains transparency in everything.
                 </p>
-                
+
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   {[
                     "Design Discussions",
@@ -380,21 +420,21 @@ const About = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <p className="text-foreground/70 italic">
                   There are no hidden compromises or shortcuts. Clients know exactly what goes into their home — from the grade of stainless steel to the quality of hardware and finishes used.
                 </p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutClientTrust} 
-                    alt="AVYRA Client Consultation" 
+                  <img
+                    src={aboutClientTrust}
+                    alt="AVYRA Client Consultation"
                     className="w-full h-[400px] object-cover"
                   />
                 </div>
@@ -445,16 +485,16 @@ const About = () => {
                   AVYRA sources premium-grade materials and works with advanced manufacturing techniques to ensure consistency across projects. This attention to detail ensures that AVYRA interiors age gracefully, retaining both strength and beauty over time.
                 </p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutQualityControl} 
-                    alt="AVYRA Quality Control Process" 
+                  <img
+                    src={aboutQualityControl}
+                    alt="AVYRA Quality Control Process"
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
@@ -476,15 +516,15 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutCustomization} 
-                    alt="AVYRA Customization Options" 
+                  <img
+                    src={aboutCustomization}
+                    alt="AVYRA Customization Options"
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -570,16 +610,16 @@ const About = () => {
                   This is why AVYRA emphasizes <span className="text-primary font-semibold">stainless steel and aluminium solutions</span> that outperform traditional materials and ensure hygiene, safety, and strength.
                 </p>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutIndianKitchen} 
-                    alt="Modern Indian Kitchen Design" 
+                  <img
+                    src={aboutIndianKitchen}
+                    alt="Modern Indian Kitchen Design"
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
@@ -599,15 +639,15 @@ const About = () => {
                 viewport={{ once: true }}
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img 
-                    src={aboutVision} 
-                    alt="AVYRA Vision for the Future" 
+                  <img
+                    src={aboutVision}
+                    alt="AVYRA Vision for the Future"
                     className="w-full h-[400px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
                 </div>
               </motion.div>
-              
+
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}

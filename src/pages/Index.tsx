@@ -15,7 +15,7 @@ const Index = () => {
             PRIMARY SEO
         =============================== */}
         <title>
-          SS 304 Stainless Steel Kitchens & Aluminium Wardrobes in Hyderabad | AVYRA
+          AVYRA | SS 304 Stainless Steel Honeycomb Kitchens & Aluminium Wardrobes in Hyderabad
         </title>
 
         <meta
@@ -75,24 +75,32 @@ const Index = () => {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            name: "AVYRA",
-            url: "https://www.avyra.co.in",
-            logo: "https://www.avyra.co.in/images/logo.png",
-            description:
-              "Manufacturer of premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes.",
-            address: {
+            "name": "AVYRA",
+            "url": "https://www.avyra.co.in",
+            "logo": "https://www.avyra.co.in/images/logo.png",
+            "description": "Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad.",
+            "telephone": "+91-9689684222",
+            "email": "info@avyra.co.in",
+            "address": {
               "@type": "PostalAddress",
-              addressLocality: "Hyderabad",
-              addressRegion: "Telangana",
-              addressCountry: "IN",
+              "addressLocality": "Hyderabad",
+              "addressRegion": "Telangana",
+              "addressCountry": "IN"
             },
-            areaServed: [
+            "areaServed": [
               "Hyderabad",
+              "Vijayawada",
               "Telangana",
               "Andhra Pradesh",
-              "South India",
+              "South India"
             ],
-          })}
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-9689684222",
+              "contactType": "Customer Support"
+            }
+          }
+          )}
         </script>
       </Helmet>
 
@@ -109,7 +117,7 @@ const Index = () => {
         <ProcessSection />
         <MaterialsSection />
         <WhatWeCreateSection />
-        
+
       </main>
 
       <Footer />
