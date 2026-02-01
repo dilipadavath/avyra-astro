@@ -77,13 +77,13 @@ const WardrobeStructure = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative group"
+            className="relative group h-full"
           >
-            <div className="relative rounded-xl overflow-hidden border border-primary/20">
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-full">
               <img 
                 src={structureImg} 
                 alt="Precision stainless steel and aluminium wardrobe frame structure" 
-                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4">
