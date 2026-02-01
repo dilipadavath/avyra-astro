@@ -51,7 +51,7 @@ const Footer = ({ className }: FooterProps) => {
               </svg>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/avyra.living/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"

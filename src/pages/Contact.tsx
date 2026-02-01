@@ -265,7 +265,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5" />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/avyra.living/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
