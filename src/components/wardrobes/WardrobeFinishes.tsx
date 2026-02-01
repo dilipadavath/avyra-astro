@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Palette, Paintbrush, Gem } from "lucide-react";
+import neutralPalette from "@/assets/wardrobe-neutral-palette.png";
+import colorPalette from "@/assets/wardrobe-color-palette.png";
 
 const finishOptions = [
   {
@@ -91,7 +93,7 @@ const WardrobeFinishes = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-dark p-8 rounded-xl border border-border/30 max-w-3xl mx-auto"
+          className="glass-dark p-8 rounded-xl border border-border/30 max-w-5xl mx-auto"
         >
           <div className="flex items-center gap-3 mb-6 justify-center">
             <Palette className="w-8 h-8 text-primary" />
@@ -99,9 +101,47 @@ const WardrobeFinishes = () => {
               Multiple Colour Options
             </h3>
           </div>
-          <p className="text-foreground/70 text-center mb-6">
+          <p className="text-foreground/70 text-center mb-8">
             AVYRA wardrobes are available in a wide palette of colors and tones:
           </p>
+          
+          {/* Color Palette Images */}
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative overflow-hidden rounded-xl border border-border/30 hover:border-primary/30 transition-all duration-300 group"
+            >
+              <img 
+                src={neutralPalette} 
+                alt="Neutral and monochrome color palette with grey and black shades" 
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
+                <p className="text-foreground font-medium text-sm">Neutral & Monochrome Shades</p>
+              </div>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative overflow-hidden rounded-xl border border-border/30 hover:border-primary/30 transition-all duration-300 group"
+            >
+              <img 
+                src={colorPalette} 
+                alt="Multi-color palette with rich and vibrant finish options" 
+                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background/90 to-transparent p-4">
+                <p className="text-foreground font-medium text-sm">Rich & Vibrant Hues</p>
+              </div>
+            </motion.div>
+          </div>
+          
           <div className="grid grid-cols-2 gap-4">
             {colorOptions.map((option, index) => (
               <motion.div
