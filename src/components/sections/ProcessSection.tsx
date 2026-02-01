@@ -217,6 +217,8 @@ const ProcessSection = () => {
                           <img
                             src={index % 2 === 0 ? heroKitchen : heroKitchen3}
                             alt="Process step"
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute inset-0 bg-black/70" />

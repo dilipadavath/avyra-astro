@@ -42,6 +42,8 @@ const HeroSection = () => {
           <img
             src={heroImages[currentIndex].src}
             alt={heroImages[currentIndex].alt}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover"
           />
           {/* Dark Overlay */}
