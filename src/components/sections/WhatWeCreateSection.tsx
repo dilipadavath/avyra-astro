@@ -12,7 +12,7 @@ const categories = [
     description: "Premium, hygienic, long-lasting kitchen systems.",
     image: heroKitchen,
     link: "/kitchen",
-  },
+  }, 
   {
     title: "Luxury Wardrobes",
     description: "Precision-crafted storage with a premium finish.",
