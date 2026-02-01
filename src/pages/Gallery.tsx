@@ -5,9 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GalleryHero from "@/components/gallery/GalleryHero";
 
-import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
-import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
-import heroKitchen4 from "@/assets/hero-kitchen-4.jpg";
 import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 import galleryKitchen2 from "@/assets/gallery-kitchen-2.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
@@ -17,10 +14,7 @@ import galleryKitchenPullout from "@/assets/gallery-kitchen-pullout.jpg";
 import galleryKitchenPantry from "@/assets/gallery-kitchen-pantry.jpg";
 
 const galleryImages = [
-  { src: heroKitchen1, category: "Kitchen", title: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
-  { src: heroKitchen3, category: "Kitchen", title: "SS 304 Honeycomb Kitchen Design Vijayawada" },
-  { src: heroKitchen4, category: "Kitchen", title: "Premium Aluminium Modular Kitchen South India" },
   { src: galleryKitchen2, category: "Kitchen", title: "Professional SS 304 Kitchen with Island" },
   { src: galleryKitchen3, category: "Kitchen", title: "Luxury Marble & Glass Kitchen Design" },
   { src: galleryKitchen4, category: "Kitchen", title: "Contemporary Kitchen with Wine Storage" },
