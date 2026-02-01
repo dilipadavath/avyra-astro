@@ -180,12 +180,17 @@ const WardrobePromise = () => {
               It is not just a storage unit — it is a thoughtfully engineered part of your living space.
             </p>
             
-            <Button asChild className="btn-primary-gold group">
-              <a href="/contact">
-                Book Your Consultation
-                <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild className="btn-primary-gold group hover:bg-white hover:text-background hover:border-white">
+                <a href="/contact">
+                  Book Your Consultation
+                  <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button asChild className="btn-outline-gold bg-transparent text-white hover:bg-white hover:text-background hover:border-white">
+                <a href="/gallery">View Gallery</a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
