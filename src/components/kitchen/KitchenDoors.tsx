@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import { DoorOpen, Gem, GlassWater, Frame, Paintbrush } from "lucide-react";
-import sinteredDoorsImg from "@/assets/kitchen-sintered-doors.jpg";
-import glassDoorsImg from "@/assets/kitchen-glass-doors.jpg";
 
 const doorOptions = [
   {
     icon: Gem,
     title: "Sintered Stone Doors",
-    image: sinteredDoorsImg,
     features: [
       "Highly durable and scratch-resistant",
       "Resistant to heat, stains, and moisture",
@@ -18,7 +15,6 @@ const doorOptions = [
   {
     icon: GlassWater,
     title: "Glass Doors",
-    image: glassDoorsImg,
     features: [
       "Lacquered Glass",
       "Clear Glass",
@@ -55,7 +51,7 @@ const KitchenDoors = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <DoorOpen className="w-8 h-8 text-primary" />
@@ -69,64 +65,17 @@ const KitchenDoors = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          {doorOptions.slice(0, 2).map((option, index) => (
+        <div className="grid md:grid-cols-2 gap-8">
+          {doorOptions.map((option, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-dark rounded-xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden"
+              className="glass-dark p-8 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
             >
-              {option.image && (
-                <div className="relative h-56 overflow-hidden">
-                  <img 
-                    src={option.image} 
-                    alt={option.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 backdrop-blur-sm flex items-center justify-center">
-                      <option.icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-display font-bold text-foreground">
-                      {option.title}
-                    </h3>
-                  </div>
-                </div>
-              )}
-              <div className="p-6">
-                <ul className="space-y-2">
-                  {option.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3 text-foreground/70">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                {option.description && (
-                  <p className="text-foreground/60 mt-4 text-sm italic">
-                    {option.description}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {doorOptions.slice(2).map((option, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-dark p-6 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
-            >
-              <div className="flex items-center gap-4 mb-4">
+              <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
                   <option.icon className="w-6 h-6 text-primary" />
                 </div>
@@ -142,6 +91,11 @@ const KitchenDoors = () => {
                   </li>
                 ))}
               </ul>
+              {option.description && (
+                <p className="text-foreground/60 mt-4 text-sm italic">
+                  {option.description}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
@@ -150,7 +104,7 @@ const KitchenDoors = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center text-foreground/60 mt-10 text-lg"
+          className="text-center text-foreground/60 mt-12 text-lg"
         >
           These options allow complete customization while maintaining AVYRA's engineering standards.
         </motion.p>
