@@ -17,10 +17,9 @@ const galleryImages = [
   { src: heroKitchen3, category: "Kitchen", title: "SS 304 Honeycomb Kitchen Design Vijayawada" },
   { src: heroKitchen4, category: "Kitchen", title: "Premium Aluminium Modular Kitchen South India" },
   { src: heroKitchen1, category: "Kitchen", title: "Contemporary SS 304 Kitchen Hyderabad" },
-  { src: heroInterior, category: "Colour Palettes", title: "Premium Colour Palette Options" },
 ];
 
-const categories = ["Kitchen", "Wardrobe", "Colour Palettes"];
+const categories = ["Kitchen", "Wardrobe"];
 
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("Kitchen");
