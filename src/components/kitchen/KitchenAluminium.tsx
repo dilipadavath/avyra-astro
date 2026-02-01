@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Box, CheckCircle, Feather, Shield, Palette } from "lucide-react";
-import heroInterior from "@/assets/hero-interior-5.jpg";
-
+import aluminiumKitchenImg from "@/assets/kitchen-aluminium.jpg";
 const aluminiumBenefits = [
   { icon: Feather, text: "Lightweight yet strong" },
   { icon: Shield, text: "Corrosion-resistant" },
@@ -62,7 +61,7 @@ const KitchenAluminium = () => {
           >
             <div className="relative rounded-xl overflow-hidden border border-primary/20">
               <img 
-                src={heroInterior} 
+                src={aluminiumKitchenImg} 
                 alt="AVYRA Modern Aluminium Kitchen Design" 
                 className="w-full h-[400px] object-cover"
               />
