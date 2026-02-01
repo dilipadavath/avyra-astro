@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Palette, Paintbrush, Gem } from "lucide-react";
 import neutralPalette from "@/assets/wardrobe-neutral-palette.png";
 import colorPalette from "@/assets/wardrobe-color-palette.png";
+import sinteredStone from "@/assets/wardrobe-sintered-stone.png";
 
 const finishOptions = [
   {
@@ -55,28 +56,58 @@ const WardrobeFinishes = () => {
           </p>
         </motion.div>
 
-        {/* Finish Options */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {finishOptions.map((finish, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-dark p-6 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Gem className="w-5 h-5 text-primary" />
+        {/* Finish Options with Sintered Stone Image */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+          <div className="lg:col-span-2 grid md:grid-cols-2 gap-4">
+            {finishOptions.slice(0, 4).map((finish, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="glass-dark p-5 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Gem className="w-4 h-4 text-primary" />
+                  </div>
+                  <h3 className="text-base font-display font-bold text-foreground">
+                    {finish.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-display font-bold text-foreground">
-                  {finish.title}
-                </h3>
+                <p className="text-foreground/70 text-sm">{finish.description}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Sintered Stone Feature */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative group"
+          >
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-full">
+              <img 
+                src={sinteredStone} 
+                alt="Premium sintered stone wardrobe finish with natural veining" 
+                className="w-full h-full min-h-[300px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/30 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background/95 to-transparent">
+                <div className="flex items-center gap-2 mb-2">
+                  <Gem className="w-5 h-5 text-primary" />
+                  <h3 className="text-lg font-display font-bold text-foreground">
+                    Sintered Surfaces
+                  </h3>
+                </div>
+                <p className="text-foreground/70 text-sm">
+                  Highly durable, scratch-resistant finishes with a premium stone-like appearance.
+                </p>
               </div>
-              <p className="text-foreground/70 text-sm">{finish.description}</p>
-            </motion.div>
-          ))}
+            </div>
+          </motion.div>
         </div>
 
         <motion.p

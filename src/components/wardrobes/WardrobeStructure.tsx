@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, CheckCircle, Droplets, Bug, Clock, Weight } from "lucide-react";
+import structureImg from "@/assets/wardrobe-structure.jpg";
 
 const structureReasons = [
   { icon: Weight, text: "High load-bearing capacity" },
@@ -37,7 +38,7 @@ const WardrobeStructure = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-start">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
           {/* Why Steel & Aluminium */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -71,6 +72,29 @@ const WardrobeStructure = () => {
             </p>
           </motion.div>
 
+          {/* Structure Image */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative group"
+          >
+            <div className="relative rounded-xl overflow-hidden border border-primary/20">
+              <img 
+                src={structureImg} 
+                alt="Precision stainless steel and aluminium wardrobe frame structure" 
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-primary font-semibold text-sm mb-1">Precision Engineering</p>
+                <p className="text-foreground/80 text-xs">
+                  High-grade steel joints for maximum durability
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Built for Daily Use */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
@@ -81,11 +105,11 @@ const WardrobeStructure = () => {
             <h3 className="text-xl font-display font-bold text-foreground mb-4">
               Built for Daily Use
             </h3>
-            <p className="text-foreground/70 mb-6">
+            <p className="text-foreground/70 mb-6 text-sm">
               Wardrobes are among the most heavily used systems in a home. From hanging garments 
               to storing seasonal items, weight and usage increase over time.
             </p>
-            <p className="text-foreground/80 mb-4">AVYRA wardrobes are engineered to:</p>
+            <p className="text-foreground/80 mb-4 text-sm">AVYRA wardrobes are engineered to:</p>
             <ul className="space-y-3">
               {dailyUseFeatures.map((feature, index) => (
                 <motion.li
@@ -97,13 +121,13 @@ const WardrobeStructure = () => {
                   className="flex items-center gap-3"
                 >
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground/70">{feature}</span>
+                  <span className="text-foreground/70 text-sm">{feature}</span>
                 </motion.li>
               ))}
             </ul>
             <div className="mt-6 pt-6 border-t border-border/30">
               <p className="text-primary font-semibold text-sm">
-                The result is a wardrobe that feels solid, reliable, and effortless to use — even after years.
+                Solid, reliable, and effortless to use — even after years.
               </p>
             </div>
           </motion.div>

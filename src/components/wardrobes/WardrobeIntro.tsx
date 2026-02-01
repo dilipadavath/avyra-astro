@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle } from "lucide-react";
 import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
+import perceptionImg from "@/assets/wardrobe-perception.jpg";
 
 const WardrobeIntro = () => {
   return (
@@ -57,39 +58,60 @@ const WardrobeIntro = () => {
       {/* Breaking the Myth Section */}
       <section className="py-8 bg-card relative">
         <div className="container-premium">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Sparkles className="w-8 h-8 text-primary" />
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient">
-                Redefining the Perception of Steel & Aluminium
-              </h2>
-            </div>
-            
-            <p className="text-foreground/70 mb-8 text-lg">
-              A common misconception is that steel and aluminium wardrobes lack warmth or visual appeal. 
-              This belief stems from outdated designs and limited material options.
-            </p>
-            
-            <div className="glass-dark p-8 rounded-xl border border-primary/30 mb-8">
-              <p className="text-2xl font-serif text-primary font-semibold mb-4">
-                AVYRA breaks this myth.
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex items-center gap-3 mb-6">
+                <Sparkles className="w-8 h-8 text-primary" />
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient">
+                  Redefining the Perception of Steel & Aluminium
+                </h2>
+              </div>
+              
+              <p className="text-foreground/70 mb-6 text-lg">
+                A common misconception is that steel and aluminium wardrobes lack warmth or visual appeal. 
+                This belief stems from outdated designs and limited material options.
               </p>
-              <p className="text-foreground/70">
-                By pairing precision-engineered internal structures with luxury external finishes, 
-                AVYRA wardrobes deliver a seamless blend of strength and sophistication. The structural 
-                strength remains hidden inside, while the exterior reflects modern elegance and personalized design.
+              
+              <div className="glass-dark p-6 rounded-xl border border-primary/30 mb-6">
+                <p className="text-xl font-serif text-primary font-semibold mb-3">
+                  AVYRA breaks this myth.
+                </p>
+                <p className="text-foreground/70 text-sm">
+                  By pairing precision-engineered internal structures with luxury external finishes, 
+                  AVYRA wardrobes deliver a seamless blend of strength and sophistication.
+                </p>
+              </div>
+              
+              <p className="text-foreground/60 italic">
+                Steel and aluminium do not dictate appearance — <span className="text-primary">design does</span>.
               </p>
-            </div>
-            
-            <p className="text-foreground/60 italic text-lg">
-              Steel and aluminium do not dictate appearance — <span className="text-primary">design does</span>.
-            </p>
-          </motion.div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                <img 
+                  src={perceptionImg} 
+                  alt="Modern elegant wardrobe with luxury matte finish hiding steel structure" 
+                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-foreground/90 text-sm font-medium">
+                    Hidden strength, visible elegance
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>
