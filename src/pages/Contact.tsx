@@ -78,9 +78,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background flex flex-col">
 
       <Helmet>
-        <title>
-         <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad</title>
-        </title>
+        <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad</title>
 
         <meta
           name="description"
