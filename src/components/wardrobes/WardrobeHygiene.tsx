@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle, CloudRain, Shirt } from "lucide-react";
+import hygieneImg from "@/assets/wardrobe-hygiene.jpg";
 
 const hygieneAdvantages = [
   "Non-porous internal surfaces",
@@ -13,10 +14,35 @@ const WardrobeHygiene = () => {
     <section className="py-8 bg-card relative">
       <div className="container-premium">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
+          {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="relative group order-2 lg:order-1"
+          >
+            <div className="relative rounded-xl overflow-hidden border border-primary/20">
+              <img 
+                src={hygieneImg} 
+                alt="Clean organized wardrobe interior with hygienic surfaces" 
+                className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-primary font-semibold text-sm mb-1">Hygienic Storage</p>
+                <p className="text-foreground/80 text-xs">
+                  Non-porous surfaces protect your garments
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="order-1 lg:order-2"
           >
             <div className="flex items-center gap-3 mb-4">
               <Sparkles className="w-8 h-8 text-primary" />
@@ -35,7 +61,7 @@ const WardrobeHygiene = () => {
               {hygieneAdvantages.map((advantage, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
@@ -46,37 +72,26 @@ const WardrobeHygiene = () => {
                 </motion.div>
               ))}
             </div>
-          </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="glass-dark p-8 rounded-xl border border-primary/20">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Shirt className="w-8 h-8 text-primary" />
+            <div className="glass-dark p-6 rounded-xl border border-primary/20">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Shirt className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-display font-bold text-foreground">
+                  <h3 className="text-lg font-display font-bold text-foreground">
                     Perfect for Your Garments
                   </h3>
                   <p className="text-primary text-sm">Long-term clothing care</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-background/50 rounded-lg mb-4">
-                <CloudRain className="w-6 h-6 text-primary" />
-                <span className="text-foreground/70">
+              <div className="flex items-center gap-3 p-3 bg-background/50 rounded-lg">
+                <CloudRain className="w-5 h-5 text-primary" />
+                <span className="text-foreground/70 text-sm">
                   Especially suitable for humid climates
                 </span>
               </div>
-              
-              <p className="text-foreground/60 text-sm italic">
-                This makes AVYRA wardrobes especially suitable for humid climates and 
-                long-term garment care.
-              </p>
             </div>
           </motion.div>
         </div>
