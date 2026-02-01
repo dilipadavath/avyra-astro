@@ -7,7 +7,7 @@ import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 
 const categories = [
   {
-    title: "Kitchens",
+    title: "SS 304 Stainless Steel Modular Kitchens",
     description: "Premium, hygienic, long-lasting kitchen systems.",
     image: heroKitchen,
     link: "/kitchen",
