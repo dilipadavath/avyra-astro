@@ -24,6 +24,16 @@ import galleryWardrobe20 from "@/assets/gallery-wardrobe-20.jpg";
 import galleryWardrobe21 from "@/assets/gallery-wardrobe-21.jpg";
 import galleryWardrobe22 from "@/assets/gallery-wardrobe-22.jpg";
 import galleryWardrobe24 from "@/assets/gallery-wardrobe-24.jpg";
+import galleryWardrobe25 from "@/assets/gallery-wardrobe-25.jpg";
+import galleryWardrobe29 from "@/assets/gallery-wardrobe-29.jpg";
+import galleryWardrobe31 from "@/assets/gallery-wardrobe-31.jpg";
+import galleryWardrobe32 from "@/assets/gallery-wardrobe-32.jpg";
+import galleryWardrobe33 from "@/assets/gallery-wardrobe-33.jpg";
+import galleryWardrobe34 from "@/assets/gallery-wardrobe-34.jpg";
+import galleryWardrobe35 from "@/assets/gallery-wardrobe-35.jpg";
+import galleryWardrobe36 from "@/assets/gallery-wardrobe-36.jpg";
+import galleryWardrobe37 from "@/assets/gallery-wardrobe-37.jpg";
+import galleryWardrobe39 from "@/assets/gallery-wardrobe-39.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -89,6 +99,16 @@ const galleryImages = [
   { src: galleryWardrobe21, category: "Wardrobe", title: "Green Leather with Centre Display Niche" },
   { src: galleryWardrobe22, category: "Wardrobe", title: "Cream Full-Height Hinged with Display Shelf" },
   { src: galleryWardrobe24, category: "Wardrobe", title: "Hermes Orange Walk-in with Marble Accent" },
+  { src: galleryWardrobe25, category: "Wardrobe", title: "Beige Hinged Wardrobe with Centre Vanity" },
+  { src: galleryWardrobe29, category: "Wardrobe", title: "Orange & Grey Open Wardrobe Interior" },
+  { src: galleryWardrobe31, category: "Wardrobe", title: "Two-Tone Leather with Vanity Mirror Niche" },
+  { src: galleryWardrobe32, category: "Wardrobe", title: "Dark Brown Full-Height Hinged Wardrobe" },
+  { src: galleryWardrobe33, category: "Wardrobe", title: "Premium Brown Leather Handle Detail" },
+  { src: galleryWardrobe34, category: "Wardrobe", title: "Luxury Orange Walk-in with Watch Winder" },
+  { src: galleryWardrobe35, category: "Wardrobe", title: "Orange Leather Door with Gold Hardware" },
+  { src: galleryWardrobe36, category: "Wardrobe", title: "Orange Leather with Study Desk Integration" },
+  { src: galleryWardrobe37, category: "Wardrobe", title: "Grey Leather with Glass Display Section" },
+  { src: galleryWardrobe39, category: "Wardrobe", title: "Grey Leather Wardrobe with LED Lighting" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
