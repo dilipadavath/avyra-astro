@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -21,9 +20,9 @@ const categories = [
   },
 ];
 
-const WhatWeCreateSection = forwardRef<HTMLElement>((_, ref) => {
+const WhatWeCreateSection = () => {
   return (
-    <section ref={ref} className="py-8 bg-background">
+    <section className="py-8 bg-background">
       <div className="container-premium">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,8 +76,6 @@ const WhatWeCreateSection = forwardRef<HTMLElement>((_, ref) => {
       </div>
     </section>
   );
-});
-
-WhatWeCreateSection.displayName = "WhatWeCreateSection";
+};
 
 export default WhatWeCreateSection;
