@@ -310,7 +310,11 @@ const Contact = () => {
                 Stay Connected
               </h2>
 
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                AVYRA is a premium interior brand specialising in SS 304 stainless steel modular kitchens and wardrobes. We serve homeowners across Telangana and Andhra Pradesh, delivering durable, hygienic, and zero-wood kitchen solutions built for Indian homes.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed mb-4">
                 Transform your home with precision-crafted SS 304 kitchens and aluminium wardrobes. Book a consultation and experience design without compromise.
               </p>
 

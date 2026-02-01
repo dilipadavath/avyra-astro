@@ -382,6 +382,20 @@ const About = () => {
         <section className="py-8 relative">
           <div className="container-premium">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                  <img
+                    src={aboutClientTrust}
+                    alt="AVYRA Client Consultation"
+                    className="w-full h-[400px] object-cover"
+                  />
+                </div>
+              </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -425,20 +439,7 @@ const About = () => {
                   There are no hidden compromises or shortcuts. Clients know exactly what goes into their home — from the grade of stainless steel to the quality of hardware and finishes used.
                 </p>
               </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                  <img
-                    src={aboutClientTrust}
-                    alt="AVYRA Client Consultation"
-                    className="w-full h-[400px] object-cover"
-                  />
-                </div>
-              </motion.div>
+            
             </div>
           </div>
         </section>

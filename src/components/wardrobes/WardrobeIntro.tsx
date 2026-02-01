@@ -59,6 +59,26 @@ const WardrobeIntro = () => {
       <section className="py-8 bg-card relative">
         <div className="container-premium">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
+               <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative group"
+            >
+              <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                <img 
+                  src={perceptionImg} 
+                  alt="Modern elegant wardrobe with luxury matte finish hiding steel structure" 
+                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-foreground/90 text-sm font-medium">
+                    Hidden strength, visible elegance
+                  </p>
+                </div>
+              </div>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -91,26 +111,6 @@ const WardrobeIntro = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative group"
-            >
-              <div className="relative rounded-xl overflow-hidden border border-primary/20">
-                <img 
-                  src={perceptionImg} 
-                  alt="Modern elegant wardrobe with luxury matte finish hiding steel structure" 
-                  className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-foreground/90 text-sm font-medium">
-                    Hidden strength, visible elegance
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </div>
       </section>
