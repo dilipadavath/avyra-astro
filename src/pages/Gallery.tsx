@@ -34,6 +34,16 @@ import galleryWardrobe35 from "@/assets/gallery-wardrobe-35.jpg";
 import galleryWardrobe36 from "@/assets/gallery-wardrobe-36.jpg";
 import galleryWardrobe37 from "@/assets/gallery-wardrobe-37.jpg";
 import galleryWardrobe39 from "@/assets/gallery-wardrobe-39.jpg";
+import galleryWardrobe44 from "@/assets/gallery-wardrobe-44.jpg";
+import galleryWardrobe45 from "@/assets/gallery-wardrobe-45.jpg";
+import galleryWardrobe46 from "@/assets/gallery-wardrobe-46.jpg";
+import galleryWardrobe47 from "@/assets/gallery-wardrobe-47.jpg";
+import galleryWardrobe48 from "@/assets/gallery-wardrobe-48.jpg";
+import galleryWardrobe470 from "@/assets/gallery-wardrobe-470.jpg";
+import galleryWardrobe474 from "@/assets/gallery-wardrobe-474.jpg";
+import galleryWardrobe478 from "@/assets/gallery-wardrobe-478.jpg";
+import galleryWardrobe479 from "@/assets/gallery-wardrobe-479.jpg";
+import galleryWardrobe480 from "@/assets/gallery-wardrobe-480.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -109,6 +119,16 @@ const galleryImages = [
   { src: galleryWardrobe36, category: "Wardrobe", title: "Orange Leather with Study Desk Integration" },
   { src: galleryWardrobe37, category: "Wardrobe", title: "Grey Leather with Glass Display Section" },
   { src: galleryWardrobe39, category: "Wardrobe", title: "Grey Leather Wardrobe with LED Lighting" },
+  { src: galleryWardrobe44, category: "Wardrobe", title: "Grey Leather Door Panel with Metal Handle" },
+  { src: galleryWardrobe45, category: "Wardrobe", title: "Cream Leather Door with Gold Frame" },
+  { src: galleryWardrobe46, category: "Wardrobe", title: "Burgundy Leather Door with Metal Corners" },
+  { src: galleryWardrobe47, category: "Wardrobe", title: "Forest Green Leather Door Panel" },
+  { src: galleryWardrobe48, category: "Wardrobe", title: "Sage Leather Door with Gold Handle Stripe" },
+  { src: galleryWardrobe470, category: "Wardrobe", title: "Teal Leather Jewellery Drawer Organiser" },
+  { src: galleryWardrobe474, category: "Wardrobe", title: "Teal Leather Deep Storage Drawer" },
+  { src: galleryWardrobe478, category: "Wardrobe", title: "Pull-Out Trouser Rack with Teal Finish" },
+  { src: galleryWardrobe479, category: "Wardrobe", title: "Trouser & Belt Pull-Out Organiser" },
+  { src: galleryWardrobe480, category: "Wardrobe", title: "Premium Teal Leather Hanging Rail" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
