@@ -8,19 +8,13 @@ import heroInterior from "@/assets/hero-kitchen-3.jpg";
 
 const categories = [
   {
-    title: "Stainless Steel 304 Kitchens",
+    title: "Kitchens",
     description: "Premium, hygienic, long-lasting kitchen systems.",
     image: heroKitchen,
     link: "/kitchen",
   },
   {
-    title: "Aluminium Kitchens",
-    description: "Modern, lightweight, corrosion-resistant solutions.",
-    image: heroInterior,
-    link: "/kitchen",
-  },
-  {
-    title: "Luxury Wardrobe Interiors",
+    title: "Luxury Wardrobes",
     description: "Precision-crafted storage with a premium finish.",
     image: heroWardrobe,
     link: "/wardrobes",
@@ -44,7 +38,7 @@ const WhatWeCreateSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {categories.map((category, index) => (
             <motion.div
               key={category.title}
