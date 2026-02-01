@@ -15,6 +15,15 @@ import galleryWardrobe8 from "@/assets/gallery-wardrobe-8.jpg";
 import galleryWardrobe9 from "@/assets/gallery-wardrobe-9.jpg";
 import galleryWardrobe10 from "@/assets/gallery-wardrobe-10.jpg";
 import galleryWardrobe12 from "@/assets/gallery-wardrobe-12.jpg";
+import galleryWardrobe14 from "@/assets/gallery-wardrobe-14.jpg";
+import galleryWardrobe15 from "@/assets/gallery-wardrobe-15.jpg";
+import galleryWardrobe16 from "@/assets/gallery-wardrobe-16.jpg";
+import galleryWardrobe17 from "@/assets/gallery-wardrobe-17.jpg";
+import galleryWardrobe19 from "@/assets/gallery-wardrobe-19.jpg";
+import galleryWardrobe20 from "@/assets/gallery-wardrobe-20.jpg";
+import galleryWardrobe21 from "@/assets/gallery-wardrobe-21.jpg";
+import galleryWardrobe22 from "@/assets/gallery-wardrobe-22.jpg";
+import galleryWardrobe24 from "@/assets/gallery-wardrobe-24.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -71,6 +80,15 @@ const galleryImages = [
   { src: galleryWardrobe9, category: "Wardrobe", title: "Teal Sliding Door Walk-in Closet" },
   { src: galleryWardrobe10, category: "Wardrobe", title: "Sage Green Walk-in with Vanity Island" },
   { src: galleryWardrobe12, category: "Wardrobe", title: "Diamond Pattern Blue Hinged Wardrobe" },
+  { src: galleryWardrobe14, category: "Wardrobe", title: "Grey Lacquered Walk-in with Glass Display" },
+  { src: galleryWardrobe15, category: "Wardrobe", title: "Teal Accent Open Shelving Walk-in" },
+  { src: galleryWardrobe16, category: "Wardrobe", title: "Corner Wardrobe with Shoe Storage" },
+  { src: galleryWardrobe17, category: "Wardrobe", title: "Cream Lacquered Hinged Wardrobe System" },
+  { src: galleryWardrobe19, category: "Wardrobe", title: "Sage Fabric Finish with Glass Centre" },
+  { src: galleryWardrobe20, category: "Wardrobe", title: "Olive Leather Finish Glass Wardrobe" },
+  { src: galleryWardrobe21, category: "Wardrobe", title: "Green Leather with Centre Display Niche" },
+  { src: galleryWardrobe22, category: "Wardrobe", title: "Cream Full-Height Hinged with Display Shelf" },
+  { src: galleryWardrobe24, category: "Wardrobe", title: "Hermes Orange Walk-in with Marble Accent" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
