@@ -6,9 +6,9 @@ import { Shield, Layers, Droplets, CheckCircle, Wrench, Award, Sparkles, Heart, 
 
 // Import images
 import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
-import aboutTeamDiscussion from "@/assets/about-team-discussion.png";
-import aboutInstallation from "@/assets/about-installation.png";
-import aboutClientDiscussion from "@/assets/about-client-discussion.png";
+import aboutTeamMeeting from "@/assets/about-team-meeting.jpg";
+import aboutEngineering from "@/assets/about-engineering.jpg";
+import aboutClientTrust from "@/assets/about-client-trust.jpg";
 
 const About = () => {
   return (
@@ -142,7 +142,7 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={aboutTeamDiscussion} 
+                    src={aboutTeamMeeting} 
                     alt="AVYRA Team - Premium Interior Consultation" 
                     className="w-full h-[350px] object-cover"
                   />
@@ -227,7 +227,7 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={aboutInstallation} 
+                    src={aboutEngineering} 
                     alt="AVYRA Engineering Excellence" 
                     className="w-full h-[400px] object-cover"
                   />
@@ -389,7 +389,7 @@ const About = () => {
               >
                 <div className="relative rounded-xl overflow-hidden border border-primary/20">
                   <img 
-                    src={aboutClientDiscussion} 
+                    src={aboutClientTrust} 
                     alt="AVYRA Client Consultation" 
                     className="w-full h-[400px] object-cover"
                   />
