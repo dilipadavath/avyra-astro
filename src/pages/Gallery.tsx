@@ -54,6 +54,16 @@ import galleryWardrobe556 from "@/assets/gallery-wardrobe-556.jpg";
 import galleryWardrobe570 from "@/assets/gallery-wardrobe-570.jpg";
 import galleryWardrobe571 from "@/assets/gallery-wardrobe-571.jpg";
 import galleryWardrobe572 from "@/assets/gallery-wardrobe-572.jpg";
+import galleryWardrobe632 from "@/assets/gallery-wardrobe-632.jpg";
+import galleryWardrobe638 from "@/assets/gallery-wardrobe-638.jpg";
+import galleryWardrobe641 from "@/assets/gallery-wardrobe-641.jpg";
+import galleryWardrobe642 from "@/assets/gallery-wardrobe-642.jpg";
+import galleryWardrobe644 from "@/assets/gallery-wardrobe-644.jpg";
+import galleryWardrobe652 from "@/assets/gallery-wardrobe-652.jpg";
+import galleryWardrobe23 from "@/assets/gallery-wardrobe-23.jpg";
+import galleryWardrobe27 from "@/assets/gallery-wardrobe-27.jpg";
+import galleryWardrobe30 from "@/assets/gallery-wardrobe-30.jpg";
+import galleryWardrobe38 from "@/assets/gallery-wardrobe-38.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -149,6 +159,16 @@ const galleryImages = [
   { src: galleryWardrobe570, category: "Wardrobe", title: "Luxury Full Walk-in Closet with LED" },
   { src: galleryWardrobe571, category: "Wardrobe", title: "Brown Leather Accessory Tray & Hangers" },
   { src: galleryWardrobe572, category: "Wardrobe", title: "Brown Leather Tie & Accessory Drawer" },
+  { src: galleryWardrobe632, category: "Wardrobe", title: "Premium Tie & Pocket Square Drawer Organiser" },
+  { src: galleryWardrobe638, category: "Wardrobe", title: "Pull-Out Trouser Hanger Rack" },
+  { src: galleryWardrobe641, category: "Wardrobe", title: "Rotating Multi-Tier Shoe Carousel" },
+  { src: galleryWardrobe642, category: "Wardrobe", title: "Nuomi Intimates & Belt Organiser Drawer" },
+  { src: galleryWardrobe644, category: "Wardrobe", title: "Premium Watch & Jewellery Valet Drawer" },
+  { src: galleryWardrobe652, category: "Wardrobe", title: "Pull-Down Wardrobe Lift with Suit Rail" },
+  { src: galleryWardrobe23, category: "Wardrobe", title: "Orange Lacquered Wardrobe with Vanity Niche" },
+  { src: galleryWardrobe27, category: "Wardrobe", title: "Hermes Orange Leather with Drawer System" },
+  { src: galleryWardrobe30, category: "Wardrobe", title: "Sage Leather Sliding Door Walk-in Closet" },
+  { src: galleryWardrobe38, category: "Wardrobe", title: "Tan Leather Full-Height with LED Interior" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
