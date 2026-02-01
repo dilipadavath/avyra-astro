@@ -22,6 +22,13 @@ import galleryKitchen371 from "@/assets/gallery-kitchen-371.jpg";
 import galleryKitchen381 from "@/assets/gallery-kitchen-381.jpg";
 import galleryKitchen393 from "@/assets/gallery-kitchen-393.jpg";
 import galleryKitchen403 from "@/assets/gallery-kitchen-403.jpg";
+import galleryKitchen437 from "@/assets/gallery-kitchen-437.jpg";
+import galleryKitchen443 from "@/assets/gallery-kitchen-443.jpg";
+import galleryKitchen453 from "@/assets/gallery-kitchen-453.jpg";
+import galleryKitchenCarouselTall from "@/assets/gallery-kitchen-carousel-tall.jpg";
+import galleryKitchenDrawerAppliance from "@/assets/gallery-kitchen-drawer-appliance.jpg";
+import galleryKitchenPlateCutlery from "@/assets/gallery-kitchen-plate-cutlery.jpg";
+import galleryKitchenElegantStorage from "@/assets/gallery-kitchen-elegant-storage.jpg";
 
 const galleryImages = [
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
@@ -41,6 +48,13 @@ const galleryImages = [
   { src: galleryKitchen381, category: "Kitchen", title: "Lift-Up Overhead Storage Unit" },
   { src: galleryKitchen393, category: "Kitchen", title: "Pull-Down Spice & Bottle Rack" },
   { src: galleryKitchen403, category: "Kitchen", title: "Wall-Mounted Modular Storage System" },
+  { src: galleryKitchen437, category: "Kitchen", title: "Pull-Down Grocery Storage Basket" },
+  { src: galleryKitchen443, category: "Kitchen", title: "Auto-Open Waste Bin System" },
+  { src: galleryKitchen453, category: "Kitchen", title: "Higold Dual Waste Bin Pull-Out" },
+  { src: galleryKitchenCarouselTall, category: "Kitchen", title: "Carousel-Type Tall Storage Unit" },
+  { src: galleryKitchenDrawerAppliance, category: "Kitchen", title: "Appliance & Bakeware Drawer Organiser" },
+  { src: galleryKitchenPlateCutlery, category: "Kitchen", title: "Complete Plate & Cutlery Organiser" },
+  { src: galleryKitchenElegantStorage, category: "Kitchen", title: "Effortless Access Elegant Storage" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
