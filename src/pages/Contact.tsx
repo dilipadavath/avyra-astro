@@ -49,9 +49,26 @@ const Contact = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    toast.success("Thank you! We'll get back to you soon.");
-    form.reset();
+    try {
+      const response = await fetch("https://www.avyra.co.in/api/contact.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success("Thank you! We'll get back to you soon.");
+        form.reset();
+      } else {
+        toast.error(result.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Failed to send message. Please try again later.");
+    }
   };
 
   const inputClasses =
