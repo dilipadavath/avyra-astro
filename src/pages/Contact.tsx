@@ -1,15 +1,15 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, Instagram } from "lucide-react";
-import { toast } from "sonner";
+import { Phone, Mail, Instagram, CheckCircle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -37,6 +37,8 @@ const contactSchema = z.object({
 type ContactFormData = z.infer<typeof contactSchema>;
 
 const Contact = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
+  
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -48,38 +50,41 @@ const Contact = () => {
     },
   });
 
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
+
   const onSubmit = async (data: ContactFormData) => {
-     try {
-       const response = await fetch("https://formspree.io/f/mqelekbw", {
-         method: "POST",
-         headers: {
-           "Content-Type": "application/json",
-           Accept: "application/json",
-         },
-         body: JSON.stringify({
-           name: data.name,
-           mobile: data.mobile,
-           email: data.email,
- 
-           // Email subject line
-           _subject: `AVYRA Enquiry – ${data.subject}`,
- 
-           // Visible in email body
-           subject: data.subject,
-           message: data.message || "",
-         }),
-       });
- 
-       if (response.ok) {
-         toast.success("Thank you! We'll get back to you soon.");
-         form.reset();
-       } else {
-         toast.error("Something went wrong. Please try again.");
-       }
-     } catch {
-       toast.error("Failed to send message. Please try again later.");
-     }
-   };
+    try {
+      const response = await fetch("https://formspree.io/f/mqelekbw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          mobile: data.mobile,
+          email: data.email,
+          _subject: `AVYRA Enquiry – ${data.subject}`,
+          subject: data.subject,
+          message: data.message || "",
+        }),
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        form.reset();
+      }
+    } catch {
+      // Silently fail - user can retry
+    }
+  };
 
   const inputClasses =
     "bg-[hsl(0_0%_12%)] border border-border text-foreground placeholder:text-muted-foreground rounded-md focus:border-border focus:ring-0 focus:outline-none";
@@ -310,6 +315,23 @@ const Contact = () => {
                   >
                     {form.formState.isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
+
+                  <AnimatePresence>
+                    {showSuccess && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex items-center gap-2 text-primary mt-4"
+                      >
+                        <CheckCircle className="w-5 h-5" />
+                        <span className="text-sm">
+                          Thank you, your enquiry has been received. We'll be in touch with you soon.
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </form>
               </Form>
             </div>
