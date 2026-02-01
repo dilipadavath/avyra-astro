@@ -38,7 +38,7 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="mailto:support@avyra.co.in"
+                href="mailto:enquiry@avyra.co.in"
                 className="flex items-center gap-4 group"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -47,7 +47,7 @@ const ContactSection = () => {
                 <div>
                   <p className="text-sm text-muted-foreground">Email us</p>
                   <p className="text-foreground font-medium group-hover:text-primary transition-colors">
-                    support@avyra.co.in
+                    enquiry@avyra.co.in
                   </p>
                 </div>
               </a>

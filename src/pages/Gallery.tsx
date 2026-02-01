@@ -78,7 +78,6 @@ import galleryKitchen403 from "@/assets/gallery-kitchen-403.jpg";
 import galleryKitchen437 from "@/assets/gallery-kitchen-437.jpg";
 import galleryKitchen443 from "@/assets/gallery-kitchen-443.jpg";
 import galleryKitchen453 from "@/assets/gallery-kitchen-453.jpg";
-import galleryKitchenCarouselTall from "@/assets/gallery-kitchen-carousel-tall.jpg";
 import galleryKitchenDrawerAppliance from "@/assets/gallery-kitchen-drawer-appliance.jpg";
 import galleryKitchenPlateCutlery from "@/assets/gallery-kitchen-plate-cutlery.jpg";
 
@@ -102,7 +101,6 @@ const galleryImages = [
   { src: galleryKitchen437, category: "Kitchen", title: "Pull-Down Grocery Storage Basket" },
   { src: galleryKitchen443, category: "Kitchen", title: "Auto-Open Waste Bin System" },
   { src: galleryKitchen453, category: "Kitchen", title: "Higold Dual Waste Bin Pull-Out" },
-  { src: galleryKitchenCarouselTall, category: "Kitchen", title: "Carousel-Type Tall Storage Unit" },
   { src: galleryKitchenDrawerAppliance, category: "Kitchen", title: "Appliance & Bakeware Drawer Organiser" },
   { src: galleryKitchenPlateCutlery, category: "Kitchen", title: "Complete Plate & Cutlery Organiser" },
   { src: galleryWardrobe3, category: "Wardrobe", title: "Modern Grey Hinged Wardrobe with Fluted Panels" },
