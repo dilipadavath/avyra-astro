@@ -26,16 +26,11 @@ import {
 } from "@/components/ui/form";
 import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 
-/* ===============================
-   VALIDATION SCHEMA
-================================ */
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required"),
-  mobile: z
-    .string()
-    .regex(/^\d{10}$/, "Please enter a valid 10-digit phone number"),
-  email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(1, "Please select a subject"),
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  mobile: z.string().trim().min(1, "Mobile number is required").regex(/^\d{10}$/, "Please enter a valid 10-digit phone number"),
+  email: z.string().trim().min(1, "Email is required").email("Please enter a valid email address"),
+  subject: z.string().optional(),
   message: z.string().optional(),
 });
 
@@ -53,80 +48,159 @@ const Contact = () => {
     },
   });
 
-  /* ===============================
-     SUBMIT HANDLER
-  ================================ */
   const onSubmit = async (data: ContactFormData) => {
-    try {
-      const response = await fetch("https://formspree.io/f/mqelekbw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: data.name,
-          mobile: data.mobile,
-          email: data.email,
-
-          // Email subject line
-          _subject: `AVYRA Enquiry – ${data.subject}`,
-
-          // Visible in email body
-          subject: data.subject,
-          message: data.message || "",
-        }),
-      });
-
-      if (response.ok) {
-        toast.success("Thank you! We'll get back to you soon.");
-        form.reset();
-      } else {
-        toast.error("Something went wrong. Please try again.");
-      }
-    } catch {
-      toast.error("Failed to send message. Please try again later.");
-    }
-  };
+     try {
+       const response = await fetch("https://formspree.io/f/mqelekbw", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json",
+           Accept: "application/json",
+         },
+         body: JSON.stringify({
+           name: data.name,
+           mobile: data.mobile,
+           email: data.email,
+ 
+           // Email subject line
+           _subject: `AVYRA Enquiry – ${data.subject}`,
+ 
+           // Visible in email body
+           subject: data.subject,
+           message: data.message || "",
+         }),
+       });
+ 
+       if (response.ok) {
+         toast.success("Thank you! We'll get back to you soon.");
+         form.reset();
+       } else {
+         toast.error("Something went wrong. Please try again.");
+       }
+     } catch {
+       toast.error("Failed to send message. Please try again later.");
+     }
+   };
 
   const inputClasses =
-    "bg-[hsl(0_0%_12%)] border border-border text-foreground placeholder:text-muted-foreground rounded-md focus:ring-0";
+    "bg-[hsl(0_0%_12%)] border border-border text-foreground placeholder:text-muted-foreground rounded-md focus:border-border focus:ring-0 focus:outline-none";
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+
       <Helmet>
-        <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation</title>
+        <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad</title>
+
+        <meta
+          name="description"
+          content="Contact AVYRA to book a consultation for premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Call +91 968 968 4222."
+        />
+
+
+        <link rel="canonical" href="https://www.avyra.co.in/contact" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.avyra.co.in/contact" />
+        <meta
+          property="og:title"
+          content="Contact AVYRA | Premium SS 304 Kitchens & Wardrobes"
+        />
+        <meta
+          property="og:description"
+          content="Book a premium interior consultation with AVYRA for SS 304 stainless steel honeycomb kitchens and aluminium wardrobes."
+        />
+        <meta property="og:site_name" content="AVYRA" />
+        <meta
+          property="og:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        {/* ===============================
+      TWITTER
+  =============================== */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Contact AVYRA | Premium Interior Consultation"
+        />
+        <meta
+          name="twitter:description"
+          content="Speak with AVYRA experts for SS 304 stainless steel kitchens and aluminium wardrobes engineered for long-term durability."
+        />
+        <meta
+          name="twitter:image"
+          content="https://www.avyra.co.in/images/og-avyra.jpg"
+        />
+
+        {/* ===============================
+      STRUCTURED DATA
+  =============================== */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: "Contact AVYRA",
+            url: "https://www.avyra.co.in/contact",
+            mainEntity: {
+              "@type": "LocalBusiness",
+              name: "AVYRA",
+              url: "https://www.avyra.co.in",
+              logo: "https://www.avyra.co.in/images/logo.png",
+              description:
+                "Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes engineered for long-term durability.",
+              telephone: "+91-9689684222",
+              email: "info@avyra.co.in",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Hyderabad",
+                addressRegion: "Telangana",
+                addressCountry: "IN",
+              },
+              areaServed: [
+                "Hyderabad",
+                "Vijayawada",
+                "Telangana",
+                "Andhra Pradesh",
+                "South India",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-9689684222",
+                contactType: "Customer Consultation",
+              },
+            },
+          })}
+        </script>
       </Helmet>
 
       <Header />
 
-      <main className="flex-1 relative flex items-center justify-center pt-28 pb-16">
+      <main className="flex-1 relative flex items-center justify-center pt-28 md:pt-32 pb-12 md:pb-16">
+        {/* Background */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroKitchen})` }}
         >
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
+        {/* Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="relative z-10 w-full max-w-4xl mx-4 bg-charcoal/95 rounded-2xl shadow-2xl border border-border/30"
+          className="relative z-10 w-full max-w-4xl mx-4 bg-charcoal/95 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden border border-border/30"
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
-            {/* FORM */}
+            {/* Left: Form */}
             <div className="p-8 md:p-10">
-              <h1 className="text-3xl font-serif font-bold text-gold-gradient mb-8">
+              <h1 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-8">
                 Get In Touch
               </h1>
 
               <Form {...form}>
-                <form
-                  onSubmit={form.handleSubmit(onSubmit)}
-                  className="space-y-5"
-                >
-                  {/* NAME */}
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
                   <FormField
                     control={form.control}
                     name="name"
@@ -144,7 +218,6 @@ const Contact = () => {
                     )}
                   />
 
-                  {/* MOBILE */}
                   <FormField
                     control={form.control}
                     name="mobile"
@@ -152,11 +225,15 @@ const Contact = () => {
                       <FormItem>
                         <FormControl>
                           <Input
-                            type="tel"
+                            type="number"
                             placeholder="Mobile Number"
                             maxLength={10}
+                            onInput={(e) => {
+                              const target = e.target as HTMLInputElement;
+                              target.value = target.value.slice(0, 10);
+                            }}
                             {...field}
-                            className={`${inputClasses} h-12`}
+                            className={`${inputClasses} h-12 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none`}
                           />
                         </FormControl>
                         <FormMessage />
@@ -164,7 +241,6 @@ const Contact = () => {
                     )}
                   />
 
-                  {/* EMAIL */}
                   <FormField
                     control={form.control}
                     name="email"
@@ -183,37 +259,25 @@ const Contact = () => {
                     )}
                   />
 
-                  {/* SUBJECT – FIXED */}
                   <FormField
                     control={form.control}
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <Select
-                          value={field.value}
-                          onValueChange={field.onChange}
-                        >
+                        <Select onValueChange={field.onChange} value={field.value}>
                           <FormControl>
                             <SelectTrigger
-                              className={`${inputClasses} h-12`}
+                              className={`${inputClasses} h-12 data-[placeholder]:text-muted-foreground`}
                             >
                               <SelectValue placeholder="Select Subject" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="General Enquiry">
-                              General Enquiry
-                            </SelectItem>
-                            <SelectItem value="Design Consultation">
-                              Design Consultation
-                            </SelectItem>
-                            <SelectItem value="Service Request">
-                              Service Request
-                            </SelectItem>
-                            <SelectItem value="Business Collaboration">
-                              Business Collaboration
-                            </SelectItem>
-                            <SelectItem value="Other">Other</SelectItem>
+                          <SelectContent className="bg-[hsl(0_0%_12%)] border-border">
+                            <SelectItem value="general">General Enquiry</SelectItem>
+                            <SelectItem value="design">Design Consultation</SelectItem>
+                            <SelectItem value="service">Service Request</SelectItem>
+                            <SelectItem value="business">Business Collaboration</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -221,7 +285,6 @@ const Contact = () => {
                     )}
                   />
 
-                  {/* MESSAGE */}
                   <FormField
                     control={form.control}
                     name="message"
@@ -230,8 +293,8 @@ const Contact = () => {
                         <FormControl>
                           <Textarea
                             placeholder="We'd love to hear your ideas"
-                            rows={4}
                             {...field}
+                            rows={4}
                             className={`${inputClasses} resize-none`}
                           />
                         </FormControl>
@@ -243,44 +306,76 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={form.formState.isSubmitting}
-                    className="btn-primary-gold px-8 py-3"
+                    className="btn-primary-gold px-8 py-3 h-auto font-medium"
                   >
-                    {form.formState.isSubmitting
-                      ? "Submitting..."
-                      : "Submit"}
+                    {form.formState.isSubmitting ? "Submitting..." : "Submit"}
                   </Button>
                 </form>
               </Form>
             </div>
 
-            {/* INFO */}
-            <div className="p-8 md:p-10 bg-charcoal-light/50">
-              <h2 className="text-3xl font-serif font-bold text-gold-gradient mb-4">
+            {/* Right: Info */}
+            <div className="p-8 md:p-10 bg-charcoal-light/50 justify-center">
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-gold-gradient mb-4">
                 Stay Connected
               </h2>
 
-              <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                AVYRA is a premium interior brand specialising in SS 304 stainless steel modular kitchens and wardrobes. We serve homeowners across Telangana and Andhra Pradesh, delivering durable, hygienic, and zero-wood kitchen solutions built for Indian homes.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Transform your home with precision-crafted SS 304 kitchens and aluminium wardrobes. Book a consultation and experience design without compromise.
+              </p>
+
+              <div className="space-y-4 mb-8">
                 <a
                   href="tel:+919689684222"
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
                 >
                   <Phone className="w-5 h-5 text-primary" />
                   <span>+91 968 968 4222</span>
                 </a>
 
                 <a
-                  href="mailto:enquiry@avyra.co.in"
-                  className="flex items-center gap-3"
+                  href="mailto:support@avyra.co.in"
+                  className="flex items-center gap-3 hover:text-primary transition-colors"
                 >
                   <Mail className="w-5 h-5 text-primary" />
-                  <span>enquiry@avyra.co.in</span>
+                  <span>support@avyra.co.in</span>
                 </a>
               </div>
 
-              <div className="flex gap-4 mt-6">
-                <a href="https://www.instagram.com/avyra.living/" target="_blank">
-                  <Instagram />
+              {/* Social Links */}
+              <div className="flex items-center gap-4">
+                <a
+                  href="tel:+919689684222"
+                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
+                  aria-label="Call AVYRA for Premium Kitchen Consultation"
+                >
+                  <Phone className="w-5 h-5" />
                 </a>
+                <a
+                  href="https://www.instagram.com/avyra.living/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
+                  aria-label="AVYRA Instagram - SS 304 Kitchens & Wardrobes"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://wa.me/919689684222"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"
+                  aria-label="WhatsApp AVYRA for Stainless Steel Kitchen Enquiries"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                  </svg>
+                </a>
+
               </div>
             </div>
           </div>
