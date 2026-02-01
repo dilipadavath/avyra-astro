@@ -1,10 +1,10 @@
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import heroKitchen from "@/assets/hero-kitchen-1.jpg";
 import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
-import heroInterior from "@/assets/hero-kitchen-3.jpg";
 
 const categories = [
   {
@@ -21,9 +21,9 @@ const categories = [
   },
 ];
 
-const WhatWeCreateSection = () => {
+const WhatWeCreateSection = forwardRef<HTMLElement>((_, ref) => {
   return (
-    <section className="py-8 bg-background">
+    <section ref={ref} className="py-8 bg-background">
       <div className="container-premium">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,6 +53,8 @@ const WhatWeCreateSection = () => {
                   <img
                     src={category.image}
                     alt={category.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
@@ -75,6 +77,8 @@ const WhatWeCreateSection = () => {
       </div>
     </section>
   );
-};
+});
+
+WhatWeCreateSection.displayName = "WhatWeCreateSection";
 
 export default WhatWeCreateSection;

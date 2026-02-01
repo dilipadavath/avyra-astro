@@ -303,6 +303,8 @@ const Gallery = () => {
                     <img
                       src={image.src}
                       alt={image.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   </motion.div>
