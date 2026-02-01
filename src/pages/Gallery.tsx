@@ -44,6 +44,16 @@ import galleryWardrobe474 from "@/assets/gallery-wardrobe-474.jpg";
 import galleryWardrobe478 from "@/assets/gallery-wardrobe-478.jpg";
 import galleryWardrobe479 from "@/assets/gallery-wardrobe-479.jpg";
 import galleryWardrobe480 from "@/assets/gallery-wardrobe-480.jpg";
+import galleryWardrobe484 from "@/assets/gallery-wardrobe-484.jpg";
+import galleryWardrobe485 from "@/assets/gallery-wardrobe-485.jpg";
+import galleryWardrobe488 from "@/assets/gallery-wardrobe-488.jpg";
+import galleryWardrobe489 from "@/assets/gallery-wardrobe-489.jpg";
+import galleryWardrobe491 from "@/assets/gallery-wardrobe-491.jpg";
+import galleryWardrobe493 from "@/assets/gallery-wardrobe-493.jpg";
+import galleryWardrobe556 from "@/assets/gallery-wardrobe-556.jpg";
+import galleryWardrobe570 from "@/assets/gallery-wardrobe-570.jpg";
+import galleryWardrobe571 from "@/assets/gallery-wardrobe-571.jpg";
+import galleryWardrobe572 from "@/assets/gallery-wardrobe-572.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -129,6 +139,16 @@ const galleryImages = [
   { src: galleryWardrobe478, category: "Wardrobe", title: "Pull-Out Trouser Rack with Teal Finish" },
   { src: galleryWardrobe479, category: "Wardrobe", title: "Trouser & Belt Pull-Out Organiser" },
   { src: galleryWardrobe480, category: "Wardrobe", title: "Premium Teal Leather Hanging Rail" },
+  { src: galleryWardrobe484, category: "Wardrobe", title: "Teal Corner Valet with Trouser Hooks" },
+  { src: galleryWardrobe485, category: "Wardrobe", title: "Rotating Teal Shoe Carousel Rack" },
+  { src: galleryWardrobe488, category: "Wardrobe", title: "Teal Pull-Out Accessory Shelf Unit" },
+  { src: galleryWardrobe489, category: "Wardrobe", title: "Teal Leather Shelving with Drawer System" },
+  { src: galleryWardrobe491, category: "Wardrobe", title: "Higold Smart Lock Jewellery Drawer" },
+  { src: galleryWardrobe493, category: "Wardrobe", title: "Teal Jewellery & Accessory Organiser System" },
+  { src: galleryWardrobe556, category: "Wardrobe", title: "Premium Trouser Pull-Out Rack" },
+  { src: galleryWardrobe570, category: "Wardrobe", title: "Luxury Full Walk-in Closet with LED" },
+  { src: galleryWardrobe571, category: "Wardrobe", title: "Brown Leather Accessory Tray & Hangers" },
+  { src: galleryWardrobe572, category: "Wardrobe", title: "Brown Leather Tie & Accessory Drawer" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
