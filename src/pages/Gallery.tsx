@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GalleryHero from "@/components/gallery/GalleryHero";
@@ -165,12 +166,24 @@ const Gallery = () => {
   const categoryParam = searchParams.get("category");
   const initialCategory = categoryParam && categories.includes(categoryParam) ? categoryParam : "Kitchen";
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedImage, setSelectedImage] = useState<{ src: string; title: string } | null>(null);
 
   useEffect(() => {
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
     }
   }, [categoryParam]);
+
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage]);
 
   const filteredImages = galleryImages.filter(img => img.category === selectedCategory);
 
@@ -294,14 +307,15 @@ const Gallery = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
-                    className="relative aspect-[4/3] overflow-hidden rounded-lg"
+                    className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
+                    onClick={() => setSelectedImage({ src: image.src, title: image.title })}
                   >
                     <img
                       src={image.src}
                       alt={image.title}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </motion.div>
                 ))}
@@ -310,6 +324,36 @@ const Gallery = () => {
           </div>
         </section>
       </main>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 p-2 text-white hover:text-primary transition-colors z-10"
+              aria-label="Close lightbox"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              src={selectedImage.src}
+              alt={selectedImage.title}
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>
