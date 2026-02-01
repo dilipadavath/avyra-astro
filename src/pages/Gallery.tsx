@@ -5,8 +5,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GalleryHero from "@/components/gallery/GalleryHero";
 
-import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
 import galleryKitchen2 from "@/assets/gallery-kitchen-2.jpg";
+import galleryWardrobe3 from "@/assets/gallery-wardrobe-3.jpg";
+import galleryWardrobe4 from "@/assets/gallery-wardrobe-4.jpg";
+import galleryWardrobe5 from "@/assets/gallery-wardrobe-5.jpg";
+import galleryWardrobe6 from "@/assets/gallery-wardrobe-6.jpg";
+import galleryWardrobe7 from "@/assets/gallery-wardrobe-7.jpg";
+import galleryWardrobe8 from "@/assets/gallery-wardrobe-8.jpg";
+import galleryWardrobe9 from "@/assets/gallery-wardrobe-9.jpg";
+import galleryWardrobe10 from "@/assets/gallery-wardrobe-10.jpg";
+import galleryWardrobe12 from "@/assets/gallery-wardrobe-12.jpg";
 import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
 import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
@@ -31,7 +39,6 @@ import galleryKitchenPlateCutlery from "@/assets/gallery-kitchen-plate-cutlery.j
 import galleryKitchenElegantStorage from "@/assets/gallery-kitchen-elegant-storage.jpg";
 
 const galleryImages = [
-  { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
   { src: galleryKitchen2, category: "Kitchen", title: "Professional SS 304 Kitchen with Island" },
   { src: galleryKitchen3, category: "Kitchen", title: "Luxury Marble & Glass Kitchen Design" },
   { src: galleryKitchen4, category: "Kitchen", title: "Contemporary Kitchen with Wine Storage" },
@@ -55,6 +62,15 @@ const galleryImages = [
   { src: galleryKitchenDrawerAppliance, category: "Kitchen", title: "Appliance & Bakeware Drawer Organiser" },
   { src: galleryKitchenPlateCutlery, category: "Kitchen", title: "Complete Plate & Cutlery Organiser" },
   { src: galleryKitchenElegantStorage, category: "Kitchen", title: "Effortless Access Elegant Storage" },
+  { src: galleryWardrobe3, category: "Wardrobe", title: "Modern Grey Hinged Wardrobe with Fluted Panels" },
+  { src: galleryWardrobe4, category: "Wardrobe", title: "Elegant Built-in Wardrobe with Open Shelving" },
+  { src: galleryWardrobe5, category: "Wardrobe", title: "Luxury Walk-in Closet with Glass Display" },
+  { src: galleryWardrobe6, category: "Wardrobe", title: "Premium Walk-in with Golden Accents" },
+  { src: galleryWardrobe7, category: "Wardrobe", title: "Teal Leather Finish Hinged Wardrobe" },
+  { src: galleryWardrobe8, category: "Wardrobe", title: "White & Gold Walk-in with Island" },
+  { src: galleryWardrobe9, category: "Wardrobe", title: "Teal Sliding Door Walk-in Closet" },
+  { src: galleryWardrobe10, category: "Wardrobe", title: "Sage Green Walk-in with Vanity Island" },
+  { src: galleryWardrobe12, category: "Wardrobe", title: "Diamond Pattern Blue Hinged Wardrobe" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
