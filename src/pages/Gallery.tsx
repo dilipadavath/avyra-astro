@@ -9,14 +9,24 @@ import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
 import heroKitchen4 from "@/assets/hero-kitchen-4.jpg";
 import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
-import heroInterior from "@/assets/hero-interior-5.jpg";
+import galleryKitchen2 from "@/assets/gallery-kitchen-2.jpg";
+import galleryKitchen3 from "@/assets/gallery-kitchen-3.jpg";
+import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
+import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
+import galleryKitchenPullout from "@/assets/gallery-kitchen-pullout.jpg";
+import galleryKitchenPantry from "@/assets/gallery-kitchen-pantry.jpg";
 
 const galleryImages = [
   { src: heroKitchen1, category: "Kitchen", title: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
   { src: heroKitchen3, category: "Kitchen", title: "SS 304 Honeycomb Kitchen Design Vijayawada" },
   { src: heroKitchen4, category: "Kitchen", title: "Premium Aluminium Modular Kitchen South India" },
-  { src: heroKitchen1, category: "Kitchen", title: "Contemporary SS 304 Kitchen Hyderabad" },
+  { src: galleryKitchen2, category: "Kitchen", title: "Professional SS 304 Kitchen with Island" },
+  { src: galleryKitchen3, category: "Kitchen", title: "Luxury Marble & Glass Kitchen Design" },
+  { src: galleryKitchen4, category: "Kitchen", title: "Contemporary Kitchen with Wine Storage" },
+  { src: galleryKitchenDrawer, category: "Kitchen", title: "Premium Plate Drawer Organiser System" },
+  { src: galleryKitchenPullout, category: "Kitchen", title: "Higold Pull-Out Drawer System" },
+  { src: galleryKitchenPantry, category: "Kitchen", title: "Tall Pull-Out Pantry Unit" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
