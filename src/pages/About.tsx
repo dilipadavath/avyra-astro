@@ -9,6 +9,10 @@ import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
 import aboutTeamMeeting from "@/assets/about-team-meeting.jpg";
 import aboutEngineering from "@/assets/about-engineering.jpg";
 import aboutClientTrust from "@/assets/about-client-trust.jpg";
+import aboutQualityControl from "@/assets/about-quality-control.jpg";
+import aboutCustomization from "@/assets/about-customization.jpg";
+import aboutIndianKitchen from "@/assets/about-indian-kitchen.jpg";
+import aboutVision from "@/assets/about-vision.jpg";
 
 const About = () => {
   return (
@@ -402,190 +406,237 @@ const About = () => {
         {/* Quality Section */}
         <section className="py-8 bg-card relative">
           <div className="container-premium">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
-                Quality Without Compromise
-              </h2>
-              <p className="text-foreground/70 leading-relaxed text-lg max-w-3xl mx-auto">
-                Quality is not an add-on at AVYRA — it is the foundation. Every product and project goes through strict quality checks.
-              </p>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
+                  Quality Without Compromise
+                </h2>
+                <p className="text-foreground/70 leading-relaxed text-lg mb-6">
+                  Quality is not an add-on at AVYRA — it is the foundation. Every product and project goes through strict quality checks.
+                </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {[
-                { icon: Wrench, title: "Precision Fabrication" },
-                { icon: Sparkles, title: "Smooth Finishes" },
-                { icon: Target, title: "Perfect Alignment" },
-                { icon: Shield, title: "Durable Fittings" },
-                { icon: Award, title: "Flawless Installation" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass-dark p-6 rounded-xl border border-primary/20 text-center"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-foreground font-semibold text-sm">{item.title}</h3>
-                </motion.div>
-              ))}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {[
+                    { icon: Wrench, title: "Precision Fabrication" },
+                    { icon: Sparkles, title: "Smooth Finishes" },
+                    { icon: Target, title: "Perfect Alignment" },
+                    { icon: Shield, title: "Durable Fittings" },
+                    { icon: Award, title: "Flawless Installation" },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-center gap-2"
+                    >
+                      <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/70 text-sm">{item.title}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <p className="text-foreground/70 italic">
+                  AVYRA sources premium-grade materials and works with advanced manufacturing techniques to ensure consistency across projects. This attention to detail ensures that AVYRA interiors age gracefully, retaining both strength and beauty over time.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                  <img 
+                    src={aboutQualityControl} 
+                    alt="AVYRA Quality Control Process" 
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                </div>
+                <div className="absolute -top-3 -right-3 w-20 h-20 border-t-2 border-r-2 border-primary/40" />
+                <div className="absolute -bottom-3 -left-3 w-20 h-20 border-b-2 border-l-2 border-primary/40" />
+              </motion.div>
             </div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center text-foreground/70 text-lg max-w-3xl mx-auto mt-10 italic"
-            >
-              AVYRA sources premium-grade materials and works with advanced manufacturing techniques to ensure consistency across projects. This attention to detail ensures that AVYRA interiors age gracefully, retaining both strength and beauty over time.
-            </motion.p>
           </div>
         </section>
 
         {/* Customization Section */}
         <section className="py-8 relative">
           <div className="container-premium">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
-                Customization as a Standard
-              </h2>
-              <p className="text-foreground/70 leading-relaxed text-lg max-w-3xl mx-auto">
-                No two homes are the same — and AVYRA treats customization not as a luxury, but as a standard offering.
-              </p>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                  <img 
+                    src={aboutCustomization} 
+                    alt="AVYRA Customization Options" 
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
+                  Customization as a Standard
+                </h2>
+                <p className="text-foreground/70 leading-relaxed text-lg mb-6">
+                  No two homes are the same — and AVYRA treats customization not as a luxury, but as a standard offering.
+                </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                "Layouts",
-                "Finishes",
-                "Storage Modules",
-                "Hardware Options",
-                "Accessories",
-                "Functional Add-ons",
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.05 }}
-                  className="flex items-center gap-3 bg-card p-4 rounded-lg border border-border/30"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground font-medium">{item}</span>
-                </motion.div>
-              ))}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {[
+                    "Layouts",
+                    "Finishes",
+                    "Storage Modules",
+                    "Hardware Options",
+                    "Accessories",
+                    "Functional Add-ons",
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-center gap-2"
+                    >
+                      <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/70 text-sm">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <p className="text-foreground/70 italic">
+                  AVYRA's design team collaborates closely with clients to translate ideas into practical, elegant solutions that fit both lifestyle and budget.
+                </p>
+              </motion.div>
             </div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center text-foreground/70 text-lg max-w-3xl mx-auto mt-10"
-            >
-              AVYRA's design team collaborates closely with clients to translate ideas into practical, elegant solutions that fit both lifestyle and budget.
-            </motion.p>
           </div>
         </section>
 
         {/* Indian Conditions Section */}
         <section className="py-8 bg-card relative">
           <div className="container-premium">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
-                Designed for Indian Conditions
-              </h2>
-              <p className="text-foreground/70 leading-relaxed text-lg max-w-3xl mx-auto">
-                Many interior solutions fail because they are not designed for Indian environmental conditions. AVYRA takes this seriously.
-              </p>
-            </motion.div>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
+                  Designed for Indian Conditions
+                </h2>
+                <p className="text-foreground/70 leading-relaxed text-lg mb-6">
+                  Many interior solutions fail because they are not designed for Indian environmental conditions. AVYRA takes this seriously.
+                </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {[
-                { icon: Droplets, title: "High Humidity" },
-                { icon: Sparkles, title: "Temperature Variations" },
-                { icon: Wrench, title: "Heavy Daily Usage" },
-                { icon: Home, title: "Indian Cooking Styles" },
-                { icon: Shield, title: "Long-term Durability" },
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass-dark p-6 rounded-xl border border-border/30 text-center"
-                >
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <item.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-foreground font-semibold text-sm">{item.title}</h3>
-                </motion.div>
-              ))}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  {[
+                    { icon: Droplets, title: "High Humidity" },
+                    { icon: Sparkles, title: "Temperature Variations" },
+                    { icon: Wrench, title: "Heavy Daily Usage" },
+                    { icon: Home, title: "Indian Cooking Styles" },
+                    { icon: Shield, title: "Long-term Durability" },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className="flex items-center gap-2"
+                    >
+                      <item.icon className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-foreground/70 text-sm">{item.title}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <p className="text-foreground/70 italic">
+                  This is why AVYRA emphasizes <span className="text-primary font-semibold">stainless steel and aluminium solutions</span> that outperform traditional materials and ensure hygiene, safety, and strength.
+                </p>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                  <img 
+                    src={aboutIndianKitchen} 
+                    alt="Modern Indian Kitchen Design" 
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                </div>
+              </motion.div>
             </div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-center text-foreground/70 text-lg max-w-3xl mx-auto mt-10"
-            >
-              This is why AVYRA emphasizes <span className="text-primary font-semibold">stainless steel and aluminium solutions</span> that outperform traditional materials and ensure hygiene, safety, and strength.
-            </motion.p>
           </div>
         </section>
 
         {/* Vision Section */}
         <section className="py-8 relative">
           <div className="container-premium">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Eye className="w-6 h-6 text-primary" />
-                </div>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gold-gradient mb-6">
-                A Vision for the Future
-              </h2>
-              <p className="text-foreground/70 leading-relaxed text-lg mb-6">
-                AVYRA is continuously evolving. The brand invests in innovation, research, and design development to stay ahead of industry trends while staying true to its core values.
-              </p>
-              <p className="text-foreground/70 leading-relaxed text-lg mb-8">
-                The long-term vision is to become a trusted name in premium, engineered living spaces across India — known for integrity, quality, and thoughtful design.
-              </p>
-              <motion.p
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="text-2xl font-serif text-primary italic"
               >
-                "AVYRA does not chase volume. It focuses on excellence."
-              </motion.p>
-            </motion.div>
+                <div className="relative rounded-xl overflow-hidden border border-primary/20">
+                  <img 
+                    src={aboutVision} 
+                    alt="AVYRA Vision for the Future" 
+                    className="w-full h-[400px] object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Eye className="w-6 h-6 text-primary" />
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-gold-gradient">
+                    A Vision for the Future
+                  </h2>
+                </div>
+                <p className="text-foreground/70 leading-relaxed text-lg mb-6">
+                  AVYRA is continuously evolving. The brand invests in innovation, research, and design development to stay ahead of industry trends while staying true to its core values.
+                </p>
+                <p className="text-foreground/70 leading-relaxed text-lg mb-8">
+                  The long-term vision is to become a trusted name in premium, engineered living spaces across India — known for integrity, quality, and thoughtful design.
+                </p>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="text-xl font-serif text-primary italic"
+                >
+                  "AVYRA does not chase volume. It focuses on excellence."
+                </motion.p>
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>
