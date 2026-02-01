@@ -12,6 +12,16 @@ import galleryKitchen4 from "@/assets/gallery-kitchen-4.jpg";
 import galleryKitchenDrawer from "@/assets/gallery-kitchen-drawer.jpg";
 import galleryKitchenPullout from "@/assets/gallery-kitchen-pullout.jpg";
 import galleryKitchenPantry from "@/assets/gallery-kitchen-pantry.jpg";
+import galleryKitchen325 from "@/assets/gallery-kitchen-325.jpg";
+import galleryKitchen336 from "@/assets/gallery-kitchen-336.jpg";
+import galleryKitchen342 from "@/assets/gallery-kitchen-342.jpg";
+import galleryKitchen348 from "@/assets/gallery-kitchen-348.jpg";
+import galleryKitchen350 from "@/assets/gallery-kitchen-350.jpg";
+import galleryKitchen353 from "@/assets/gallery-kitchen-353.png";
+import galleryKitchen371 from "@/assets/gallery-kitchen-371.jpg";
+import galleryKitchen381 from "@/assets/gallery-kitchen-381.jpg";
+import galleryKitchen393 from "@/assets/gallery-kitchen-393.jpg";
+import galleryKitchen403 from "@/assets/gallery-kitchen-403.jpg";
 
 const galleryImages = [
   { src: heroWardrobe, category: "Wardrobe", title: "Premium Aluminium Walk-in Wardrobe Telangana" },
@@ -21,6 +31,16 @@ const galleryImages = [
   { src: galleryKitchenDrawer, category: "Kitchen", title: "Premium Plate Drawer Organiser System" },
   { src: galleryKitchenPullout, category: "Kitchen", title: "Higold Pull-Out Drawer System" },
   { src: galleryKitchenPantry, category: "Kitchen", title: "Tall Pull-Out Pantry Unit" },
+  { src: galleryKitchen325, category: "Kitchen", title: "Corner Cabinet Pull-Out Storage" },
+  { src: galleryKitchen336, category: "Kitchen", title: "Modern Kitchen with Pull-Out Pantry Units" },
+  { src: galleryKitchen342, category: "Kitchen", title: "Higold Pull-Down Dish Rack System" },
+  { src: galleryKitchen348, category: "Kitchen", title: "Corner Carousel Storage Solution" },
+  { src: galleryKitchen350, category: "Kitchen", title: "Corner Pull-Out Cabinet Organiser" },
+  { src: galleryKitchen353, category: "Kitchen", title: "Multi-Tier Pull-Out Storage System" },
+  { src: galleryKitchen371, category: "Kitchen", title: "Premium Cutlery Drawer Organiser" },
+  { src: galleryKitchen381, category: "Kitchen", title: "Lift-Up Overhead Storage Unit" },
+  { src: galleryKitchen393, category: "Kitchen", title: "Pull-Down Spice & Bottle Rack" },
+  { src: galleryKitchen403, category: "Kitchen", title: "Wall-Mounted Modular Storage System" },
 ];
 
 const categories = ["Kitchen", "Wardrobe"];
