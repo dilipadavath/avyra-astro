@@ -20,7 +20,7 @@ const Index = () => {
 
         <meta
           name="description"
-          content="AVYRA specializes in premium SS 304 stainless steel honeycomb kitchens, aluminium modular kitchens and wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Durable, rust-proof interiors built to last."
+          content="Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Durable, rust-proof interior solutions by AVYRA."
         />
 
         <meta

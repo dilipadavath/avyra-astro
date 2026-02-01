@@ -67,7 +67,7 @@ const Wardrobes = () => {
       <Helmet>
         {/* PRIMARY SEO */}
         <title>
-          Premium Stainless Steel & Aluminium Wardrobes in Hyderabad | Custom Wardrobe Manufacturers | AVYRA
+         AVYRA | Stainless Steel & Aluminium Wardrobes in Hyderabad
         </title>
         <meta
           name="description"

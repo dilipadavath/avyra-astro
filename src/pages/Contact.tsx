@@ -79,13 +79,14 @@ const Contact = () => {
 
       <Helmet>
         <title>
-          Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad
+         <title>Contact AVYRA | SS 304 Kitchen & Wardrobe Consultation in Hyderabad</title>
         </title>
 
         <meta
           name="description"
           content="Contact AVYRA to book a consultation for premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Call +91 968 968 4222."
         />
+
 
         <link rel="canonical" href="https://www.avyra.co.in/contact" />
 

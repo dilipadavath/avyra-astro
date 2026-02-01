@@ -17,7 +17,7 @@ const Kitchen = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Rich marble/granite texture background - matching About page */}
-      <div 
+      <div
         className="fixed inset-0 pointer-events-none"
         style={{
           background: `
@@ -29,9 +29,9 @@ const Kitchen = () => {
           `
         }}
       />
-      
+
       {/* Marble veining texture overlay */}
-      <div 
+      <div
         className="fixed inset-0 opacity-50 pointer-events-none"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='marble'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='6' seed='15' stitchTiles='stitch'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='100'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble)' fill='%23201510'/%3E%3C/svg%3E")`,
@@ -39,9 +39,9 @@ const Kitchen = () => {
           mixBlendMode: 'overlay'
         }}
       />
-      
+
       {/* Gold dust particles effect */}
-      <div 
+      <div
         className="fixed inset-0 opacity-35 pointer-events-none"
         style={{
           backgroundImage: `
@@ -59,14 +59,14 @@ const Kitchen = () => {
           backgroundSize: '500px 500px'
         }}
       />
-      
+
       {/* Sweeping gold light streaks */}
       <div className="fixed top-[10%] -left-20 w-[70%] h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -rotate-12 blur-[2px] pointer-events-none" />
       <div className="fixed top-[25%] -right-20 w-[55%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/40 to-transparent transform rotate-8 blur-[1px] pointer-events-none" />
       <div className="fixed top-[45%] -left-10 w-[45%] h-[1px] bg-gradient-to-r from-transparent via-primary/35 to-transparent transform -rotate-5 pointer-events-none" />
       <div className="fixed top-[65%] -right-10 w-[40%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/45 to-transparent transform rotate-10 blur-[1px] pointer-events-none" />
       <div className="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
-      
+
       <Helmet>
         {/* PRIMARY SEO */}
         <title>
@@ -74,7 +74,7 @@ const Kitchen = () => {
         </title>
         <meta
           name="description"
-          content="AVYRA manufactures premium SS 304 & SS 316 stainless steel honeycomb kitchens and aluminium modular kitchens in Hyderabad, Telangana, Andhra Pradesh & South India. Rust-proof, termite-proof, hygienic kitchens built for Indian homes."
+          content="AVYRA manufactures premium SS 304 stainless steel honeycomb kitchens and aluminium modular kitchens in Hyderabad, Telangana & South India. Hygienic, rust-proof kitchens built for Indian homes."
         />
         <meta
           name="keywords"
@@ -148,7 +148,7 @@ const Kitchen = () => {
       </Helmet>
 
       <Header />
-      
+
       <main className="relative z-10">
         <KitchenHero />
         <KitchenIntro />
