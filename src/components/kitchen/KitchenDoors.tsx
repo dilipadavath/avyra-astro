@@ -1,17 +1,10 @@
 import { motion } from "framer-motion";
 import { DoorOpen, Gem, GlassWater, Frame, Paintbrush } from "lucide-react";
 
-// Import images
-import kitchenSinteredStone from "@/assets/kitchen-sintered-stone.jpg";
-import kitchenGlassDoors from "@/assets/kitchen-glass-doors.jpg";
-import kitchenAluminiumGlass from "@/assets/kitchen-aluminium-glass.jpg";
-import kitchenPowderCoated from "@/assets/kitchen-powder-coated.jpg";
-
 const doorOptions = [
   {
     icon: Gem,
     title: "Sintered Stone Doors",
-    image: kitchenSinteredStone,
     features: [
       "Highly durable and scratch-resistant",
       "Resistant to heat, stains, and moisture",
@@ -22,7 +15,6 @@ const doorOptions = [
   {
     icon: GlassWater,
     title: "Glass Doors",
-    image: kitchenGlassDoors,
     features: [
       "Lacquered Glass",
       "Clear Glass",
@@ -34,7 +26,6 @@ const doorOptions = [
   {
     icon: Frame,
     title: "Glass with Aluminium Frame",
-    image: kitchenAluminiumGlass,
     features: [
       "Perfect balance of strength and sophistication",
       "Slim aluminium profiles with premium glass panels",
@@ -44,7 +35,6 @@ const doorOptions = [
   {
     icon: Paintbrush,
     title: "Powder-Coated Metal Finishes",
-    image: kitchenPowderCoated,
     features: [
       "Industrial yet refined look",
       "High durability and scratch resistance",
@@ -61,7 +51,7 @@ const KitchenDoors = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10"
+          className="text-center mb-6"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <DoorOpen className="w-8 h-8 text-primary" />
@@ -83,42 +73,29 @@ const KitchenDoors = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="glass-dark rounded-xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden"
+              className="glass-dark p-8 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
             >
-              {/* Image Section */}
-              <div className="relative h-48 overflow-hidden">
-                <img 
-                  src={option.image} 
-                  alt={option.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/30 backdrop-blur-sm flex items-center justify-center">
-                    <option.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-display font-bold text-foreground">
-                    {option.title}
-                  </h3>
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                  <option.icon className="w-6 h-6 text-primary" />
                 </div>
+                <h3 className="text-xl font-display font-bold text-foreground">
+                  {option.title}
+                </h3>
               </div>
-              
-              {/* Content Section */}
-              <div className="p-6">
-                <ul className="space-y-2">
-                  {option.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3 text-foreground/70 text-sm">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                {option.description && (
-                  <p className="text-foreground/60 mt-4 text-sm italic">
-                    {option.description}
-                  </p>
-                )}
-              </div>
+              <ul className="space-y-2">
+                {option.features.map((feature, fIndex) => (
+                  <li key={fIndex} className="flex items-center gap-3 text-foreground/70">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              {option.description && (
+                <p className="text-foreground/60 mt-4 text-sm italic">
+                  {option.description}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>
