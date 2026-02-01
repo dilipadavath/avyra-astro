@@ -17,6 +17,8 @@ import {
   Scale,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import stainlessSteelImg from "@/assets/material-stainless-steel.jpg";
+import aluminiumImg from "@/assets/material-aluminium.jpg";
 
 interface Benefit {
   icon: LucideIcon;
@@ -44,7 +46,7 @@ const benefits: Benefit[] = [
 
 const MaterialsSection = () => {
   return (
-    <section className="py-8 bg-charcoal">
+    <section className="py-12 bg-charcoal">
       <div className="container-premium">
         {/* Header */}
         <motion.div
@@ -52,7 +54,7 @@ const MaterialsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-5"
+          className="text-center mb-8"
         >
           <h2 className="heading-subsection text-gold-gradient mb-2">
             Materials That Define Durability
@@ -61,6 +63,53 @@ const MaterialsSection = () => {
             Built with Stainless Steel & Aluminium
           </p>
         </motion.div>
+
+        {/* Material Images */}
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative group"
+          >
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-48">
+              <img 
+                src={stainlessSteelImg} 
+                alt="Premium brushed stainless steel surface" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="text-primary font-semibold text-lg">Stainless Steel</span>
+                <p className="text-foreground/70 text-sm">Durable, hygienic, and timeless</p>
+              </div>
+            </div>
+            <div className="absolute -top-2 -left-2 w-12 h-12 border-t-2 border-l-2 border-primary/40" />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative group"
+          >
+            <div className="relative rounded-xl overflow-hidden border border-primary/20 h-48">
+              <img 
+                src={aluminiumImg} 
+                alt="Premium anodized aluminium surface" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4">
+                <span className="text-primary font-semibold text-lg">Aluminium</span>
+                <p className="text-foreground/70 text-sm">Lightweight, strong, and versatile</p>
+              </div>
+            </div>
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 border-b-2 border-r-2 border-primary/40" />
+          </motion.div>
+        </div>
 
         {/* Benefits Grid with Icons */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
