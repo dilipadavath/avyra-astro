@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { Award, Shield, Wrench, Palette, Clock, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
+import kitchenValueImg from "@/assets/kitchen-value.jpg";
+import kitchenPromiseImg from "@/assets/kitchen-promise.jpg";
 
 const promisePoints = [
   { icon: Shield, text: "Structural integrity" },
@@ -27,7 +29,7 @@ const KitchenPromise = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center mb-8"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
               <TrendingUp className="w-8 h-8 text-primary" />
@@ -36,29 +38,53 @@ const KitchenPromise = () => {
               </h2>
             </div>
             
-            <p className="text-foreground/70 mb-8 text-lg">
+            <p className="text-foreground/70 mb-8 text-lg max-w-3xl mx-auto">
               AVYRA kitchens are priced competitively compared to other premium brands, while offering:
             </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              {valuePoints.map((point, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-card p-4 rounded-lg border border-border/30"
-                >
-                  <span className="text-foreground/80 text-sm">{point}</span>
-                </motion.div>
-              ))}
-            </div>
-            
-            <p className="text-primary font-semibold">
-              The focus is always on value over time, not short-term pricing.
-            </p>
           </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative h-72 rounded-xl overflow-hidden group"
+            >
+              <img 
+                src={kitchenValueImg} 
+                alt="Premium kitchen showroom"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-background/60 to-transparent" />
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="grid grid-cols-2 gap-4 mb-8">
+                {valuePoints.map((point, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-card p-4 rounded-lg border border-border/30 hover:border-primary/30 transition-colors"
+                  >
+                    <span className="text-foreground/80 text-sm">{point}</span>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <p className="text-primary font-semibold text-lg">
+                The focus is always on value over time, not short-term pricing.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -73,7 +99,7 @@ const KitchenPromise = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center max-w-4xl mx-auto"
+            className="text-center mb-8"
           >
             <div className="flex items-center justify-center gap-3 mb-6">
               <Award className="w-10 h-10 text-primary" />
@@ -82,11 +108,14 @@ const KitchenPromise = () => {
               </h2>
             </div>
             
-            <p className="text-foreground/70 mb-10 text-lg">
+            <p className="text-foreground/70 mb-8 text-lg">
               Every AVYRA kitchen represents:
             </p>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+          </motion.div>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-center mb-10">
+            {/* Promise Points */}
+            <div className="grid grid-cols-2 gap-6">
               {promisePoints.map((point, index) => (
                 <motion.div
                   key={index}
@@ -94,16 +123,38 @@ const KitchenPromise = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex flex-col items-center gap-4"
+                  className="flex flex-col items-center gap-4 p-4"
                 >
                   <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center">
                     <point.icon className="w-8 h-8 text-primary" />
                   </div>
-                  <span className="text-foreground font-semibold text-sm">{point.text}</span>
+                  <span className="text-foreground font-semibold text-sm text-center">{point.text}</span>
                 </motion.div>
               ))}
             </div>
-            
+
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative h-72 rounded-xl overflow-hidden group"
+            >
+              <img 
+                src={kitchenPromiseImg} 
+                alt="Family enjoying their AVYRA kitchen"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-l from-background/60 to-transparent" />
+            </motion.div>
+          </div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
             <p className="text-xl text-foreground/80 font-serif italic mb-10">
               It is a kitchen designed not just for today, but for years of everyday living.
             </p>

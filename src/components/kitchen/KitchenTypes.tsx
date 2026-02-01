@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Box, CheckCircle } from "lucide-react";
+import stainlessSteelImg from "@/assets/kitchen-stainless-steel.jpg";
+import aluminiumImg from "@/assets/kitchen-aluminium.jpg";
 
 const stainlessSteelBestFor = [
   "Maximum durability",
@@ -41,36 +43,48 @@ const KitchenTypes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="glass-dark p-8 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
+            className="glass-dark rounded-xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                <Shield className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-display font-bold text-foreground">
-                  Stainless Steel Kitchens
-                </h3>
-                <p className="text-primary text-sm">Maximum Strength & Durability</p>
-              </div>
+            {/* Image */}
+            <div className="relative h-48 overflow-hidden group">
+              <img 
+                src={stainlessSteelImg} 
+                alt="Stainless steel kitchen interior"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             
-            <p className="text-foreground/70 mb-6">Best for:</p>
-            <ul className="space-y-3">
-              {stainlessSteelBestFor.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 + index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground/80">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Shield className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold text-foreground">
+                    Stainless Steel Kitchens
+                  </h3>
+                  <p className="text-primary text-sm">Maximum Strength & Durability</p>
+                </div>
+              </div>
+              
+              <p className="text-foreground/70 mb-6">Best for:</p>
+              <ul className="space-y-3">
+                {stainlessSteelBestFor.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground/80">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
 
           {/* Aluminium */}
@@ -79,36 +93,48 @@ const KitchenTypes = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-dark p-8 rounded-xl border border-border/30 hover:border-primary/30 transition-colors"
+            className="glass-dark rounded-xl border border-border/30 hover:border-primary/30 transition-colors overflow-hidden"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
-                <Box className="w-7 h-7 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-display font-bold text-foreground">
-                  Aluminium Kitchens
-                </h3>
-                <p className="text-primary text-sm">Modern & Contemporary</p>
-              </div>
+            {/* Image */}
+            <div className="relative h-48 overflow-hidden group">
+              <img 
+                src={aluminiumImg} 
+                alt="Modern aluminium kitchen interior"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
             
-            <p className="text-foreground/70 mb-6">Best for:</p>
-            <ul className="space-y-3">
-              {aluminiumBestFor.map((item, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-foreground/80">{item}</span>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
+                  <Box className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-display font-bold text-foreground">
+                    Aluminium Kitchens
+                  </h3>
+                  <p className="text-primary text-sm">Modern & Contemporary</p>
+                </div>
+              </div>
+              
+              <p className="text-foreground/70 mb-6">Best for:</p>
+              <ul className="space-y-3">
+                {aluminiumBestFor.map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 + index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="text-foreground/80">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </motion.div>
         </div>
 

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { Scale, X, CheckCircle, AlertTriangle, Award } from "lucide-react";
+import conventionalDamageImg from "@/assets/kitchen-conventional-damage.jpg";
+import avyraPremiumImg from "@/assets/kitchen-avyra-premium.jpg";
 
 const conventionalMaterials = [
   "MDF or particle board carcass",
@@ -50,32 +52,47 @@ const KitchenComparison = () => {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-dark p-8 rounded-xl border border-destructive/30"
+            className="glass-dark rounded-xl border border-destructive/30 overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <AlertTriangle className="w-6 h-6 text-destructive" />
-              <h3 className="text-xl font-display font-bold text-foreground">
-                What Most Brands Use
-              </h3>
+            {/* Image */}
+            <div className="relative h-48 overflow-hidden group">
+              <img 
+                src={conventionalDamageImg} 
+                alt="Damaged conventional MDF kitchen cabinet"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="text-destructive/80 text-sm font-medium">Common issues with conventional materials</span>
+              </div>
             </div>
             
-            <ul className="space-y-3 mb-6">
-              {conventionalMaterials.map((material, index) => (
-                <li key={index} className="flex items-center gap-3">
-                  <X className="w-4 h-4 text-destructive flex-shrink-0" />
-                  <span className="text-foreground/70">{material}</span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="bg-destructive/10 p-4 rounded-lg border border-destructive/20">
-              <p className="text-foreground/70 text-sm mb-2">
-                These materials may look good initially but degrade over time due to:
-              </p>
-              <div className="grid grid-cols-2 gap-2">
-                {conventionalIssues.map((issue, index) => (
-                  <span key={index} className="text-destructive/80 text-sm">• {issue}</span>
+            <div className="p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <AlertTriangle className="w-6 h-6 text-destructive" />
+                <h3 className="text-xl font-display font-bold text-foreground">
+                  What Most Brands Use
+                </h3>
+              </div>
+              
+              <ul className="space-y-3 mb-6">
+                {conventionalMaterials.map((material, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <X className="w-4 h-4 text-destructive flex-shrink-0" />
+                    <span className="text-foreground/70">{material}</span>
+                  </li>
                 ))}
+              </ul>
+
+              <div className="bg-destructive/10 p-4 rounded-lg border border-destructive/20">
+                <p className="text-foreground/70 text-sm mb-2">
+                  These materials may look good initially but degrade over time due to:
+                </p>
+                <div className="grid grid-cols-2 gap-2">
+                  {conventionalIssues.map((issue, index) => (
+                    <span key={index} className="text-destructive/80 text-sm">• {issue}</span>
+                  ))}
+                </div>
               </div>
             </div>
           </motion.div>
@@ -85,35 +102,50 @@ const KitchenComparison = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-dark p-8 rounded-xl border border-primary/30"
+            className="glass-dark rounded-xl border border-primary/30 overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <Award className="w-6 h-6 text-primary" />
-              <h3 className="text-xl font-display font-bold text-gold-gradient">
-                What AVYRA Uses
-              </h3>
+            {/* Image */}
+            <div className="relative h-48 overflow-hidden group">
+              <img 
+                src={avyraPremiumImg} 
+                alt="Premium AVYRA stainless steel kitchen"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="text-primary text-sm font-medium">AVYRA premium stainless steel construction</span>
+              </div>
             </div>
             
-            <ul className="space-y-3">
-              {avyraMaterials.map((material, index) => (
-                <motion.li
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                  <span className="text-foreground/80">{material}</span>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <Award className="w-6 h-6 text-primary" />
+                <h3 className="text-xl font-display font-bold text-gold-gradient">
+                  What AVYRA Uses
+                </h3>
+              </div>
+              
+              <ul className="space-y-3">
+                {avyraMaterials.map((material, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center gap-3"
+                  >
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                    <span className="text-foreground/80">{material}</span>
+                  </motion.li>
+                ))}
+              </ul>
 
-            <div className="mt-6 pt-6 border-t border-border/30">
-              <p className="text-primary font-semibold">
-                The difference lies in engineering depth, not just appearance.
-              </p>
+              <div className="mt-6 pt-6 border-t border-border/30">
+                <p className="text-primary font-semibold">
+                  The difference lies in engineering depth, not just appearance.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
