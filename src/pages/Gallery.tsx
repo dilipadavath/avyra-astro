@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import GalleryHero from "@/components/gallery/GalleryHero";
@@ -368,6 +368,37 @@ const Gallery = () => {
             >
               <X className="w-8 h-8" />
             </button>
+
+            {/* Previous Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const currentIndex = filteredImages.findIndex(img => img.src === selectedImage.src);
+                const newIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+                const newImage = filteredImages[newIndex];
+                setSelectedImage({ src: newImage.src, title: newImage.title });
+              }}
+              className="absolute left-4 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors z-10"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-10 h-10" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                const currentIndex = filteredImages.findIndex(img => img.src === selectedImage.src);
+                const newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+                const newImage = filteredImages[newIndex];
+                setSelectedImage({ src: newImage.src, title: newImage.title });
+              }}
+              className="absolute right-4 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors z-10"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-10 h-10" />
+            </button>
+
             <motion.img
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
