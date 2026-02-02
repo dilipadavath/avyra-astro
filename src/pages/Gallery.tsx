@@ -187,6 +187,32 @@ const Gallery = () => {
 
   const filteredImages = galleryImages.filter(img => img.category === selectedCategory);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      
+      if (e.key === "Escape") {
+        setSelectedImage(null);
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+        const currentIndex = filteredImages.findIndex(img => img.src === selectedImage.src);
+        if (currentIndex === -1) return;
+        
+        let newIndex: number;
+        if (e.key === "ArrowLeft") {
+          newIndex = currentIndex === 0 ? filteredImages.length - 1 : currentIndex - 1;
+        } else {
+          newIndex = currentIndex === filteredImages.length - 1 ? 0 : currentIndex + 1;
+        }
+        
+        const newImage = filteredImages[newIndex];
+        setSelectedImage({ src: newImage.src, title: newImage.title });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage, filteredImages]);
+
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
