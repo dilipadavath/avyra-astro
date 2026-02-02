@@ -59,32 +59,50 @@ const Contact = () => {
     }
   }, [showSuccess]);
 
-  const onSubmit = async (data: ContactFormData) => {
-    try {
-      const response = await fetch("https://formspree.io/f/mqelekbw", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: data.name,
-          mobile: data.mobile,
-          email: data.email,
-          _subject: `AVYRA Enquiry – ${data.subject}`,
-          subject: data.subject,
-          message: data.message || "",
-        }),
-      });
+  const SUBJECT_LABELS: Record<string, string> = {
+  general: "General Enquiry",
+  design: "Design Consultation",
+  service: "Service Request",
+  business: "Business Collaboration",
+  other: "Other",
+};
 
-      if (response.ok) {
-        setShowSuccess(true);
-        form.reset();
-      }
-    } catch {
-      // Silently fail - user can retry
+
+const onSubmit = async (data: ContactFormData) => {
+  const subjectLabel =
+    SUBJECT_LABELS[data.subject ?? "general"] || "General Enquiry";
+
+  try {
+    const response = await fetch("https://formspree.io/f/mqelekbw", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: data.name,
+        mobile: data.mobile,
+        email: data.email,
+
+        // ✅ Email title
+        _subject: `AVYRA Enquiry – ${subjectLabel}`,
+
+        // ✅ Visible inside email body
+        enquiry_type: subjectLabel,
+
+        message: data.message || "",
+      }),
+    });
+
+    if (response.ok) {
+      setShowSuccess(true);
+      form.reset();
     }
-  };
+  } catch {
+    // optional error handling
+  }
+};
+
 
   const inputClasses =
     "bg-[hsl(0_0%_12%)] border border-border text-foreground placeholder:text-muted-foreground rounded-md focus:border-border focus:ring-0 focus:outline-none";
