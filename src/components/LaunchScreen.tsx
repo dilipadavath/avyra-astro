@@ -1,22 +1,107 @@
-import { useState } from "react";
+import { useState, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface LaunchScreenProps {
   onComplete: () => void;
 }
 
+// Sound generator using Web Audio API
+const createAudioContext = () => {
+  return new (window.AudioContext || (window as any).webkitAudioContext)();
+};
+
+const playBeep = (audioContext: AudioContext, frequency: number, duration: number, type: OscillatorType = "sine") => {
+  const oscillator = audioContext.createOscillator();
+  const gainNode = audioContext.createGain();
+  
+  oscillator.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  oscillator.frequency.value = frequency;
+  oscillator.type = type;
+  
+  gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+  
+  oscillator.start(audioContext.currentTime);
+  oscillator.stop(audioContext.currentTime + duration);
+};
+
+const playCountdownSound = (audioContext: AudioContext, number: number) => {
+  if (number > 0) {
+    // Higher pitch beep for countdown numbers
+    playBeep(audioContext, 800, 0.15, "sine");
+  } else {
+    // "GO" sound - exciting chord
+    playBeep(audioContext, 523.25, 0.4, "sine"); // C5
+    setTimeout(() => playBeep(audioContext, 659.25, 0.4, "sine"), 50); // E5
+    setTimeout(() => playBeep(audioContext, 783.99, 0.5, "sine"), 100); // G5
+  }
+};
+
+const playWhoosh = (audioContext: AudioContext) => {
+  const bufferSize = audioContext.sampleRate * 0.5;
+  const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+  const data = buffer.getChannelData(0);
+  
+  for (let i = 0; i < bufferSize; i++) {
+    data[i] = (Math.random() * 2 - 1) * (1 - i / bufferSize);
+  }
+  
+  const source = audioContext.createBufferSource();
+  const gainNode = audioContext.createGain();
+  const filter = audioContext.createBiquadFilter();
+  
+  source.buffer = buffer;
+  filter.type = "lowpass";
+  filter.frequency.setValueAtTime(2000, audioContext.currentTime);
+  filter.frequency.exponentialRampToValueAtTime(200, audioContext.currentTime + 0.5);
+  
+  source.connect(filter);
+  filter.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+  
+  source.start();
+};
+
 const LaunchScreen = ({ onComplete }: LaunchScreenProps) => {
   const [stage, setStage] = useState<"button" | "countdown" | "tagline" | "done">("button");
   const [countdownNumber, setCountdownNumber] = useState(3);
+  const audioContextRef = useRef<AudioContext | null>(null);
+
+  const getAudioContext = useCallback(() => {
+    if (!audioContextRef.current) {
+      audioContextRef.current = createAudioContext();
+    }
+    return audioContextRef.current;
+  }, []);
 
   const handleLaunch = () => {
+    const audioContext = getAudioContext();
+    
     setStage("countdown");
+    playCountdownSound(audioContext, 3); // Play sound for "3"
     
     // Countdown sequence: 3 -> 2 -> 1 -> GO -> tagline -> complete
-    setTimeout(() => setCountdownNumber(2), 800);
-    setTimeout(() => setCountdownNumber(1), 1600);
-    setTimeout(() => setCountdownNumber(0), 2400); // 0 = "GO"
-    setTimeout(() => setStage("tagline"), 3200);
+    setTimeout(() => {
+      setCountdownNumber(2);
+      playCountdownSound(audioContext, 2);
+    }, 800);
+    setTimeout(() => {
+      setCountdownNumber(1);
+      playCountdownSound(audioContext, 1);
+    }, 1600);
+    setTimeout(() => {
+      setCountdownNumber(0); // 0 = "GO"
+      playCountdownSound(audioContext, 0);
+    }, 2400);
+    setTimeout(() => {
+      setStage("tagline");
+      playWhoosh(audioContext);
+    }, 3200);
     setTimeout(() => {
       setStage("done");
       onComplete();
