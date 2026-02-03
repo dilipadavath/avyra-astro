@@ -19,7 +19,15 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [showLaunchScreen, setShowLaunchScreen] = useState(true);
+  const [showLaunchScreen, setShowLaunchScreen] = useState(() => {
+    // Only show launch screen if not already shown in this session
+    return !sessionStorage.getItem("launchScreenShown");
+  });
+
+  const handleLaunchComplete = () => {
+    sessionStorage.setItem("launchScreenShown", "true");
+    setShowLaunchScreen(false);
+  };
 
   return (
     <HelmetProvider>
@@ -30,7 +38,7 @@ const App = () => {
           
           {/* Launch Screen - Remove this component after official launch */}
           {showLaunchScreen && (
-            <LaunchScreen onComplete={() => setShowLaunchScreen(false)} />
+            <LaunchScreen onComplete={handleLaunchComplete} />
           )}
           
           <BrowserRouter>
