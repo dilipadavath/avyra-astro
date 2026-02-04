@@ -11,6 +11,8 @@ import Index from "./pages/Index";
 import Kitchen from "./pages/Kitchen";
 import Wardrobes from "./pages/Wardrobes";
 import Gallery from "./pages/Gallery";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
@@ -48,6 +50,8 @@ const App = () => {
               <Route path="/kitchen" element={<Kitchen />} />
               <Route path="/wardrobes" element={<Wardrobes />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
               <Route path="/faq" element={<FAQ />} />
