@@ -9,6 +9,7 @@ const navItems = [
   { name: "Kitchen", path: "/kitchen" },
   { name: "Wardrobes", path: "/wardrobes" },
   { name: "Gallery", path: "/gallery" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
