@@ -1,4 +1,11 @@
 // Blog post data - can be replaced with CMS/database later
+import kitchenIsland from "@/assets/gallery-kitchen-403.jpg";
+import kitchenModern from "@/assets/gallery-kitchen-371.jpg";
+import kitchenColors from "@/assets/gallery-kitchen-443.jpg";
+import wardrobeOrganization from "@/assets/gallery-wardrobe-485.jpg";
+import kitchenStainless from "@/assets/gallery-kitchen-348.jpg";
+import kitchenLighting from "@/assets/gallery-kitchen-453.jpg";
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -57,7 +64,7 @@ Consider adding a prep sink, cooktop, or wine cooler.
 
 Whether you're renovating or building new, a thoughtfully designed kitchen island adds both functionality and style to your space.
     `,
-    image: "/placeholder.svg",
+    image: kitchenIsland,
     date: "Jan 22, 2026",
     category: "Kitchen Design",
     readTime: "5 min read"
@@ -115,7 +122,7 @@ Our SS 304 modular kitchens are specifically designed for Indian conditions, off
 
 Invest in materials that can withstand humidity for a kitchen that lasts decades, not years.
     `,
-    image: "/placeholder.svg",
+    image: kitchenModern,
     date: "Oct 21, 2025",
     category: "Materials",
     readTime: "4 min read"
@@ -179,7 +186,7 @@ We offer a curated palette of powder-coated finishes in timeless colors that com
 3. Test samples in your space
 4. Consider resale value
     `,
-    image: "/placeholder.svg",
+    image: kitchenColors,
     date: "Oct 21, 2025",
     category: "Design Tips",
     readTime: "3 min read"
@@ -235,7 +242,7 @@ Our modular wardrobes include:
 - Clean shelves monthly
 - Check for pests seasonally
     `,
-    image: "/placeholder.svg",
+    image: wardrobeOrganization,
     date: "Sep 15, 2025",
     category: "Wardrobes",
     readTime: "4 min read"
@@ -291,7 +298,7 @@ While SS kitchens cost more upfront, the total cost of ownership over 20 years i
 
 We believe in combining SS 304 durability with aesthetic finishes that match any home style.
     `,
-    image: "/placeholder.svg",
+    image: kitchenStainless,
     date: "Aug 28, 2025",
     category: "Materials",
     readTime: "5 min read"
@@ -359,7 +366,7 @@ Consider smart controls for:
 - Remote control
 - Energy monitoring
     `,
-    image: "/placeholder.svg",
+    image: kitchenLighting,
     date: "Aug 10, 2025",
     category: "Design Tips",
     readTime: "6 min read"
