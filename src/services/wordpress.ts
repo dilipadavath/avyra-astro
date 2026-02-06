@@ -1,6 +1,6 @@
 // WordPress REST API integration
 // Note: WordPress is installed under /blog on avyra.co.in
-const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2/posts";
+const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2";
 
 export interface WPPost {
   id: number;
