@@ -1,25 +1,38 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
-import ReactMarkdown from "react-markdown";
+import { ArrowLeft, Calendar, Clock, Tag, Loader2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { getBlogPostBySlug, blogPosts } from "@/data/blogPosts";
+import { useWordPressPost, useWordPressPosts } from "@/hooks/useWordPressPosts";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? getBlogPostBySlug(slug) : undefined;
-
-  if (!post) {
-    return <Navigate to="/blog" replace />;
-  }
+  const { data: post, isLoading, error } = useWordPressPost(slug);
+  const { data: allPosts } = useWordPressPosts();
 
   // Get related posts (same category, excluding current)
-  const relatedPosts = blogPosts
-    .filter(p => p.category === post.category && p.id !== post.id)
-    .slice(0, 3);
+  const relatedPosts = allPosts
+    ?.filter(p => p.category === post?.category && p.id !== post?.id)
+    .slice(0, 3) || [];
+
+  if (isLoading) {
+    return (
+      <>
+        <Header />
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+          <span className="ml-3 text-foreground/70">Loading post...</span>
+        </div>
+        <Footer />
+      </>
+    );
+  }
+
+  if (error || !post) {
+    return <Navigate to="/blog" replace />;
+  }
 
   return (
     <>
@@ -70,9 +83,10 @@ const BlogPost = () => {
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-4xl">
-              {post.title}
-            </h1>
+            <h1 
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-4xl"
+              dangerouslySetInnerHTML={{ __html: post.title }}
+            />
           </motion.div>
         </div>
       </section>
@@ -93,10 +107,10 @@ const BlogPost = () => {
                 prose-p:text-foreground/80 prose-p:leading-relaxed
                 prose-li:text-foreground/80
                 prose-strong:text-foreground
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
-            >
-              <ReactMarkdown>{post.content}</ReactMarkdown>
-            </motion.div>
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-img:rounded-lg prose-img:my-6"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
 
             {/* CTA */}
             <motion.div
@@ -137,9 +151,10 @@ const BlogPost = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>
-                    <h3 className="font-display font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                      {relatedPost.title}
-                    </h3>
+                    <h3 
+                      className="font-display font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2"
+                      dangerouslySetInnerHTML={{ __html: relatedPost.title }}
+                    />
                   </Link>
                 ))}
               </div>
