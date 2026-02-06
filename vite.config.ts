@@ -11,6 +11,13 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    proxy: {
+      '/wp': {
+        target: 'https://avyra.co.in',
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/wp/, '/blog/wp-json'),
+      },
+    },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {

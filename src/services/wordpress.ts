@@ -1,6 +1,11 @@
 // WordPress REST API integration
 // Note: WordPress is installed under /blog on avyra.co.in
+
 const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2";
+
+/* =======================
+   Interfaces
+======================= */
 
 export interface WPPost {
   id: number;
@@ -15,11 +20,13 @@ export interface WPPost {
       source_url: string;
       alt_text: string;
     }>;
-    "wp:term"?: Array<Array<{
-      id: number;
-      name: string;
-      slug: string;
-    }>>;
+    "wp:term"?: Array<
+      Array<{
+        id: number;
+        name: string;
+        slug: string;
+      }>
+    >;
   };
 }
 
@@ -35,11 +42,15 @@ export interface BlogPost {
   readTime: string;
 }
 
+/* =======================
+   Helpers
+======================= */
+
 // Calculate read time based on word count
 const calculateReadTime = (content: string): string => {
-  const text = content.replace(/<[^>]*>/g, ""); // Strip HTML
+  const text = content.replace(/<[^>]*>/g, "");
   const wordCount = text.split(/\s+/).length;
-  const minutes = Math.ceil(wordCount / 200); // Average reading speed
+  const minutes = Math.ceil(wordCount / 200);
   return `${minutes} min read`;
 };
 
@@ -53,15 +64,18 @@ const formatDate = (dateString: string): string => {
   });
 };
 
-// Strip HTML tags for excerpt
+// Strip HTML tags safely
 const stripHtml = (html: string): string => {
   const doc = new DOMParser().parseFromString(html, "text/html");
   return doc.body.textContent || "";
 };
 
-// Transform WP post to our BlogPost format
+// Transform WP post to BlogPost
 const transformPost = (post: WPPost): BlogPost => {
-  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg";
+  const featuredImage =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+    "/placeholder.svg";
+
   const categories = post._embedded?.["wp:term"]?.[0] || [];
   const category = categories[0]?.name || "Uncategorized";
 
@@ -78,17 +92,57 @@ const transformPost = (post: WPPost): BlogPost => {
   };
 };
 
+/* =======================
+   API Tests
+======================= */
+
+// 🔍 Test WordPress API root (NO query string)
+export const testWpApiConnection = async (): Promise<void> => {
+  try {
+    const response = await fetch(WP_API_BASE);
+
+    if (!response.ok) {
+      throw new Error(`WP API not reachable: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("WP API ROOT RESPONSE:", data);
+  } catch (error) {
+    console.error("WP API connection test failed:", error);
+  }
+};
+
+// 🔍 Test basic posts endpoint (no params)
+export const testWpPostsEndpoint = async (): Promise<void> => {
+  try {
+    const response = await fetch(`${WP_API_BASE}/posts`);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch posts: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("WP POSTS RESPONSE:", data);
+  } catch (error) {
+    console.error("WP posts test failed:", error);
+  }
+};
+
+/* =======================
+   Production Fetchers
+======================= */
+
 // Fetch all blog posts
 export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
   try {
     const response = await fetch(
       `${WP_API_BASE}/posts?_embed&per_page=100&orderby=date&order=desc`
     );
-    
+
     if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.status}`);
     }
-    
+
     const posts: WPPost[] = await response.json();
     return posts.map(transformPost);
   } catch (error) {
@@ -98,22 +152,24 @@ export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
 };
 
 // Fetch single blog post by slug
-export const fetchBlogPostBySlug = async (slug: string): Promise<BlogPost | null> => {
+export const fetchBlogPostBySlug = async (
+  slug: string
+): Promise<BlogPost | null> => {
   try {
     const response = await fetch(
       `${WP_API_BASE}/posts?_embed&slug=${encodeURIComponent(slug)}`
     );
-    
+
     if (!response.ok) {
       throw new Error(`Failed to fetch post: ${response.status}`);
     }
-    
+
     const posts: WPPost[] = await response.json();
-    
+
     if (posts.length === 0) {
       return null;
     }
-    
+
     return transformPost(posts[0]);
   } catch (error) {
     console.error("Error fetching WordPress post:", error);
