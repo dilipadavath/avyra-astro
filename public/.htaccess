@@ -1,0 +1,12 @@
+Options -MultiViews
+RewriteEngine On
+
+# Force HTTPS + non-www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\.avyra\.co\.in$ [NC]
+RewriteRule ^ https://avyra.co.in%{REQUEST_URI} [L,R=301]
+
+# SPA fallback (React / Angular / Vue)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
