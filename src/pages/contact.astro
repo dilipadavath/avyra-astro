@@ -5,10 +5,10 @@ import Contact from '@/components/sections/ContactPage';
 import { getContactPageSchema } from '@/lib/structured-data';
 
 // Enterprise SEO Configuration
-const title = 'Contact AVYRA | Get Your Dream Kitchen & Wardrobe Design | Hyderabad Telangana';
-const description = 'Get in touch with AVYRA for premium SS 304 stainless steel kitchens and aluminium wardrobes. Call +91-9689684222 or send us a message. Free consultation and customized design quotes available.';
+const title = 'Contact AVYRA | Dream Kitchen & Wardrobe Design';
+const description = 'Get in touch with AVYRA for custom kitchens and wardrobes. Free consultation and design quotes. Call +91-9689684222.';
 const keywords = 'contact AVYRA, kitchen design quote, wardrobe design consultation, AVYRA phone number, kitchen manufacturer Hyderabad, wardrobe installer contact';
-const canonicalUrl = 'https://www.avyra.co.in/contact';
+const canonicalUrl = 'https://avyra.co.in/contact';
 
 // Get comprehensive structured data
 const structuredData = getContactPageSchema();
@@ -22,5 +22,5 @@ const structuredData = getContactPageSchema();
   structuredData={structuredData}
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <Contact client:only="react" />
+  <Contact client:load />
 </Layout>

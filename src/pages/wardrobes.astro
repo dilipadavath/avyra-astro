@@ -12,10 +12,10 @@ import WardrobePromise from '@/components/wardrobes/WardrobePromise';
 import { getWardrobeServiceSchema } from '@/lib/structured-data';
 
 // Enterprise SEO Configuration
-const title = 'Premium Aluminium Wardrobes in Hyderabad, Telangana & South India | Modular Wardrobe Designs | AVYRA';
-const description = 'AVYRA manufactures premium aluminium wardrobes with innovative designs in Hyderabad, Telangana, Andhra Pradesh & South India. Rust-proof, moisture-resistant, and fully customizable wardrobe solutions for modern homes. Lifetime warranty on aluminium structures.';
+const title = 'Premium Aluminium Wardrobes | AVYRA Hyderabad';
+const description = 'Premium aluminium wardrobes in Hyderabad. Rust-proof, moisture-resistant, fully customizable with lifetime warranty.';
 const keywords = 'aluminium wardrobe Hyderabad, wardrobe design, modular wardrobe, custom wardrobe Telangana, rust-proof wardrobe, wardrobe manufacturer, wardrobe installer Hyderabad, premium wardrobe, interior wardrobe design';
-const canonicalUrl = 'https://www.avyra.co.in/wardrobes';
+const canonicalUrl = 'https://avyra.co.in/wardrobes';
 
 // Get comprehensive structured data
 const structuredData = getWardrobeServiceSchema();
@@ -82,14 +82,14 @@ const marbleStyle = `
     <div class="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
 
     <main class="relative z-10">
-      <WardrobeHero client:only="react" />
-      <WardrobeIntro client:only="react" />
-      <WardrobeStructure client:only="react" />
-      <WardrobeHygiene client:only="react" />
-      <WardrobeFinishes client:only="react" />
-      <WardrobeCustomization client:only="react" />
-      <WardrobeComparison client:only="react" />
-      <WardrobePromise client:only="react" />
+      <WardrobeHero client:load />
+      <WardrobeIntro client:idle />
+      <WardrobeStructure client:idle />
+      <WardrobeHygiene client:idle />
+      <WardrobeFinishes client:idle />
+      <WardrobeCustomization client:idle />
+      <WardrobeComparison client:idle />
+      <WardrobePromise client:idle />
     </main>
   </div>
 </Layout>

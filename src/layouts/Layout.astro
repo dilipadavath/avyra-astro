@@ -43,6 +43,22 @@ const canonical = canonicalUrl.startsWith('http')
     <meta name="theme-color" content="#A68A1E" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
     
+    {/* Performance & Caching Optimization */}
+    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
+    
+    {/* DNS Prefetch & Preconnect for External Resources */}
+    <link rel="dns-prefetch" href="https://avyra.co.in" />
+    <link rel="dns-prefetch" href="https://www.avyra.co.in" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    {/* Prefetch critical API endpoints */}
+    <link rel="prefetch" href="https://avyra.co.in/blog/wp-json/wp/v2/posts?_embed&per_page=100" as="fetch" crossorigin />
+    <link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" as="style" />
+    
+    {/* Preload Critical Resources */}
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
     {/* Primary Meta Tags */}
     <title>{fullTitle}</title>
     <meta name="title" content={fullTitle} />
@@ -97,12 +113,29 @@ const canonical = canonicalUrl.startsWith('http')
     <slot name="head" />
   </head>
   <body class="flex flex-col min-h-screen w-full">
-    <Header client:only="react" />
+    <Header client:load />
     <main class="flex-1 w-full">
       <slot />
     </main>
-    <Footer client:only="react" />
-    <Toaster client:only="react" />
-    <Sonner client:only="react" />
+    <Footer client:idle />
+    <Toaster client:idle />
+    <Sonner client:idle />
+    
+    {/* Service Worker Registration for offline support and caching */}
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then((reg) => {
+            console.log('[App] Service Worker registered:', reg.scope);
+            // Check for updates periodically
+            setInterval(() => {
+              reg.update();
+            }, 60000); // Check every 60 seconds
+          })
+          .catch((err) => {
+            console.warn('[App] Service Worker registration failed:', err);
+          });
+      }
+    </script>
   </body>
 </html>

@@ -8,10 +8,10 @@ import WhatWeCreateSection from '@/components/sections/WhatWeCreateSection';
 import { getCompleteHomeSchema } from '@/lib/structured-data';
 
 // Enterprise SEO Configuration
-const title = 'AVYRA | Premium SS 304 Stainless Steel Honeycomb Kitchens & Aluminium Wardrobes in Hyderabad, Telangana & South India';
-const description = 'Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Durable, rust-proof, and hygienic interior solutions engineered for modern Indian homes by AVYRA.';
+const title = 'Premium Kitchens & Wardrobes | AVYRA Hyderabad';
+const description = 'Premium SS 304 kitchens and custom wardrobes. Rust-proof, hygienic, durable furniture for modern Indian homes in Hyderabad.';
 const keywords = 'SS 304 kitchen, honeycomb kitchen Hyderabad, stainless steel kitchen, modular kitchen Telangana, aluminium wardrobe, custom wardrobe Hyderabad, rust-proof kitchen, hygienic kitchen, premium interior design, kitchen manufacturer, wardrobe manufacturer South India';
-const canonicalUrl = 'https://www.avyra.co.in/';
+const canonicalUrl = 'https://avyra.co.in/';
 
 // Get comprehensive structured data
 const structuredData = getCompleteHomeSchema();
@@ -34,10 +34,10 @@ const structuredData = getCompleteHomeSchema();
         Wardrobes in Hyderabad, Telangana & South India
       </h1>
 
-      <HeroSection client:only="react" />
-      <ProcessSection client:only="react" />
-      <MaterialsSection client:only="react" />
-      <WhatWeCreateSection client:only="react" />
+      <HeroSection client:load />
+      <ProcessSection client:idle />
+      <MaterialsSection client:idle />
+      <WhatWeCreateSection client:idle />
     </main>
   </div>
 </Layout>

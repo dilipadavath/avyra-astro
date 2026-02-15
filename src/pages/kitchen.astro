@@ -15,10 +15,10 @@ import KitchenPromise from '@/components/kitchen/KitchenPromise';
 import { getKitchenServiceSchema } from '@/lib/structured-data';
 
 // Enterprise SEO Configuration
-const title = 'Premium SS 304 Stainless Steel Honeycomb Kitchens in Hyderabad, Telangana & South India | AVYRA';
-const description = 'AVYRA manufactures premium SS 304 stainless steel honeycomb modular kitchens in Hyderabad, Telangana, Andhra Pradesh & South India. Hygienic, rust-proof, durable kitchens engineered for Indian homes. Lifetime warranty on SS 304 & aluminium structures.';
+const title = 'SS 304 Stainless Steel Kitchens | AVYRA';
+const description = 'Premium SS 304 honeycomb kitchens in Hyderabad. Rust-proof, hygienic, durable with lifetime warranty on all structures.';
 const keywords = 'SS 304 stainless steel kitchen Hyderabad, honeycomb kitchen, modular kitchen manufacturer, stainless steel kitchen Telangana, rust-proof kitchen, hygienic kitchen, premium kitchen design, kitchen installation Hyderabad, Andhra Pradesh, South India';
-const canonicalUrl = 'https://www.avyra.co.in/kitchen';
+const canonicalUrl = 'https://avyra.co.in/kitchen';
 
 // Get comprehensive structured data
 const structuredData = getKitchenServiceSchema();
@@ -85,17 +85,17 @@ const marbleStyle = `
     <div class="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
 
     <main class="relative z-10">
-      <KitchenHero client:only="react" />
-      <KitchenIntro client:only="react" />
-      <KitchenCarcass client:only="react" />
-      <KitchenStrength client:only="react" />
-      <KitchenHygiene client:only="react" />
-      <KitchenAluminium client:only="react" />
-      <KitchenDoors client:only="react" />
-      <KitchenHardware client:only="react" />
-      <KitchenComparison client:only="react" />
-      <KitchenTypes client:only="react" />
-      <KitchenPromise client:only="react" />
+      <KitchenHero client:load />
+      <KitchenIntro client:idle />
+      <KitchenCarcass client:idle />
+      <KitchenStrength client:idle />
+      <KitchenHygiene client:idle />
+      <KitchenAluminium client:idle />
+      <KitchenDoors client:idle />
+      <KitchenHardware client:idle />
+      <KitchenComparison client:idle />
+      <KitchenTypes client:idle />
+      <KitchenPromise client:idle />
     </main>
   </div>
 </Layout>

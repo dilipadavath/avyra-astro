@@ -74,10 +74,10 @@ try {
   console.error(`Error fetching post ${slug}:`, error);
 }
 
-const title = post ? `${post.title} | AVYRA Blog` : 'Blog Post | AVYRA';
-const description = post?.excerpt || 'Read expert insights on kitchen design, wardrobes, and home interiors from AVYRA.';
+const title = post ? `${post.title.substring(0, 50)}${post.title.length > 50 ? '...' : ''} | AVYRA` : 'Blog Post | AVYRA';
+const description = post ? (post.excerpt.substring(0, 130) + (post.excerpt.length > 130 ? '...' : '')) : 'Read expert insights on kitchen design, wardrobes, and interior solutions from AVYRA.';
 const keywords = 'kitchen design, wardrobe design, home interior, SS 304 stainless steel, modular kitchen, interior design blog';
-const canonicalUrl = post ? `https://www.avyra.co.in/articles/${slug}` : 'https://www.avyra.co.in/articles';
+const canonicalUrl = post ? `https://avyra.co.in/articles/${slug}` : 'https://avyra.co.in/articles';
 ---
 
 <Layout 

@@ -5,10 +5,10 @@ import FAQ from '@/components/sections/FAQPage';
 import { getFAQPageSchema } from '@/lib/structured-data';
 
 // Enterprise SEO Configuration
-const title = 'FAQ | Common Questions About AVYRA Kitchens, Wardrobes & Materials | Hyderabad';
-const description = 'Find answers to common questions about AVYRA\'s SS 304 stainless steel kitchens, aluminium wardrobes, materials, customization options, warranty, and after-sales support.';
+const title = 'FAQ | Kitchen & Wardrobe Questions | AVYRA';
+const description = 'Answers to common questions about SS 304 kitchens, wardrobes, materials, customization, warranty, and after-sales support.';
 const keywords = 'kitchen FAQ, wardrobe FAQ, SS 304 benefits, aluminium wardrobe advantages, kitchen warranty, wardrobe customization options, kitchen material guide';
-const canonicalUrl = 'https://www.avyra.co.in/faq';
+const canonicalUrl = 'https://avyra.co.in/faq';
 
 // Get comprehensive structured data
 const structuredData = getFAQPageSchema();
@@ -22,5 +22,5 @@ const structuredData = getFAQPageSchema();
   structuredData={structuredData}
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <FAQ client:only="react" />
+  <FAQ client:load />
 </Layout>

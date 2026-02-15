@@ -82,10 +82,14 @@ export default defineConfig({
   build: {
     cssMinify: true,
     minify: 'esbuild',
+    sourcemap: false,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
         manualChunks: {
           'react-vendor': ['react', 'react-dom'],
+          'motion': ['framer-motion'],
+          'radix-ui': ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
         },
       },
     },
@@ -93,6 +97,12 @@ export default defineConfig({
 
   ssr: {
     noExternal: ['lucide-react'],
+    external: ['framer-motion'],
+  },
+  
+  // Performance: Enable prefetcher
+  prefetch: {
+    prefetchAll: true,
   },
 },
 
