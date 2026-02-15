@@ -10,7 +10,14 @@ interface NavLinkCompatProps extends React.AnchorHTMLAttributes<HTMLAnchorElemen
 
 const NavLink = forwardRef<HTMLAnchorElement, NavLinkCompatProps>(
   ({ className, activeClassName, pendingClassName, to, ...props }, ref) => {
-    const isActive = typeof window !== 'undefined' && window.location.pathname === to;
+    // Normalize path by removing trailing slash (except for root)
+    const normalizePath = (path: string) => {
+      if (path === "/") return path;
+      return path.endsWith("/") ? path.slice(0, -1) : path;
+    };
+    
+    const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
+    const isActive = normalizePath(currentPath) === normalizePath(to);
     
     return (
       <a

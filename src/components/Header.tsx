@@ -17,6 +17,18 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
 
+  // Normalize path by removing trailing slash (except for root)
+  const normalizePath = (path: string) => {
+    if (path === "/") return path;
+    return path.endsWith("/") ? path.slice(0, -1) : path;
+  };
+
+  const isActivePath = (itemPath: string) => {
+    const normalizedCurrent = normalizePath(currentPath);
+    const normalizedItem = normalizePath(itemPath);
+    return normalizedCurrent === normalizedItem;
+  };
+
   useEffect(() => {
     setCurrentPath(window.location.pathname);
     
@@ -64,7 +76,7 @@ const Header = () => {
             <a
               key={item.path}
               href={item.path}
-              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${currentPath === item.path
+              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${isActivePath(item.path)
                 ? "text-primary"
                 : "text-foreground/80 hover:text-primary"
                 }`}
@@ -99,7 +111,7 @@ const Header = () => {
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-sm font-medium tracking-wide py-2 transition-colors ${currentPath === item.path
+                  className={`text-sm font-medium tracking-wide py-2 transition-colors ${isActivePath(item.path)
                     ? "text-primary"
                     : "text-foreground/80"
                     }`}
