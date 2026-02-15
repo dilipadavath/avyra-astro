@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Scale, X, CheckCircle, AlertTriangle, Award } from "lucide-react";
-import conventionalDamageImg from "@/assets/wardrobe-conventional-damage.jpg";
-import avyraPremiumImg from "@/assets/wardrobe-avyra-premium.jpg";
+import conventionalDamageImg from "@/assets/wardrobe-conventional-damage.jpg?url";
+import avyraPremiumImg from "@/assets/wardrobe-avyra-premium.jpg?url";
 
 const conventionalMaterials = [
   "Plywood or MDF carcasses",

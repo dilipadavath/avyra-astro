@@ -1,0 +1,26 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import BlogWrapper from '@/components/BlogWrapper';
+import { getBlogListSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'Blog | Kitchen & Wardrobe Design Insights, Tips & Ideas | AVYRA';
+const description = 'Read expert advice on modular kitchens, wardrobe design, home interior trends, SS 304 stainless steel kitchens, aluminium wardrobes, and modern home design tips for Indian homes.';
+const keywords = 'kitchen design tips, wardrobe design ideas, home interior trends, modular kitchen guide, SS 304 kitchen benefits, aluminium wardrobe advantages, interior design blog';
+const canonicalUrl = 'https://www.avyra.co.in/articles';
+
+// Get comprehensive structured data
+const structuredData = getBlogListSchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <BlogWrapper client:load />
+</Layout>

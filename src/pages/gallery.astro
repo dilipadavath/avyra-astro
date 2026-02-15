@@ -1,0 +1,26 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import GalleryPage from '@/components/sections/GalleryPage';
+import { getGallerySchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'Project Gallery | Premium SS 304 Stainless Steel Kitchens & Aluminium Wardrobes | AVYRA';
+const description = 'Explore AVYRA\'s comprehensive gallery of premium SS 304 stainless steel kitchens and aluminium wardrobes. View real projects, customizations, and design inspirations from Hyderabad and South India.';
+const keywords = 'kitchen gallery, wardrobe gallery, SS 304 kitchen designs, interior designs Hyderabad, modular kitchen gallery, wardrobe customization, home interior photos';
+const canonicalUrl = 'https://www.avyra.co.in/gallery';
+
+// Get comprehensive structured data
+const structuredData = getGallerySchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <GalleryPage client:only="react" />
+</Layout>

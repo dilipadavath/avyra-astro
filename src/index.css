@@ -102,6 +102,7 @@ select:-webkit-autofill:active {
   
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   
   body {

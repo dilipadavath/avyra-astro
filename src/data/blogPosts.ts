@@ -1,10 +1,10 @@
 // Blog post data - can be replaced with CMS/database later
-import kitchenIsland from "@/assets/gallery-kitchen-403.jpg";
-import kitchenModern from "@/assets/gallery-kitchen-371.jpg";
-import kitchenColors from "@/assets/gallery-kitchen-443.jpg";
-import wardrobeOrganization from "@/assets/gallery-wardrobe-485.jpg";
-import kitchenStainless from "@/assets/gallery-kitchen-348.jpg";
-import kitchenLighting from "@/assets/gallery-kitchen-453.jpg";
+import kitchenIsland from "@/assets/gallery-kitchen-403.jpg?url";
+import kitchenModern from "@/assets/gallery-kitchen-371.jpg?url";
+import kitchenColors from "@/assets/gallery-kitchen-443.jpg?url";
+import wardrobeOrganization from "@/assets/gallery-wardrobe-485.jpg?url";
+import kitchenStainless from "@/assets/gallery-kitchen-348.jpg?url";
+import kitchenLighting from "@/assets/gallery-kitchen-453.jpg?url";
 
 export interface BlogPost {
   id: string;

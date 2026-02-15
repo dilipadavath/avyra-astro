@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import heroKitchen from "@/assets/hero-kitchen-1.jpg";
-import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
+import heroKitchen from "@/assets/hero-kitchen-1.jpg?url";
+import heroKitchen3 from "@/assets/hero-kitchen-3.jpg?url";
 
 interface ProcessStep {
   number: string;

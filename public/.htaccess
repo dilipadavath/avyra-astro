@@ -1,12 +1,176 @@
-Options -MultiViews
-RewriteEngine On
+##
+# AVYRA - Enterprise-Level .htaccess Configuration
+# Security, Performance, and SEO Optimization
+##
 
-# Force HTTPS + non-www
-RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.avyra\.co\.in$ [NC]
-RewriteRule ^ https://avyra.co.in%{REQUEST_URI} [L,R=301]
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+  Options -MultiViews
+  RewriteEngine On
+  RewriteBase /
 
-# SPA fallback (React / Angular / Vue)
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [L]
+  # Force HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Remove www subdomain (or add if you prefer www)
+  # RewriteCond %{HTTP_HOST} ^www\.avyra\.co\.in$ [NC]
+  # RewriteRule ^ https://avyra.co.in%{REQUEST_URI} [L,R=301]
+
+  # Prevent access to sensitive files
+  RewriteRule ^\.env$ - [F]
+  RewriteRule ^\.git/ - [F]
+  RewriteRule ^node_modules/ - [F]
+  RewriteRule ^\.htaccess$ - [F]
+  RewriteRule ^\.htpasswd$ - [F]
+  RewriteRule ^composer\.(json|lock)$ - [F]
+  RewriteRule ^package\.(json|lock)$ - [F]
+
+  # CRITICAL: Let WordPress handle its own routes (/blog/, /blog/wp-json/, /blog/wp-admin/)
+  # This MUST come before the SPA fallback to prevent conflicts
+  RewriteCond %{REQUEST_URI} ^/blog/ [NC]
+  RewriteRule ^ - [L]
+
+  # Static assets caching (SPA fallback for non-WordPress pages)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Disable directory listing
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>
+
+##
+# Security Headers
+##
+<IfModule mod_headers.c>
+  # X-Frame-Options - Prevent clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # X-Content-Type-Options - Prevent MIME sniffing
+  Header always set X-Content-Type-Options "nosniff"
+
+  # X-XSS-Protection - Enable XSS filter
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Referrer-Policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Content-Security-Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; media-src 'self' https:; object-src 'none';"
+
+  # Strict-Transport-Security (HSTS) - Enable HTTPS only for 1 year
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Permissions-Policy (formerly Feature-Policy)
+  Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+</IfModule>
+
+##
+# Compression & Performance
+##
+<IfModule mod_deflate.c>
+  # Enable gzip compression
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE font/truetype
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE image/svg+xml
+  
+  # Don't compress images
+  SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|ico|woff2)$ no-gzip dont-vary
+</IfModule>
+
+##
+# Browser Caching
+##
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+
+  # Images
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+
+  # CSS & JavaScript
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+
+  # Fonts
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/font-woff "access plus 1 year"
+
+  # HTML - Don't cache
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xhtml+xml "access plus 0 seconds"
+
+  # JSON - Don't cache
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+##
+# Cache Control Headers
+##
+<IfModule mod_headers.c>
+  # Don't cache HTML
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+  </FilesMatch>
+
+  # Cache images for 1 year
+  <FilesMatch "\.(jpg|jpeg|png|gif|ico|webp|svg)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # Cache CSS and JavaScript for 1 year
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+
+  # Cache fonts for 1 year
+  <FilesMatch "\.(ttf|otf|woff|woff2)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+  </FilesMatch>
+</IfModule>
+
+##
+# SEO & Canonical URLs
+##
+<IfModule mod_rewrite.c>
+  # Remove trailing slashes (except for directories)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} /$
+  RewriteRule ^ %{REQUEST_URI%} [R=301,L]
+</IfModule>
+
+##
+# Block Bad Bots & Malicious Requests
+##
+<IfModule mod_rewrite.c>
+  # Block common exploit patterns
+  RewriteRule ^(.*)(/\.|\.php|\.aspx?|\.jsp|\.bash|\.sh|\.cmd|\.exe|\.com|\.bat|\.cfg|\.bin|eval\(|system\(|passthru\(|get_defined_functions|phpinfo) - [F]
+
+  # Block SQL injection attempts
+  RewriteRule (\bAND\b|\bOR\b|\bUNION\b|\bSELECT\b|\bINSERT\b|\bUPDATE\b|\bDELETE\b|\bDROP\b) - [F,NC]
+</IfModule>
+

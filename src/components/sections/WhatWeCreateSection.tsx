@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-import heroKitchen from "@/assets/hero-kitchen-1.jpg";
-import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
+import heroKitchen from "@/assets/hero-kitchen-1.jpg?url";
+import heroWardrobe from "@/assets/hero-wardrobe-2.jpg?url";
 
 const categories = [
   {
@@ -47,7 +46,7 @@ const WhatWeCreateSection = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="group"
             >
-              <Link to={category.link} className="block">
+              <a href={category.link} className="block">
                 <div className="relative overflow-hidden rounded-lg h-[250px]">
                   <img
                     src={category.image}
@@ -69,7 +68,7 @@ const WhatWeCreateSection = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>

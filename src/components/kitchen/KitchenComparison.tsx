@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Scale, X, CheckCircle, AlertTriangle, Award } from "lucide-react";
-import conventionalDamageImg from "@/assets/kitchen-conventional-damage.jpg";
-import avyraPremiumImg from "@/assets/kitchen-avyra-premium.jpg";
+import conventionalDamageImg from "@/assets/kitchen-conventional-damage.jpg?url";
+import avyraPremiumImg from "@/assets/kitchen-avyra-premium.jpg?url";
 
 const conventionalMaterials = [
   "MDF or particle board carcass",

@@ -1,0 +1,95 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import WardrobeHero from '@/components/wardrobes/WardrobeHero';
+import WardrobeIntro from '@/components/wardrobes/WardrobeIntro';
+import WardrobeStructure from '@/components/wardrobes/WardrobeStructure';
+import WardrobeHygiene from '@/components/wardrobes/WardrobeHygiene';
+import WardrobeFinishes from '@/components/wardrobes/WardrobeFinishes';
+import WardrobeCustomization from '@/components/wardrobes/WardrobeCustomization';
+import WardrobeComparison from '@/components/wardrobes/WardrobeComparison';
+import WardrobePromise from '@/components/wardrobes/WardrobePromise';
+import { getWardrobeServiceSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'Premium Aluminium Wardrobes in Hyderabad, Telangana & South India | Modular Wardrobe Designs | AVYRA';
+const description = 'AVYRA manufactures premium aluminium wardrobes with innovative designs in Hyderabad, Telangana, Andhra Pradesh & South India. Rust-proof, moisture-resistant, and fully customizable wardrobe solutions for modern homes. Lifetime warranty on aluminium structures.';
+const keywords = 'aluminium wardrobe Hyderabad, wardrobe design, modular wardrobe, custom wardrobe Telangana, rust-proof wardrobe, wardrobe manufacturer, wardrobe installer Hyderabad, premium wardrobe, interior wardrobe design';
+const canonicalUrl = 'https://www.avyra.co.in/wardrobes';
+
+// Get comprehensive structured data
+const structuredData = getWardrobeServiceSchema();
+
+const marbleStyle = `
+  radial-gradient(ellipse at 20% 30%, rgba(139, 90, 43, 0.18) 0%, transparent 50%),
+  radial-gradient(ellipse at 80% 70%, rgba(139, 90, 43, 0.15) 0%, transparent 50%),
+  radial-gradient(ellipse at 50% 50%, rgba(80, 50, 30, 0.12) 0%, transparent 70%),
+  radial-gradient(ellipse at 30% 80%, rgba(120, 80, 40, 0.1) 0%, transparent 40%),
+  linear-gradient(180deg, hsl(0 0% 6%) 0%, hsl(0 0% 8%) 50%, hsl(0 0% 6%) 100%)
+`;
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <div class="bg-background relative overflow-x-hidden">
+    {/* Rich marble/granite texture background */}
+    <div
+      class="fixed top-0 left-0 w-screen h-screen pointer-events-none"
+      style={`background: ${marbleStyle}`}
+    />
+
+    {/* Marble veining texture overlay */}
+    <div
+      class="fixed top-0 left-0 w-screen h-screen opacity-50 pointer-events-none"
+      style={`
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='marble'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='6' seed='15' stitchTiles='stitch'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='100'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23marble)' fill='%23201510'/%3E%3C/svg%3E");
+        background-size: 800px 800px;
+        mix-blend-mode: overlay;
+      `}
+    />
+
+    {/* Gold dust particles effect */}
+    <div
+      class="fixed top-0 left-0 w-screen h-screen opacity-35 pointer-events-none"
+      style={`
+        background-image: 
+          radial-gradient(1.5px 1.5px at 10% 20%, rgba(201, 162, 39, 0.9) 50%, transparent 50%),
+          radial-gradient(1px 1px at 25% 45%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
+          radial-gradient(2px 2px at 40% 15%, rgba(201, 162, 39, 0.8) 50%, transparent 50%),
+          radial-gradient(1px 1px at 55% 70%, rgba(201, 162, 39, 0.6) 50%, transparent 50%),
+          radial-gradient(1.5px 1.5px at 70% 35%, rgba(201, 162, 39, 0.75) 50%, transparent 50%),
+          radial-gradient(1px 1px at 85% 55%, rgba(201, 162, 39, 0.65) 50%, transparent 50%),
+          radial-gradient(1.5px 1.5px at 15% 75%, rgba(201, 162, 39, 0.5) 50%, transparent 50%),
+          radial-gradient(1px 1px at 90% 85%, rgba(201, 162, 39, 0.7) 50%, transparent 50%),
+          radial-gradient(1.5px 1.5px at 35% 90%, rgba(201, 162, 39, 0.55) 50%, transparent 50%),
+          radial-gradient(1px 1px at 60% 5%, rgba(201, 162, 39, 0.8) 50%, transparent 50%);
+        background-size: 500px 500px;
+      `}
+    />
+
+    {/* Sweeping gold light streaks */}
+    <div class="fixed top-[10%] -left-20 w-[70%] h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent transform -rotate-12 blur-[2px] pointer-events-none" />
+    <div class="fixed top-[25%] -right-20 w-[55%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/40 to-transparent transform rotate-8 blur-[1px] pointer-events-none" />
+    <div class="fixed top-[45%] -left-10 w-[45%] h-[1px] bg-gradient-to-r from-transparent via-primary/35 to-transparent transform -rotate-5 pointer-events-none" />
+    <div class="fixed top-[65%] -right-10 w-[40%] h-[1.5px] bg-gradient-to-l from-transparent via-primary/45 to-transparent transform rotate-10 blur-[1px] pointer-events-none" />
+    <div class="fixed top-[80%] -left-20 w-[50%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent transform -rotate-8 pointer-events-none" />
+
+    <main class="relative z-10">
+      <WardrobeHero client:only="react" />
+      <WardrobeIntro client:only="react" />
+      <WardrobeStructure client:only="react" />
+      <WardrobeHygiene client:only="react" />
+      <WardrobeFinishes client:only="react" />
+      <WardrobeCustomization client:only="react" />
+      <WardrobeComparison client:only="react" />
+      <WardrobePromise client:only="react" />
+    </main>
+  </div>
+</Layout>

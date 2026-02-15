@@ -1,24 +1,25 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoIcon from "@/assets/avyra-logo.png";
+import logoIcon from "@/assets/avyra-logo.png?url";
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Kitchen", path: "/kitchen" },
   { name: "Wardrobes", path: "/wardrobes" },
   { name: "Gallery", path: "/gallery" },
-  { name: "Blog", path: "/blog" },
+  { name: "Blog", path: "/articles" },
   { name: "Contact", path: "/contact" },
 ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
+  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
+    setCurrentPath(window.location.pathname);
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -63,7 +64,7 @@ const Header = () => {
             <a
               key={item.path}
               href={item.path}
-              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${location.pathname === item.path
+              className={`text-sm font-medium tracking-wide transition-colors duration-300 ${currentPath === item.path
                 ? "text-primary"
                 : "text-foreground/80 hover:text-primary"
                 }`}
@@ -98,7 +99,7 @@ const Header = () => {
                   key={item.path}
                   href={item.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-sm font-medium tracking-wide py-2 transition-colors ${location.pathname === item.path
+                  className={`text-sm font-medium tracking-wide py-2 transition-colors ${currentPath === item.path
                     ? "text-primary"
                     : "text-foreground/80"
                     }`}

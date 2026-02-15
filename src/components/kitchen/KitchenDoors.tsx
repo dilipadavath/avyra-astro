@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import { DoorOpen, Gem, GlassWater, Frame, Paintbrush } from "lucide-react";
-import sinteredStoneImg from "@/assets/wardrobe-sintered-stone.png";
-import glassDoorsImg from "@/assets/kitchen-glass-doors.jpg";
-import glassAluminiumImg from "@/assets/kitchen-glass-aluminium-frame.jpg";
-import powderCoatedImg from "@/assets/kitchen-powder-coated-metal.jpg";
+import sinteredStoneImg from "@/assets/wardrobe-sintered-stone.png?url";
+import glassDoorsImg from "@/assets/kitchen-glass-doors.jpg?url";
+import glassAluminiumImg from "@/assets/kitchen-glass-aluminium-frame.jpg?url";
+import powderCoatedImg from "@/assets/kitchen-powder-coated-metal.jpg?url";
 
 const doorOptions = [
   {

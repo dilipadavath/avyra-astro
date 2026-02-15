@@ -1,0 +1,26 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import FAQ from '@/components/sections/FAQPage';
+import { getFAQPageSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'FAQ | Common Questions About AVYRA Kitchens, Wardrobes & Materials | Hyderabad';
+const description = 'Find answers to common questions about AVYRA\'s SS 304 stainless steel kitchens, aluminium wardrobes, materials, customization options, warranty, and after-sales support.';
+const keywords = 'kitchen FAQ, wardrobe FAQ, SS 304 benefits, aluminium wardrobe advantages, kitchen warranty, wardrobe customization options, kitchen material guide';
+const canonicalUrl = 'https://www.avyra.co.in/faq';
+
+// Get comprehensive structured data
+const structuredData = getFAQPageSchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <FAQ client:only="react" />
+</Layout>

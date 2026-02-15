@@ -1,16 +1,17 @@
 {
-  "files": [],
-  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "types": ["react", "react-dom", "node"],
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "noImplicitAny": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "noUnusedLocals": false,
-    "strictNullChecks": false
-  }
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

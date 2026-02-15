@@ -1,7 +1,8 @@
 // WordPress REST API integration
-// Note: WordPress is installed under /blog on avyra.co.in
+// Note: Uses local Astro API proxy to handle CORS properly
+// WordPress is installed under /blog on avyra.co.in
 
-const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2";
+const WP_API_BASE = "/api/blog-posts";
 
 /* =======================
    Interfaces
@@ -64,10 +65,17 @@ const formatDate = (dateString: string): string => {
   });
 };
 
-// Strip HTML tags safely
+// Strip HTML tags safely (works in Node.js and browser)
 const stripHtml = (html: string): string => {
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  return doc.body.textContent || "";
+  // Remove all HTML tags using regex
+  const plainText = html.replace(/<[^>]*>/g, "");
+  // Decode HTML entities
+  return plainText
+    .replace(/&nbsp;/g, " ")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code)));
 };
 
 // Transform WP post to BlogPost
@@ -115,7 +123,7 @@ export const testWpApiConnection = async (): Promise<void> => {
 // 🔍 Test basic posts endpoint (no params)
 export const testWpPostsEndpoint = async (): Promise<void> => {
   try {
-    const response = await fetch(`${WP_API_BASE}/posts`);
+    const response = await fetch(WP_API_BASE);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.status}`);
@@ -129,15 +137,42 @@ export const testWpPostsEndpoint = async (): Promise<void> => {
 };
 
 /* =======================
+   Build-time Fetchers (Direct from WordPress)
+======================= */
+
+// Fetch all blog posts directly from WordPress (for static generation)
+export const fetchBlogPostsForBuild = async (): Promise<BlogPost[]> => {
+  try {
+    const response = await fetch(
+      "https://avyra.co.in/blog/wp-json/wp/v2/posts?_embed&per_page=100&orderby=date&order=desc",
+      {
+        headers: {
+          'Accept': 'application/json',
+          'User-Agent': 'Avyra-Blog-Client/1.0',
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch posts: ${response.status}`);
+    }
+
+    const posts: WPPost[] = await response.json();
+    return posts.map(transformPost);
+  } catch (error) {
+    console.error("Error fetching WordPress posts for build:", error);
+    return [];
+  }
+};
+
+/* =======================
    Production Fetchers
 ======================= */
 
 // Fetch all blog posts
 export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
   try {
-    const response = await fetch(
-      `${WP_API_BASE}/posts?_embed&per_page=100&orderby=date&order=desc`
-    );
+    const response = await fetch(WP_API_BASE);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.status}`);
@@ -157,7 +192,7 @@ export const fetchBlogPostBySlug = async (
 ): Promise<BlogPost | null> => {
   try {
     const response = await fetch(
-      `${WP_API_BASE}/posts?_embed&slug=${encodeURIComponent(slug)}`
+      `${WP_API_BASE}?slug=${encodeURIComponent(slug)}`
     );
 
     if (!response.ok) {

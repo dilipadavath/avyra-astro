@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Shield, Box, CheckCircle } from "lucide-react";
-import stainlessSteelImg from "@/assets/kitchen-stainless-steel.jpg";
-import aluminiumImg from "@/assets/kitchen-aluminium.jpg";
+import stainlessSteelImg from "@/assets/kitchen-stainless-steel.jpg?url";
+import aluminiumImg from "@/assets/kitchen-aluminium.jpg?url";
 
 const stainlessSteelBestFor = [
   "Maximum durability",

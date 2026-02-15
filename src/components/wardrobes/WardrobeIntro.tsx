@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle } from "lucide-react";
-import heroWardrobe from "@/assets/hero-wardrobe-2.jpg";
-import perceptionImg from "@/assets/wardrobe-perception.jpg";
+import heroWardrobe from "@/assets/hero-wardrobe-2.jpg?url";
+import perceptionImg from "@/assets/wardrobe-perception.jpg?url";
 
 const WardrobeIntro = () => {
   return (

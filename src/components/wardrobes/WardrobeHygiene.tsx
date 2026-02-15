@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, CheckCircle, CloudRain, Shirt } from "lucide-react";
-import hygieneImg from "@/assets/wardrobe-hygiene.jpg";
+import hygieneImg from "@/assets/wardrobe-hygiene.jpg?url";
 
 const hygieneAdvantages = [
   "Non-porous internal surfaces",

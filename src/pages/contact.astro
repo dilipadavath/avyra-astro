@@ -1,0 +1,26 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import Contact from '@/components/sections/ContactPage';
+import { getContactPageSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'Contact AVYRA | Get Your Dream Kitchen & Wardrobe Design | Hyderabad Telangana';
+const description = 'Get in touch with AVYRA for premium SS 304 stainless steel kitchens and aluminium wardrobes. Call +91-9689684222 or send us a message. Free consultation and customized design quotes available.';
+const keywords = 'contact AVYRA, kitchen design quote, wardrobe design consultation, AVYRA phone number, kitchen manufacturer Hyderabad, wardrobe installer contact';
+const canonicalUrl = 'https://www.avyra.co.in/contact';
+
+// Get comprehensive structured data
+const structuredData = getContactPageSchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <Contact client:only="react" />
+</Layout>

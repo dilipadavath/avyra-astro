@@ -17,8 +17,8 @@ import {
   Scale,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import stainlessSteelImg from "@/assets/material-stainless-steel.jpg";
-import aluminiumImg from "@/assets/material-aluminium.jpg";
+import stainlessSteelImg from "@/assets/material-stainless-steel.jpg?url";
+import aluminiumImg from "@/assets/material-aluminium.jpg?url";
 
 interface Benefit {
   icon: LucideIcon;

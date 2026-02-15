@@ -1,0 +1,47 @@
+/* TEAM */
+Company: AVYRA - Premium SS 304 Stainless Steel & Aluminium Interiors
+Website: https://www.avyra.co.in
+Contact: support@avyra.co.in
+Phone: +91-968-968-4222
+
+/* SITE */
+Last Updated: 2026-02-15
+Language: English
+Charset: UTF-8
+Standards: WCAG 2.1 AA, HTML5, CSS3
+Components: Astro, React, TypeScript, Tailwind CSS
+Analytics: Google Analytics 4 (GA4)
+Hosting: Secure Cloud Infrastructure
+
+/* TECHNOLOGY */
+Frontend Framework: Astro 4.4.0
+UI Library: React 18.3.1
+Styling: Tailwind CSS 3.4.17
+Database: Supabase (PostgreSQL)
+CMS: WordPress (Blog)
+Form Service: Formspree
+Image Optimization: Astro Image Optimization
+
+/* DESIGN & UX */
+Design Principles: Mobile-first, Accessible, Performance-optimized
+Accessibility: WCAG 2.1 Level AA Compliant
+SEO: Enterprise-level Schema.org Implementation
+Mobile: Fully Responsive Design
+
+/* INFRASTRUCTURE */
+CDN: Global Content Delivery Network
+HTTPS: TLS 1.3 Encryption
+Security: Regular Security Audits, SOC 2 Compliance
+Monitoring: Real-time Performance Monitoring
+Backups: Automatic Daily Backups
+
+/* SOCIAL MEDIA */
+Instagram: https://www.instagram.com/avyra.living/
+WhatsApp: https://wa.me/919689684222
+Email: support@avyra.co.in
+
+/* BUILD PROCESS */
+Version Control: Git
+CI/CD: Automated Deployment Pipeline
+Testing: Unit & Integration Tests
+Performance: Core Web Vitals Optimization

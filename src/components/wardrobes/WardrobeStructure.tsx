@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, CheckCircle, Droplets, Bug, Clock, Weight } from "lucide-react";
-import structureImg from "@/assets/wardrobe-structure.jpg";
+import structureImg from "@/assets/wardrobe-structure.jpg?url";
 
 const structureReasons = [
   { icon: Weight, text: "High load-bearing capacity" },

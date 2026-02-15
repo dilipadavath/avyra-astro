@@ -3,18 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import heroImage1 from "@/assets/hero-kitchen-1.jpg";
-import heroImage2 from "@/assets/hero-wardrobe-2.jpg";
-import heroImage3 from "@/assets/hero-kitchen-3.jpg";
-import heroImage4 from "@/assets/hero-kitchen-4.jpg";
-import heroImage5 from "@/assets/hero-interior-5.jpg";
-
 const heroImages = [
-  { src: heroImage1, alt: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
-  { src: heroImage2, alt: "Premium Aluminium Walk-in Wardrobe Telangana" },
-  { src: heroImage3, alt: "SS 304 Honeycomb Kitchen Design Vijayawada" },
-  { src: heroImage4, alt: "Stainless Steel Modular Kitchen Andhra Pradesh" },
-  { src: heroImage5, alt: "Aluminium Interior Storage Solutions South India" },
+  { src: "/assets/hero-kitchen-1.jpg", alt: "SS 304 Stainless Steel Modular Kitchen Hyderabad" },
+  { src: "/assets/hero-wardrobe-2.jpg", alt: "Premium Aluminium Walk-in Wardrobe Telangana" },
+  { src: "/assets/hero-kitchen-3.jpg", alt: "SS 304 Honeycomb Kitchen Design Vijayawada" },
+  { src: "/assets/hero-kitchen-4.jpg", alt: "Stainless Steel Modular Kitchen Andhra Pradesh" },
+  { src: "/assets/hero-interior-5.jpg", alt: "Aluminium Interior Storage Solutions South India" },
 ];
 
 const HeroSection = () => {

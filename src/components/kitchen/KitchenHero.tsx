@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroKitchen1 from "@/assets/hero-kitchen-1.jpg";
+import heroKitchen1 from "@/assets/hero-kitchen-1.jpg?url";
 
 const KitchenHero = () => {
   return (

@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Palette, Paintbrush, Gem } from "lucide-react";
-import neutralPalette from "@/assets/wardrobe-neutral-palette.png";
-import colorPalette from "@/assets/wardrobe-color-palette.png";
-import sinteredStone from "@/assets/wardrobe-sintered-stone.png";
+import neutralPalette from "@/assets/wardrobe-neutral-palette.png?url";
+import colorPalette from "@/assets/wardrobe-color-palette.png?url";
+import sinteredStone from "@/assets/wardrobe-sintered-stone.png?url";
 
 const finishOptions = [
   {

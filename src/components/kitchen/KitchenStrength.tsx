@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Droplets, CheckCircle, X, ThermometerSun, RefreshCw, Bug } from "lucide-react";
-import heroKitchen4 from "@/assets/hero-kitchen-4.jpg";
+import heroKitchen4 from "@/assets/hero-kitchen-4.jpg?url";
 
 const strengthFeatures = [
   { icon: ThermometerSun, text: "Heavy cookware storage" },

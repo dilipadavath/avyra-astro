@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Award, Shield, Palette, Settings, Clock, Home, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import indianHomeImg from "@/assets/wardrobe-indian-home.jpg";
-import promiseImg from "@/assets/wardrobe-promise.jpg";
+import indianHomeImg from "@/assets/wardrobe-indian-home.jpg?url";
+import promiseImg from "@/assets/wardrobe-promise.jpg?url";
 
 const indianHomeFeatures = [
   "Compact urban spaces",

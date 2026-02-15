@@ -1,0 +1,7 @@
+Contact: mailto:support@avyra.co.in
+Contact: https://www.avyra.co.in/contact
+Expires: 2027-02-15T12:00:00.000Z
+Preferred-Languages: en, hi, te
+Canonical: https://www.avyra.co.in/.well-known/security.txt
+Policy: https://www.avyra.co.in/privacy-policy
+Acknowledgments: https://www.avyra.co.in/security-acknowledgments

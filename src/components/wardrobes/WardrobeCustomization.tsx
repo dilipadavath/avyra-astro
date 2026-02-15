@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Settings, Shirt, Grid3X3, ShoppingBag, Lock, Wrench, Award, CheckCircle } from "lucide-react";
-import customizationImg from "@/assets/wardrobe-customization.jpg";
-import hardwareImg from "@/assets/wardrobe-hardware.jpg";
+import customizationImg from "@/assets/wardrobe-customization.jpg?url";
+import hardwareImg from "@/assets/wardrobe-hardware.jpg?url";
 
 const customizationOptions = [
   { icon: Shirt, text: "Hanging sections of varying heights" },

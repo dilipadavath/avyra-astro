@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Layers, CheckCircle, Hexagon } from "lucide-react";
-import heroKitchen3 from "@/assets/hero-kitchen-3.jpg";
+import heroKitchen3 from "@/assets/hero-kitchen-3.jpg?url";
 
 const honeycombBenefits = [
   { title: "Exceptional Load-Bearing", desc: "Heavy cookware support" },

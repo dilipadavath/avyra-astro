@@ -1,0 +1,43 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import HeroSection from '@/components/sections/HeroSection';
+import ProcessSection from '@/components/sections/ProcessSection';
+import MaterialsSection from '@/components/sections/MaterialsSection';
+import WhatWeCreateSection from '@/components/sections/WhatWeCreateSection';
+import { getCompleteHomeSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'AVYRA | Premium SS 304 Stainless Steel Honeycomb Kitchens & Aluminium Wardrobes in Hyderabad, Telangana & South India';
+const description = 'Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana, Andhra Pradesh & South India. Durable, rust-proof, and hygienic interior solutions engineered for modern Indian homes by AVYRA.';
+const keywords = 'SS 304 kitchen, honeycomb kitchen Hyderabad, stainless steel kitchen, modular kitchen Telangana, aluminium wardrobe, custom wardrobe Hyderabad, rust-proof kitchen, hygienic kitchen, premium interior design, kitchen manufacturer, wardrobe manufacturer South India';
+const canonicalUrl = 'https://www.avyra.co.in/';
+
+// Get comprehensive structured data
+const structuredData = getCompleteHomeSchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  
+  <div class="min-h-screen bg-background">
+    <main>
+      {/* SEO-safe hidden H1 */}
+      <h1 class="sr-only">
+        AVYRA – Premium SS 304 Stainless Steel & Aluminium Kitchens and
+        Wardrobes in Hyderabad, Telangana & South India
+      </h1>
+
+      <HeroSection client:only="react" />
+      <ProcessSection client:only="react" />
+      <MaterialsSection client:only="react" />
+      <WhatWeCreateSection client:only="react" />
+    </main>
+  </div>
+</Layout>

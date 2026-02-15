@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchBlogPosts, fetchBlogPostBySlug, BlogPost } from "@/services/wordpress";
+import { fetchBlogPosts, fetchBlogPostBySlug } from "@/services/wordpress";
+import type { BlogPost } from "@/services/wordpress";
 
 export const useWordPressPosts = () => {
   return useQuery<BlogPost[], Error>({

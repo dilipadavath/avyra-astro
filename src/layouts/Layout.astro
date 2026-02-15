@@ -1,0 +1,108 @@
+---
+// @ts-nocheck
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Toaster } from '@/components/ui/toaster';
+import { Toaster as Sonner } from '@/components/ui/sonner';
+import '../index.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalUrl?: string;
+  structuredData?: Record<string, any>;
+}
+
+const BASE_URL = "https://www.avyra.co.in";
+const DEFAULT_IMAGE = `${BASE_URL}/og-avyra.jpg`;
+
+const {
+  title = "AVYRA | Premium SS 304 Stainless Steel Kitchens & Aluminium Wardrobes",
+  description = "Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, Telangana & South India. Engineered for durability and modern elegance.",
+  keywords,
+  ogImage = DEFAULT_IMAGE,
+  canonicalUrl = "/",
+  structuredData,
+} = Astro.props;
+
+const fullTitle = title.includes('AVYRA') ? title : `${title} | AVYRA`;
+const canonical = canonicalUrl.startsWith('http') 
+  ? canonicalUrl 
+  : `${BASE_URL}${canonicalUrl}`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="#C9A227" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#A68A1E" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    
+    {/* Primary Meta Tags */}
+    <title>{fullTitle}</title>
+    <meta name="title" content={fullTitle} />
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="author" content="AVYRA" />
+    <meta name="creator" content="AVYRA Design" />
+    <meta name="publisher" content="AVYRA" />
+    <link rel="canonical" href={canonical} />
+    
+    {/* Preconnect to Google Fonts for faster loading */}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+    
+    {/* Preload critical fonts */}
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" />
+    
+    {/* Favicon */}
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AVYRA" />
+    <meta property="og:locale" content="en_IN" />
+    
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@avyrainteriors" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
+    {/* Geographic Meta Tags */}
+    <meta name="geo.region" content="IN-TG" />
+    <meta name="geo.placename" content="Hyderabad" />
+    <meta name="ICBM" content="17.3850,78.4867" />
+    
+    {/* Robots and Indexing */}
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
+    
+    <slot name="head" />
+  </head>
+  <body class="flex flex-col min-h-screen w-full">
+    <Header client:only="react" />
+    <main class="flex-1 w-full">
+      <slot />
+    </main>
+    <Footer client:only="react" />
+    <Toaster client:only="react" />
+    <Sonner client:only="react" />
+  </body>
+</html>

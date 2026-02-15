@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Award, Shield, Wrench, Palette, Clock, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
-import kitchenValueImg from "@/assets/kitchen-value.jpg";
-import kitchenPromiseImg from "@/assets/kitchen-promise.jpg";
+import kitchenValueImg from "@/assets/kitchen-value.jpg?url";
+import kitchenPromiseImg from "@/assets/kitchen-promise.jpg?url";
 
 const promisePoints = [
   { icon: Shield, text: "Structural integrity" },

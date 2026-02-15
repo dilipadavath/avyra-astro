@@ -1,0 +1,31 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+
+// Enterprise SEO Configuration for 404 Error Page
+const title = 'Page Not Found (404) | AVYRA - Premium Kitchens & Wardrobes';
+const description = 'The page you are looking for could not be found. Return to AVYRA\'s homepage to explore our premium SS 304 stainless steel kitchens and aluminium wardrobes.';
+const keywords = 'page not found, error 404, AVYRA home, kitchen design, wardrobe design';
+const canonicalUrl = 'https://www.avyra.co.in/404';
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+>
+  <main class="flex-1 flex items-center justify-center">
+    <div class="container-premium text-center py-40">
+      <h1 class="text-6xl md:text-7xl font-display font-bold mb-4">
+        <span class="text-primary">404</span> - Page Not Found
+      </h1>
+      <p class="text-xl text-muted-foreground mb-8">
+        Oops! The page you're looking for doesn't exist.
+      </p>
+      <a href="/" class="inline-flex items-center px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition">
+        Return Home
+      </a>
+    </div>
+  </main>
+</Layout>

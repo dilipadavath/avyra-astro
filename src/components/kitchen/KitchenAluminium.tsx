@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Box, CheckCircle, Feather, Shield, Palette } from "lucide-react";
-import aluminiumKitchenImg from "@/assets/kitchen-aluminium.jpg";
+import aluminiumKitchenImg from "@/assets/kitchen-aluminium.jpg?url";
 const aluminiumBenefits = [
   { icon: Feather, text: "Lightweight yet strong" },
   { icon: Shield, text: "Corrosion-resistant" },

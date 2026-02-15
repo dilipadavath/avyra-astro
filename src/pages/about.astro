@@ -1,0 +1,26 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import AboutComponent from '@/components/sections/AboutPage';
+import { getAboutPageSchema } from '@/lib/structured-data';
+
+// Enterprise SEO Configuration
+const title = 'About AVYRA | Premium SS 304 Stainless Steel Kitchens & Aluminium Wardrobes in Hyderabad';
+const description = 'Learn about AVYRA\'s commitment to premium, durable, and rust-proof interior solutions. Discover our expertise in engineering SS 304 stainless steel kitchens and aluminium wardrobes for homes across Hyderabad, Telangana & South India.';
+const keywords = 'about AVYRA, SS 304 kitchen manufacturer, aluminium wardrobe manufacturer Hyderabad, interior design company, home interior solutions, kitchen and wardrobe design';
+const canonicalUrl = 'https://www.avyra.co.in/about';
+
+// Get comprehensive structured data
+const structuredData = getAboutPageSchema();
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <AboutComponent client:only="react" />
+</Layout>
