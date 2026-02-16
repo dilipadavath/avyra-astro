@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useWordPressPosts } from "@/hooks/useWordPressPosts";
 import { useState, useMemo } from "react";
+import { navigateToPost } from "@/components/BlogWrapper";
 
 const POSTS_PER_PAGE = 9;
 
@@ -89,21 +90,28 @@ const Blog = () => {
                     transition={{ delay: index * 0.1 }}
                     className="group"
                   >
-                    <a href={`/articles/${post.slug}`} className="block">
-                      {/* Image */}
-                      <div className="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-card">
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
+                  <div 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToPost(post.slug);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="block cursor-pointer"
+                  >
+                    {/* Image */}
+                    <div className="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-card">
+                      <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-                      {/* Content */}
-                      <div className="space-y-3">
-                        <span className="text-xs text-primary font-medium uppercase tracking-wider">
-                          {post.category}
-                        </span>
+                    {/* Content */}
+                    <div className="space-y-3">
+                      <span className="text-xs text-primary font-medium uppercase tracking-wider">
+                        {post.category}
+                      </span>
                         
                         <h2 
                           className="text-xl font-display font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2"
@@ -127,7 +135,7 @@ const Blog = () => {
                           </span>
                         </div>
                       </div>
-                    </a>
+                    </div>
                   </motion.article>
                 ))}
               </div>
@@ -185,7 +193,14 @@ const Blog = () => {
                   transition={{ delay: index * 0.1 }}
                   className="group"
                 >
-                  <a href={`/articles/${post.slug}`} className="block">
+                  <div 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateToPost(post.slug);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="block cursor-pointer"
+                  >
                     {/* Image */}
                     <div className="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-card">
                       <img
@@ -223,7 +238,7 @@ const Blog = () => {
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </div>
                 </motion.article>
               ))}
             </div>

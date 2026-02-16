@@ -1,8 +1,8 @@
 // WordPress REST API integration
-// Note: Uses local Astro API proxy to handle CORS properly
+// Calls WordPress REST API directly (CORS enabled in WordPress)
 // WordPress is installed under /blog on avyra.co.in
 
-const WP_API_BASE = "/api/blog-posts";
+const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2/posts";
 
 /* =======================
    Interfaces
@@ -172,7 +172,9 @@ export const fetchBlogPostsForBuild = async (): Promise<BlogPost[]> => {
 // Fetch all blog posts
 export const fetchBlogPosts = async (): Promise<BlogPost[]> => {
   try {
-    const response = await fetch(WP_API_BASE);
+    const response = await fetch(
+      `${WP_API_BASE}?_embed&per_page=100&orderby=date&order=desc`
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.status}`);
@@ -192,7 +194,7 @@ export const fetchBlogPostBySlug = async (
 ): Promise<BlogPost | null> => {
   try {
     const response = await fetch(
-      `${WP_API_BASE}?slug=${encodeURIComponent(slug)}`
+      `${WP_API_BASE}?_embed&slug=${encodeURIComponent(slug)}`
     );
 
     if (!response.ok) {

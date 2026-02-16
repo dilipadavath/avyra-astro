@@ -1,143 +1,39 @@
-# Enterprise-level .htaccess for cPanel Apache hosting
-# AVYRA - Premium Kitchens & Wardrobes
+# =============================================
+# ENABLE REWRITE
+# =============================================
+RewriteEngine On
 
 # =============================================
-# HTTPS Redirect (Force SSL)
+# FORCE HTTPS
 # =============================================
-<IfModule mod_rewrite.c>
-RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
 
 # =============================================
-# WWW to Non-WWW Redirect
-# =============================================
-<IfModule mod_rewrite.c>
-RewriteEngine On
+# WWW TO NON-WWW
+# =============================================ac
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-</IfModule>
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # =============================================
-# WordPress Blog Handling
+# WORDPRESS BLOG (IMPORTANT FIX)
 # =============================================
-# Let WordPress handle its own routes (/blog/, /blog/wp-json/, /blog/wp-admin/)
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteCond %{REQUEST_URI} ^/blog/ [NC]
+RewriteCond %{REQUEST_URI} ^/blog/
 RewriteRule ^ - [L]
-</IfModule>
 
 # =============================================
-# SPA Fallback (Astro Static Site)
+# ASTRO SPA FALLBACK (ONLY FOR ROOT SITE)
 # =============================================
-<IfModule mod_rewrite.c>
-RewriteEngine On
+# Route article post URLs to articles/index.html (React handles routing)
+RewriteCond %{REQUEST_URI} ^/articles/.+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /articles/index.html [L]
+
+# Route all other URLs to root index.html
+RewriteCond %{REQUEST_URI} !^/blog/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
 
-# Handle 404 errors
 ErrorDocument 404 /404.html
-</IfModule>
-
-# =============================================
-# Security Headers
-# =============================================
-<IfModule mod_headers.c>
-    # Prevent clickjacking
-    Header always set X-Frame-Options "SAMEORIGIN"
-    
-    # XSS Protection
-    Header always set X-XSS-Protection "1; mode=block"
-    
-    # Prevent MIME type sniffing
-    Header always set X-Content-Type-Options "nosniff"
-    
-    # Referrer Policy
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    
-    # Content Security Policy
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://fonts.googleapis.com https://*.wsimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https:; media-src 'self' https:; frame-src 'self';"
-    
-    # Permissions Policy
-    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
-    
-    # Strict Transport Security (HSTS) - 1 year
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-</IfModule>
-
-# =============================================
-# Browser Caching
-# =============================================
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresDefault "access plus 1 month"
-    
-    # Images
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    
-    # CSS and JavaScript
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
-    ExpiresByType text/javascript "access plus 1 year"
-    
-    # Fonts
-    ExpiresByType font/woff "access plus 1 year"
-    ExpiresByType font/woff2 "access plus 1 year"
-    ExpiresByType font/ttf "access plus 1 year"
-    ExpiresByType font/otf "access plus 1 year"
-    ExpiresByType application/font-woff "access plus 1 year"
-    ExpiresByType application/font-woff2 "access plus 1 year"
-    
-    # HTML - Don't cache
-    ExpiresByType text/html "access plus 0 seconds"
-    
-    # JSON - Don't cache
-    ExpiresByType application/json "access plus 0 seconds"
-</IfModule>
-
-# =============================================
-# GZIP Compression
-# =============================================
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE text/javascript
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
-    AddOutputFilterByType DEFLATE application/json
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE image/svg+xml
-    AddOutputFilterByType DEFLATE font/opentype
-    AddOutputFilterByType DEFLATE font/otf
-    AddOutputFilterByType DEFLATE font/ttf
-</IfModule>
-
-# =============================================
-# Charset and MIME Types
-# =============================================
-AddDefaultCharset UTF-8
-AddCharset UTF-8 .html .css .js .xml .json
-
-# =============================================
-# Directory Browsing
-# =============================================
-Options -Indexes
-
-# =============================================
-# ETags
-# =============================================
-<IfModule mod_headers.c>
-    Header unset ETag
-</IfModule>
-FileETag None
