@@ -6,15 +6,14 @@ import Layout from '@/layouts/Layout.astro';
 const title = 'Page Not Found (404) | AVYRA - Premium Kitchens & Wardrobes';
 const description = 'Page not found. Return to AVYRA\'s homepage to explore premium SS 304 kitchens and aluminium wardrobes.';
 const keywords = 'page not found, error 404, AVYRA home, kitchen design, wardrobe design';
-const canonicalUrl = 'https://avyra.co.in/404';
 ---
 
 <Layout 
   title={title} 
   description={description}
   keywords={keywords}
-  canonicalUrl={canonicalUrl}
 >
+  <meta name="robots" content="noindex, nofollow" slot="head" />
   <main class="flex-1 flex items-center justify-center">
     <div class="container-premium text-center py-40">
       <h1 class="text-6xl md:text-7xl font-display font-bold mb-4">

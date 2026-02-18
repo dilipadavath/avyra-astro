@@ -21,7 +21,7 @@ const { post } = Astro.props;
 const title = `${post.title} | AVYRA Blog`;
 const description = post.excerpt || `Read about ${post.title} on AVYRA's blog.`;
 const keywords = `${post.category}, kitchen design, wardrobe design, home interior, AVYRA`;
-const canonicalUrl = `https://avyra.co.in/blog/${post.slug}`;
+const canonicalUrl = `/blog/${post.slug}`;
 
 // Structured data for blog post
 const structuredData = {
