@@ -38,13 +38,7 @@ const Blog = () => {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[40vh] flex items-center justify-center relative pt-20">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('/placeholder.svg')`,
-          }}
-        />
+      <section className="min-h-[40vh] flex items-center justify-center relative pt-20 bg-gradient-to-b from-background to-card">
         <div className="container-premium relative z-10 text-center py-16">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

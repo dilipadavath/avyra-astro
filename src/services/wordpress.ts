@@ -80,9 +80,11 @@ const stripHtml = (html: string): string => {
 
 // Transform WP post to BlogPost
 const transformPost = (post: WPPost): BlogPost => {
+  // Try to get featured image from multiple sources
   const featuredImage =
     post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
-    "/placeholder.svg";
+    (post as any).featured_image_url ||
+    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='24' fill='%23D4AF37' text-anchor='middle' dominant-baseline='middle'%3EAVYRA%3C/text%3E%3C/svg%3E";
 
   const categories = post._embedded?.["wp:term"]?.[0] || [];
   const category = categories[0]?.name || "Uncategorized";
