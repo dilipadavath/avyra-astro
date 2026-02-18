@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useWordPressPosts } from "@/hooks/useWordPressPosts";
-import { navigateToListing, navigateToPost } from "@/components/BlogWrapper";
 
 interface BlogPostProps {
   post?: {
@@ -27,13 +26,13 @@ const BlogPost = ({ post }: BlogPostProps) => {
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
           <p className="text-foreground/70 text-lg mb-4">Post not found</p>
-          <button 
-            onClick={() => navigateToListing()}
+          <a 
+            href="/blog"
             className="inline-flex items-center gap-2 text-primary hover:text-primary/80 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Blog
-          </button>
+          </a>
         </div>
       </div>
     );
@@ -60,13 +59,13 @@ const BlogPost = ({ post }: BlogPostProps) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <button
-              onClick={() => navigateToListing()}
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-6 cursor-pointer bg-transparent border-0"
+            <a
+              href="/blog"
+              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors mb-6 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Blog
-            </button>
+            </a>
 
             <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/70 mb-4">
               <span className="flex items-center gap-1">
@@ -141,12 +140,9 @@ const BlogPost = ({ post }: BlogPostProps) => {
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 {relatedPosts.map((relatedPost) => (
-                  <div
+                  <a
                     key={relatedPost.id}
-                    onClick={() => {
-                      navigateToPost(relatedPost.slug);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                    href={`/blog/${relatedPost.slug}`}
                     className="group block cursor-pointer"
                   >
                     <div className="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-card">
@@ -160,7 +156,7 @@ const BlogPost = ({ post }: BlogPostProps) => {
                       className="font-display font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2"
                       dangerouslySetInnerHTML={{ __html: relatedPost.title }}
                     />
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>

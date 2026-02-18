@@ -144,7 +144,7 @@ export const testWpPostsEndpoint = async (): Promise<void> => {
 export const fetchBlogPostsForBuild = async (): Promise<BlogPost[]> => {
   try {
     const response = await fetch(
-      "https://avyra.co.in/blog/wp-json/wp/v2/posts?_embed&per_page=100&orderby=date&order=desc",
+      "https://avyra.co.in/blogs/wp-json/wp/v2/posts?_embed&per_page=100&orderby=date&order=desc",
       {
         headers: {
           'Accept': 'application/json',

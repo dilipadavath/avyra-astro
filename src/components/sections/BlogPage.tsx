@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { ArrowRight, Calendar, Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import { useWordPressPosts } from "@/hooks/useWordPressPosts";
 import { useState, useMemo } from "react";
-import { navigateToPost } from "@/components/BlogWrapper";
 
 const POSTS_PER_PAGE = 9;
 
@@ -90,12 +89,8 @@ const Blog = () => {
                     transition={{ delay: index * 0.1 }}
                     className="group"
                   >
-                  <div 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToPost(post.slug);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                  <a 
+                    href={`/blog/${post.slug}`}
                     className="block cursor-pointer"
                   >
                     {/* Image */}
@@ -135,7 +130,7 @@ const Blog = () => {
                           </span>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </motion.article>
                 ))}
               </div>
@@ -193,12 +188,8 @@ const Blog = () => {
                   transition={{ delay: index * 0.1 }}
                   className="group"
                 >
-                  <div 
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateToPost(post.slug);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
+                  <a 
+                    href={`/blog/${post.slug}`}
                     className="block cursor-pointer"
                   >
                     {/* Image */}
@@ -238,7 +229,7 @@ const Blog = () => {
                         </span>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </motion.article>
               ))}
             </div>

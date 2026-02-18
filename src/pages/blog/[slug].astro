@@ -1,0 +1,65 @@
+---
+// @ts-nocheck
+import Layout from '@/layouts/Layout.astro';
+import BlogPostWrapper from '@/components/BlogPostWrapper';
+import { fetchBlogPostsForBuild, fetchBlogPostBySlug } from '@/services/wordpress';
+import type { GetStaticPaths } from 'astro';
+
+// Generate static paths for all blog posts at build time
+export const getStaticPaths = (async () => {
+  const posts = await fetchBlogPostsForBuild();
+  
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+
+// SEO Configuration
+const title = `${post.title} | AVYRA Blog`;
+const description = post.excerpt || `Read about ${post.title} on AVYRA's blog.`;
+const keywords = `${post.category}, kitchen design, wardrobe design, home interior, AVYRA`;
+const canonicalUrl = `https://avyra.co.in/blog/${post.slug}`;
+
+// Structured data for blog post
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.title,
+  "description": post.excerpt,
+  "image": post.image,
+  "datePublished": post.date,
+  "dateModified": post.date,
+  "author": {
+    "@type": "Organization",
+    "name": "AVYRA",
+    "url": "https://avyra.co.in"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AVYRA",
+    "url": "https://avyra.co.in",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://avyra.co.in/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  }
+};
+---
+
+<Layout 
+  title={title} 
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  structuredData={structuredData}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  <BlogPostWrapper post={post} client:load />
+</Layout>

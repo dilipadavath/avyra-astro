@@ -49,11 +49,11 @@ export default defineConfig({
     noExternal: ['lucide-react'],
     external: ['framer-motion'],
   },
-  
+},
+
   // Performance: Enable prefetcher
   prefetch: {
     prefetchAll: true,
   },
-},
 
 });
