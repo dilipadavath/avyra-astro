@@ -287,6 +287,46 @@ select:-webkit-autofill:active {
     margin-bottom: inherit !important;
     padding: inherit !important;
   }
+  
+  /* Table styling for blog posts */
+  .prose table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 2rem 0 !important;
+    font-size: inherit !important;
+  }
+  
+  .prose thead {
+    border-bottom: 2px solid hsl(var(--border)) !important;
+  }
+  
+  .prose th {
+    padding: 0.875rem 1rem !important;
+    text-align: left !important;
+    font-weight: 600 !important;
+    color: hsl(43 75% 47%) !important;
+    background-color: hsl(0 0% 12%) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    font-family: 'Playfair Display', serif !important;
+  }
+  
+  .prose td {
+    padding: 0.875rem 1rem !important;
+    border: 1px solid hsl(var(--border)) !important;
+    color: hsl(var(--foreground) / 0.85) !important;
+  }
+  
+  .prose tbody tr {
+    border-bottom: 1px solid hsl(var(--border)) !important;
+  }
+  
+  .prose tbody tr:hover {
+    background-color: hsl(0 0% 10%) !important;
+  }
+  
+  .prose tbody tr:last-child {
+    border-bottom: none !important;
+  }
 }
 
 /* Animation Classes */
@@ -336,5 +376,11 @@ select:-webkit-autofill:active {
   
   .hover-glow {
     @apply transition-shadow duration-300 hover:shadow-[0_0_30px_rgba(201,162,39,0.15)];
+  }
+
+  /* Blog post content spacing */
+  .prose p {
+    margin-bottom: 1.75rem !important;
+    line-height: 1.8 !important;
   }
 }

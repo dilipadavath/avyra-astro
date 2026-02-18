@@ -45,6 +45,49 @@ const BlogPost = ({ post }: BlogPostProps) => {
 
   return (
     <>
+      <style>{`
+        .blog-post-content.prose h2,
+        .blog-post-content.prose h3,
+        .blog-post-content.prose h4,
+        .blog-post-content.prose h5,
+        .blog-post-content.prose h6 {
+          color: #D4AF37 !important;
+        }
+        .blog-post-content.prose h2 {
+          font-size: 24px !important;
+          line-height: 1.3 !important;
+          margin-bottom: 1rem !important;
+        }
+        .blog-post-content.prose h3 {
+          font-size: 18px !important;
+          line-height: 1.3 !important;
+          margin-bottom: 0.875rem !important;
+        }
+        @media (min-width: 768px) {
+          .blog-post-content.prose h2 {
+            font-size: 28px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 1.25rem !important;
+          }
+          .blog-post-content.prose h3 {
+            font-size: 20px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 1rem !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .blog-post-content.prose h2 {
+            font-size: 32px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 1.5rem !important;
+          }
+          .blog-post-content.prose h3 {
+            font-size: 24px !important;
+            line-height: 1.3 !important;
+            margin-bottom: 1.25rem !important;
+          }
+        }
+      `}</style>
 
       {/* Hero Section */}
       <section className="min-h-[50vh] flex items-end relative pt-20">
@@ -100,17 +143,12 @@ const BlogPost = ({ post }: BlogPostProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="prose prose-invert max-w-none
+              className="blog-post-content prose prose-invert max-w-none
                 prose-headings:font-display
-                prose-h1:text-gold-gradient
-                prose-h2:text-primary
-                prose-h3:text-primary
-                prose-h4:text-primary
-                prose-h5:text-primary
-                prose-h6:text-primary
-                prose-p:text-foreground/80
+                prose-p:text-foreground/80 prose-p:mb-6
+                prose-ul:ml-6 prose-ol:ml-6
                 prose-li:text-foreground/80
-                prose-strong:text-foreground
+                prose-strong:text-foreground prose-strong:font-bold
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-img:rounded-lg"
               dangerouslySetInnerHTML={{ __html: post.content }}
