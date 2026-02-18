@@ -46,15 +46,15 @@ const benefits: Benefit[] = [
 
 const MaterialsSection = () => {
   return (
-    <section className="py-12 bg-charcoal">
-      <div className="container-premium">
+    <section className="py-12 bg-charcoal overflow-hidden w-full">
+      <div className="container-premium w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-8 w-full"
         >
           <h2 className="heading-subsection text-gold-gradient mb-2">
             Materials That Define Durability

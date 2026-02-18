@@ -26,8 +26,8 @@ const structuredData = getCompleteHomeSchema();
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   
-  <div class="min-h-screen bg-background">
-    <main>
+  <div class="min-h-screen bg-background overflow-x-hidden w-full">
+    <main class="w-full">
       {/* SEO-safe hidden H1 */}
       <h1 class="sr-only">
         AVYRA – Premium SS 304 Stainless Steel & Aluminium Kitchens and
@@ -35,9 +35,9 @@ const structuredData = getCompleteHomeSchema();
       </h1>
 
       <HeroSection client:load />
-      <ProcessSection client:idle />
-      <MaterialsSection client:idle />
-      <WhatWeCreateSection client:idle />
+      <ProcessSection client:load />
+      <MaterialsSection client:load />
+      <WhatWeCreateSection client:load />
     </main>
   </div>
 </Layout>

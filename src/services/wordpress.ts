@@ -1,8 +1,8 @@
 // WordPress REST API integration
 // Calls WordPress REST API directly (CORS enabled in WordPress)
-// WordPress is installed under /blog on avyra.co.in
+// WordPress is installed under /blogs on avyra.co.in
 
-const WP_API_BASE = "https://avyra.co.in/blog/wp-json/wp/v2/posts";
+const WP_API_BASE = "https://avyra.co.in/blogs/wp-json/wp/v2/posts";
 
 /* =======================
    Interfaces

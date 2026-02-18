@@ -1,46 +1,17 @@
 # AVYRA - Premium SS 304 Stainless Steel & Aluminium Interiors
-# Enterprise SEO Configuration
-# https://www.avyra.co.in
+# https://avyra.co.in
 
-# Allow all search engines
 User-agent: *
 Allow: /
+
+# Block WordPress CMS (Headless Setup)
+Disallow: /blogs/
+
+# Block sensitive system paths
 Disallow: /api/
 Disallow: /admin/
 Disallow: /.git/
 Disallow: /.env
 Disallow: /node_modules/
-Disallow: /*.json$
 
-# Specific crawl delays for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-Request-rate: 1/1s
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-# Social media crawlers
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: WhatsApp
-Allow: /
-
-User-agent: Telegram
-Allow: /
-
-# Sitemaps
-Sitemap: https://www.avyra.co.in/sitemap.xml
+Sitemap: https://avyra.co.in/sitemap.xml

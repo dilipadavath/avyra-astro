@@ -46,15 +46,15 @@ const ProcessSection = () => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(0); // Default to first step
 
   return (
-    <section className="py-8 bg-[#0a0a0a] overflow-hidden relative">
-      <div className="container-premium">
+    <section className="py-8 bg-[#0a0a0a] overflow-hidden relative w-full">
+      <div className="container-premium w-full">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-8 w-full"
         >
           <h2 className="font-serif heading-subsection text-gold-gradient mb-1 tracking-wide">
             Our Process

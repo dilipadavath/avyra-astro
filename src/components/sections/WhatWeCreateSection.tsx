@@ -21,14 +21,14 @@ const categories = [
 
 const WhatWeCreateSection = () => {
   return (
-    <section className="py-8 bg-background">
-      <div className="container-premium">
+    <section className="py-8 bg-background overflow-hidden w-full">
+      <div className="container-premium w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-8 w-full"
         >
           <h2 className="heading-subsection text-gold-gradient mb-2">What We Create</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">

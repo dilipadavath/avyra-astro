@@ -1,37 +1,26 @@
-# =============================================
-# ENABLE REWRITE
-# =============================================
 RewriteEngine On
 
 # =============================================
 # FORCE HTTPS
 # =============================================
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # =============================================
 # WWW TO NON-WWW
-# =============================================ac
+# =============================================
 RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # =============================================
-# WORDPRESS BLOG (IMPORTANT FIX)
+# DO NOT TOUCH WORDPRESS BLOG (/blogs)
 # =============================================
-RewriteCond %{REQUEST_URI} ^/blog/
+RewriteCond %{REQUEST_URI} ^/blogs/
 RewriteRule ^ - [L]
 
 # =============================================
-# ASTRO SPA FALLBACK (ONLY FOR ROOT SITE)
+# SPA FALLBACK FOR ASTRO
 # =============================================
-# Route article post URLs to articles/index.html (React handles routing)
-RewriteCond %{REQUEST_URI} ^/articles/.+
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ /articles/index.html [L]
-
-# Route all other URLs to root index.html
-RewriteCond %{REQUEST_URI} !^/blog/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]

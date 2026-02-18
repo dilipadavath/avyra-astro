@@ -7,12 +7,12 @@ import { useState, useEffect } from 'react';
 
 // Navigation helper
 export function navigateToPost(slug: string) {
-  window.history.pushState({}, '', `/articles/${slug}`);
+  window.history.pushState({}, '', `/blog/${slug}`);
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
 
 export function navigateToListing() {
-  window.history.pushState({}, '', '/articles');
+  window.history.pushState({}, '', '/blog');
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
 
@@ -36,7 +36,7 @@ function BlogPostView({ slug }: { slug: string }) {
             onClick={() => navigateToListing()}
             className="text-primary hover:text-primary/80 cursor-pointer bg-transparent border-0"
           >
-            ← Back to Articles
+            ← Back to Blog
           </button>
         </div>
       </div>
@@ -53,8 +53,8 @@ function BlogRouter() {
   useEffect(() => {
     const updateSlug = () => {
       const pathParts = window.location.pathname.split('/').filter(Boolean);
-      // /articles → listing, /articles/hello-world → post view
-      if (pathParts.length > 1 && (pathParts[0] === 'articles' || pathParts[0] === 'blog')) {
+      // /blog → listing, /blog/hello-world → post view
+      if (pathParts.length > 1 && pathParts[0] === 'blog') {
         setSlug(pathParts[1]);
       } else {
         setSlug(null);

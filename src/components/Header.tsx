@@ -8,7 +8,7 @@ const navItems = [
   { name: "Kitchen", path: "/kitchen" },
   { name: "Wardrobes", path: "/wardrobes" },
   { name: "Gallery", path: "/gallery" },
-  { name: "Blog", path: "/articles" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -41,12 +41,12 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? "glass-dark py-3" : "bg-transparent py-4"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 w-full ${isScrolled ? "glass-dark py-3" : "bg-transparent py-4"
         }`}
     >
-      <div className="container-premium flex items-center justify-between">
+      <div className="container-premium flex items-center justify-between w-full">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-1">
+        <a href="/" className="flex items-center gap-1 flex-shrink-0">
           <img
             src={logoIcon}
             alt="AVYRA"

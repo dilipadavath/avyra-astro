@@ -22,7 +22,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[700px] overflow-hidden">
+    <section className="relative h-screen min-h-[700px] overflow-hidden w-full">
       {/* Background Images */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -31,7 +31,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0"
+          className="absolute inset-0 w-full"
         >
           <img
             src={heroImages[currentIndex].src}
@@ -46,26 +46,26 @@ const HeroSection = () => {
       </AnimatePresence>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-end pb-16 md:pb-24">
-        <div className="container-premium">
+      <div className="relative z-10 h-full flex items-end pb-16 md:pb-24 w-full">
+        <div className="container-premium w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-left"
+            className="text-left w-full"
           >
             {/* Main Heading */}
-            <h1 className="heading-display text-gold-gradient text-foreground mb-0 pb-2 md:mb-6">
+            <h1 className="heading-display text-gold-gradient text-foreground mb-0 pb-2 md:mb-6 max-w-full">
               Crafted for Everyday Living
             </h1>
 
             {/* Sub Heading */}
-            <h2 className="font-sans font-light tracking-wide leading-relaxed text-lg md:text-xl lg:text-2xl text-foreground/90 mb-6 -mt-4">
+            <h2 className="font-sans font-light tracking-wide leading-relaxed text-lg md:text-xl lg:text-2xl text-foreground/90 mb-6 -mt-4 max-w-full">
               Engineered stainless steel and aluminium interiors where precision meets everyday elegance.
             </h2>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
               <Button asChild className="btn-primary-gold group hover:bg-white hover:text-background hover:border-white">
                 <a href="/contact">
                   Book Your Consultation

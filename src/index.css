@@ -108,6 +108,9 @@ select:-webkit-autofill:active {
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -121,6 +124,9 @@ select:-webkit-autofill:active {
   .heading-display {
     font-family: 'Playfair Display', serif;
     @apply text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
   
   .heading-section {
@@ -140,6 +146,8 @@ select:-webkit-autofill:active {
     background-clip: text;
     padding-bottom: 0.1em;
     display: inline-block;
+    max-width: 100%;
+    word-wrap: break-word;
   }
   
   .glass-dark {
@@ -155,13 +163,15 @@ select:-webkit-autofill:active {
   .btn-primary-gold {
     @apply bg-primary text-primary-foreground 
            hover:bg-white hover:text-background
-           transition-all duration-300 px-8 py-3 font-medium tracking-wide;
+           transition-all duration-300 px-8 py-3 font-medium tracking-wide
+           w-full sm:w-auto whitespace-nowrap;
   }
   
   .btn-outline-gold {
     @apply border border-white bg-transparent text-white
            hover:bg-white hover:text-background hover:border-white
-           transition-all duration-300 px-8 py-3 font-medium tracking-wide;
+           transition-all duration-300 px-8 py-3 font-medium tracking-wide
+           w-full sm:w-auto whitespace-nowrap;
   }
   
   .card-premium {
@@ -175,6 +185,8 @@ select:-webkit-autofill:active {
   
   .container-premium {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
