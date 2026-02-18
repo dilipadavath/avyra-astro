@@ -100,16 +100,19 @@ const BlogPost = ({ post }: BlogPostProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="prose prose-invert prose-lg max-w-none
-                prose-headings:font-display prose-headings:text-foreground
-                prose-h1:text-3xl prose-h1:text-gold-gradient
-                prose-h2:text-2xl prose-h2:text-primary prose-h2:mt-8 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:text-foreground/90
-                prose-p:text-foreground/80 prose-p:leading-relaxed
+              className="prose prose-invert max-w-none
+                prose-headings:font-display
+                prose-h1:text-gold-gradient
+                prose-h2:text-primary
+                prose-h3:text-primary
+                prose-h4:text-primary
+                prose-h5:text-primary
+                prose-h6:text-primary
+                prose-p:text-foreground/80
                 prose-li:text-foreground/80
                 prose-strong:text-foreground
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-img:rounded-lg prose-img:my-6"
+                prose-img:rounded-lg"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
 
