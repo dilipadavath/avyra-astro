@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Block WordPress CMS (Headless Setup)
-Disallow: /blogs/
+Disallow: /blogs-cms9384xk-dont-delete/
 
 # Block sensitive system paths
 Disallow: /api/

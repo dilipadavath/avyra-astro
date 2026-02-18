@@ -1,8 +1,8 @@
 // WordPress REST API integration
 // Calls WordPress REST API directly (CORS enabled in WordPress)
-// WordPress is installed under /blogs on avyra.co.in
+// WordPress is installed under /blogs-cms9384xk-dont-delete on avyra.co.in
 
-const WP_API_BASE = "https://avyra.co.in/blogs/wp-json/wp/v2/posts";
+const WP_API_BASE = "https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2/posts";
 
 /* =======================
    Interfaces
@@ -146,7 +146,7 @@ export const testWpPostsEndpoint = async (): Promise<void> => {
 export const fetchBlogPostsForBuild = async (): Promise<BlogPost[]> => {
   try {
     const response = await fetch(
-      "https://avyra.co.in/blogs/wp-json/wp/v2/posts?_embed&per_page=100&orderby=date&order=desc",
+      "https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2/posts?_embed&per_page=100&orderby=date&order=desc",
       {
         headers: {
           'Accept': 'application/json',

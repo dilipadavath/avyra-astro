@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-const WP_API_BASE = 'https://avyra.co.in/blog/wp-json/wp/v2';
+const WP_API_BASE = 'https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2';
 
 export const GET: APIRoute = async ({ url }) => {
   try {
