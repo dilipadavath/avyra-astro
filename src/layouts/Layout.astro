@@ -15,7 +15,7 @@ interface Props {
   structuredData?: Record<string, any>;
 }
 
-const BASE_URL = "https://www.avyra.co.in";
+const BASE_URL = "https://avyra.co.in";
 const DEFAULT_IMAGE = `${BASE_URL}/og-avyra.jpg`;
 
 const {
@@ -48,9 +48,11 @@ const canonical = canonicalUrl.startsWith('http')
     
     {/* DNS Prefetch & Preconnect for External Resources */}
     <link rel="dns-prefetch" href="https://avyra.co.in" />
-    <link rel="dns-prefetch" href="https://www.avyra.co.in" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    {/* Sitemap */}
+    <link rel="sitemap" href="https://avyra.co.in/sitemap.xml" />
     
     {/* Prefetch critical API endpoints */}
     <link rel="prefetch" href="https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2/posts?_embed&per_page=100" as="fetch" crossorigin />
