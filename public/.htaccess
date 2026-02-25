@@ -13,20 +13,29 @@ RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 
 # =============================================
-# ALLOW WORDPRESS IN /blogs-cms9384xk-dont-delete
+# ALLOW SITEMAP + ROBOTS DIRECTLY
+# =============================================
+RewriteCond %{REQUEST_URI} ^/sitemap\.xml$ [OR]
+RewriteCond %{REQUEST_URI} ^/robots\.txt$
+RewriteRule ^ - [L]
+
+# =============================================
+# ALLOW WORDPRESS
 # =============================================
 RewriteCond %{REQUEST_URI} ^/blogs-cms9384xk-dont-delete/
 RewriteRule ^ - [L]
 
 # =============================================
-# SPA FALLBACK FOR ASTRO (EXCEPT /blogs-cms9384xk-dont-delete)
+# SPA FALLBACK (ASTRO)
 # =============================================
 RewriteCond %{REQUEST_URI} !^/blogs-cms9384xk-dont-delete/
+RewriteCond %{REQUEST_URI} !^/sitemap\.xml$
+RewriteCond %{REQUEST_URI} !^/robots\.txt$
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [L]
 
 # =============================================
-# CUSTOM 404 PAGE
+# CUSTOM 404
 # =============================================
 ErrorDocument 404 /404.html

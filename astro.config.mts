@@ -1,17 +1,14 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   integrations: [
     tailwind(),
     react(),
-    sitemap({
-      filter: (page) => !page.includes('/404'),
-    }),
   ],
-  site: 'https://avyra.co.in/',
+  site: 'https://avyra.co.in',
+  trailingSlash: 'never',
   output: 'static',
   
   // Performance & SEO optimizations
