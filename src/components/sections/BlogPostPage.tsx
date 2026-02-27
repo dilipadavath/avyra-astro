@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useWordPressPosts } from "@/hooks/useWordPressPosts";
+import { useEffect, useState } from "react";
 
 interface BlogPostProps {
   post?: {
@@ -17,11 +18,76 @@ interface BlogPostProps {
   };
 }
 
-const BlogPost = ({ post }: BlogPostProps) => {
+const BlogPost = ({ post: initialPost }: BlogPostProps) => {
   const { data: allPosts } = useWordPressPosts();
+  const [post, setPost] = useState(initialPost);
+  const [loading, setLoading] = useState(!initialPost);
+
+  // If no post provided, fetch from WordPress API by slug
+  useEffect(() => {
+    if (!post) {
+      // Get slug from query parameter (passed by .htaccess) or URL pathname
+      const params = new URLSearchParams(window.location.search);
+      let slug: string | null = params.get('post');
+      
+      if (!slug) {
+        slug = window.location.pathname.split('/').filter(Boolean).pop() || null;
+      }
+      
+      // First try to find in allPosts (if already loaded)
+      if (allPosts && allPosts.length > 0 && slug) {
+        const found = allPosts.find(p => p.slug === slug);
+        if (found) {
+          setPost(found);
+          setLoading(false);
+          return;
+        }
+      }
+
+      // If not in allPosts, fetch directly from WordPress API by slug
+      if (slug) {
+        fetch(
+          `https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2/posts?slug=${slug}&_embed`
+        )
+          .then(res => res.json())
+          .then(data => {
+            if (data && data.length > 0) {
+              // Transform WordPress post to our format
+              const wpPost = data[0];
+              const categoryName = wpPost._embedded?.["wp:term"]?.[0]?.[0]?.name;
+              const transformedPost = {
+                id: wpPost.id.toString(),
+                slug: wpPost.slug || "",
+                title: wpPost.title.rendered || "",
+                excerpt: (wpPost.excerpt.rendered || "").replace(/<[^>]*>/g, "").trim(),
+                content: wpPost.content.rendered || "",
+                image: wpPost._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3C/svg%3E",
+                date: new Date(wpPost.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
+                category: categoryName || "Uncategorized",
+                readTime: `${Math.ceil((wpPost.content.rendered || "").replace(/<[^>]*>/g, "").split(/\s+/).length / 200)} min read`,
+              };
+              setPost(transformedPost);
+            }
+            setLoading(false);
+          })
+          .catch(err => {
+            console.error("Error fetching post:", err);
+            setLoading(false);
+          });
+      }
+    }
+  }, [post, allPosts]);
 
   // Return nothing if no post provided
   if (!post) {
+    if (loading) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-background">
+          <Loader2 className="w-8 h-8 animate-spin text-primary" />
+        </div>
+      );
+    }
+    
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">

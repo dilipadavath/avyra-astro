@@ -2,36 +2,27 @@
 // @ts-nocheck
 import Layout from '@/layouts/Layout.astro';
 import BlogPostWrapper from '@/components/BlogPostWrapper';
-import { fetchBlogPostsForBuild, fetchBlogPostBySlug } from '@/services/wordpress';
 import type { GetStaticPaths } from 'astro';
 
-// Generate static paths for all blog posts at build time
-export const getStaticPaths = (async () => {
-  const posts = await fetchBlogPostsForBuild();
-  
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post }
-  }));
+// Return one generic route so the page is generated
+// All blog content loads dynamically from WordPress API
+export const getStaticPaths = (() => {
+  return [
+    { params: { slug: 'blog-post' } }
+  ];
 }) satisfies GetStaticPaths;
 
-const { post } = Astro.props;
+// Generic defaults - React component will fetch actual content from URL
+const title = 'Blog Post | AVYRA';
+const description = 'Read kitchen and wardrobe design tips, trends, and expert advice from AVYRA.';
+const keywords = 'kitchen design, wardrobe design, home interior, blog, AVYRA';
 
-// SEO Configuration
-const title = `${post.title} | AVYRA Blog`;
-const description = post.excerpt || `Read about ${post.title} on AVYRA's blog.`;
-const keywords = `${post.category}, kitchen design, wardrobe design, home interior, AVYRA`;
-const canonicalUrl = `/blog/${post.slug}`;
-
-// Structured data for blog post
+// Generic schema - React component will update with actual post data
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": post.title,
-  "description": post.excerpt,
-  "image": post.image,
-  "datePublished": post.date,
-  "dateModified": post.date,
+  "headline": "Blog Post",
+  "description": "Read kitchen and wardrobe design tips, trends, and expert advice from AVYRA.",
   "author": {
     "@type": "Organization",
     "name": "AVYRA",
@@ -45,10 +36,6 @@ const structuredData = {
       "@type": "ImageObject",
       "url": "https://avyra.co.in/logo.png"
     }
-  },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": canonicalUrl
   }
 };
 ---
@@ -57,9 +44,8 @@ const structuredData = {
   title={title} 
   description={description}
   keywords={keywords}
-  canonicalUrl={canonicalUrl}
   structuredData={structuredData}
 >
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  <BlogPostWrapper post={post} client:load />
+  <BlogPostWrapper client:only="react" />
 </Layout>

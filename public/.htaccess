@@ -26,6 +26,15 @@ RewriteCond %{REQUEST_URI} ^/blogs-cms9384xk-dont-delete/
 RewriteRule ^ - [L]
 
 # =============================================
+# BLOG DYNAMIC ROUTING - All blog content loads from WordPress API
+# Redirect all blog post URLs to the template, preserving the slug
+# =============================================
+RewriteCond %{REQUEST_URI} ^/blog/[^/]+/?$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/(.+)/?$ /blog/blog-post?post=$1 [L,QSA]
+
+# =============================================
 # SPA FALLBACK (ASTRO)
 # =============================================
 RewriteCond %{REQUEST_URI} !^/blogs-cms9384xk-dont-delete/
