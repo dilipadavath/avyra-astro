@@ -43,6 +43,15 @@ const canonical = canonicalUrl.startsWith('http')
     <meta name="theme-color" content="#A68A1E" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
     
+    {/* Google Analytics */}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DCGLEMYXXE"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DCGLEMYXXE');
+    </script>
+    
     {/* Performance & Caching Optimization */}
     <meta http-equiv="Cache-Control" content="public, max-age=3600" />
     
