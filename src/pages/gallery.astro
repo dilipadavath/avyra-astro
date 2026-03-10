@@ -21,6 +21,5 @@ const structuredData = getGallerySchema();
   canonicalUrl={canonicalUrl}
   structuredData={structuredData}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <GalleryPage client:load />
 </Layout>

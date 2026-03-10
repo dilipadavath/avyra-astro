@@ -24,8 +24,6 @@ const structuredData = getCompleteHomeSchema();
   canonicalUrl={canonicalUrl}
   structuredData={structuredData}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-  
   <div class="min-h-screen bg-background overflow-x-hidden w-full">
     <main class="w-full">
       {/* SEO-safe hidden H1 */}

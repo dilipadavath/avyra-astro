@@ -1,7 +1,8 @@
 // Enterprise-level Structured Data (Schema.org) for Google Rich Results
 // This enables Knowledge Graph, Rich Snippets, and enhanced search appearance
 
-const BASE_URL = "https://www.avyra.co.in/";
+const BASE_URL = "https://avyra.co.in";
+const absoluteUrl = (path: string) => `${BASE_URL}${path}`;
 
 export interface StructuredDataConfig {
   url?: string;
@@ -24,18 +25,14 @@ export const getOrganizationSchema = () => ({
   logo: {
     "@type": "ImageObject",
     "@id": `${BASE_URL}#logo`,
-    url: `${BASE_URL}logo.png`,
-    width: "200",
-    height: "80",
+    url: absoluteUrl('/favicon.png'),
     caption: "AVYRA Logo"
   },
   image: {
     "@type": "ImageObject",
     "@id": `${BASE_URL}#image`,
-    url: `${BASE_URL}og-avyra.jpg`,
-    width: "1200",
-    height: "630",
-    caption: "AVYRA - Premium Kitchen & Wardrobe Solutions"
+    url: absoluteUrl('/assets/hero-kitchen-1.jpg'),
+    caption: "AVYRA - Premium Kitchen and Wardrobe Solutions"
   },
   telephone: "+91-9689684222",
   email: "info@avyra.co.in",
@@ -71,8 +68,8 @@ export const getOrganizationSchema = () => ({
     "Home Furnishings"
   ],
   sameAs: [
-    "https://www.instagram.com/avyra.interiors",
-    "https://www.facebook.com/avyra.interiors"
+    "https://www.instagram.com/avyra.living/",
+    "https://wa.me/919689684222"
   ]
 });
 
@@ -84,15 +81,7 @@ export const getHomePageSchema = () => ({
   url: BASE_URL,
   name: "AVYRA",
   description: "Premium SS 304 stainless steel honeycomb kitchens and aluminium wardrobes in Hyderabad, South India.",
-  publisher: getOrganizationSchema(),
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${BASE_URL}?s={search_term_string}`
-    },
-    query: "required name=search_term_string"
-  }
+  publisher: getOrganizationSchema()
 });
 
 // Kitchen Service Schema
@@ -112,7 +101,7 @@ export const getKitchenServiceSchema = () => ({
   ],
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: `${BASE_URL}kitchen`,
+    serviceUrl: absoluteUrl('/kitchen'),
     availableLanguage: "English"
   }
 });
@@ -134,7 +123,7 @@ export const getWardrobeServiceSchema = () => ({
   ],
   availableChannel: {
     "@type": "ServiceChannel",
-    serviceUrl: `${BASE_URL}wardrobes`,
+    serviceUrl: absoluteUrl('/wardrobes'),
     availableLanguage: "English"
   }
 });
@@ -144,7 +133,7 @@ export const getGallerySchema = () => ({
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "AVYRA Project Gallery",
-  url: `${BASE_URL}gallery`,
+  url: absoluteUrl('/gallery'),
   description: "Gallery of premium SS 304 stainless steel kitchens and aluminium wardrobes. View real projects from Hyderabad and South India.",
   publisher: getOrganizationSchema(),
   breadcrumb: {
@@ -160,7 +149,7 @@ export const getGallerySchema = () => ({
         "@type": "ListItem",
         position: 2,
         name: "Gallery",
-        item: `${BASE_URL}gallery`
+        item: absoluteUrl('/gallery')
       }
     ]
   }
@@ -171,7 +160,7 @@ export const getAboutPageSchema = () => ({
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "About AVYRA",
-  url: `${BASE_URL}about`,
+  url: absoluteUrl('/about'),
   description: "Learn about AVYRA's commitment to premium, durable, and rust-proof interior solutions. Expertise in SS 304 stainless steel kitchens and aluminium wardrobes.",
   publisher: getOrganizationSchema()
 });
@@ -181,7 +170,7 @@ export const getContactPageSchema = () => ({
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact AVYRA",
-  url: `${BASE_URL}contact`,
+  url: absoluteUrl('/contact'),
   description: "Get in touch with AVYRA for premium SS 304 stainless steel kitchens and aluminium wardrobes. Call +91-9689684222 or send us a message.",
   mainEntity: getOrganizationSchema()
 });
@@ -191,7 +180,7 @@ export const getFAQPageSchema = () => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   name: "AVYRA FAQ",
-  url: `${BASE_URL}faq`,
+  url: absoluteUrl('/faq'),
   description: "Find answers to common questions about AVYRA's SS 304 stainless steel kitchens and aluminium wardrobes, materials, warranty, and customization options.",
   mainEntity: [
     {
@@ -235,7 +224,7 @@ export const getBlogPostSchema = (config: StructuredDataConfig) => ({
   "@type": "BlogPosting",
   headline: config.title,
   description: config.description,
-  image: config.image || `${BASE_URL}og-avyra.jpg`,
+  image: config.image || absoluteUrl('/assets/hero-kitchen-1.jpg'),
   datePublished: config.datePublished,
   dateModified: config.dateModified,
   author: {
@@ -255,7 +244,7 @@ export const getBlogListSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Blog",
   name: "AVYRA Blog",
-  url: `${BASE_URL}blog`,
+  url: absoluteUrl('/blog'),
   description: "Fresh ideas and expert advice on modular kitchens, wardrobes, and home design. Tips, guides, and inspiration for your modern Indian home.",
   author: {
     "@type": "Organization",
@@ -267,27 +256,48 @@ export const getBlogListSchema = () => ({
 export const getCompleteHomeSchema = () => {
   const organization = getOrganizationSchema();
   const website = getHomePageSchema();
-  
-  return [
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        organization,
-        website,
-        {
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              name: "Home",
-              item: BASE_URL
-            }
-          ]
-        }
-      ]
-    }
-  ][0];
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      organization,
+      website,
+      {
+        "@type": "SiteNavigationElement",
+        name: [
+          "Home",
+          "Kitchen",
+          "Wardrobes",
+          "Gallery",
+          "Blog",
+          "Contact",
+          "FAQ",
+          "About"
+        ],
+        url: [
+          BASE_URL,
+          absoluteUrl('/kitchen'),
+          absoluteUrl('/wardrobes'),
+          absoluteUrl('/gallery'),
+          absoluteUrl('/blog'),
+          absoluteUrl('/contact'),
+          absoluteUrl('/faq'),
+          absoluteUrl('/about')
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: BASE_URL
+          }
+        ]
+      }
+    ]
+  };
 };
 
 export default {

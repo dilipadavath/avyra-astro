@@ -16,6 +16,8 @@ export const getStaticPaths = (() => {
 const title = 'Blog Post | AVYRA';
 const description = 'Read kitchen and wardrobe design tips, trends, and expert advice from AVYRA.';
 const keywords = 'kitchen design, wardrobe design, home interior, blog, AVYRA';
+const canonicalUrl = '/blog';
+const robots = 'noindex, follow';
 
 // Generic schema - React component will update with actual post data
 const structuredData = {
@@ -34,7 +36,7 @@ const structuredData = {
     "url": "https://avyra.co.in",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://avyra.co.in/logo.png"
+      "url": "https://avyra.co.in/favicon.png"
     }
   }
 };
@@ -44,8 +46,9 @@ const structuredData = {
   title={title} 
   description={description}
   keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  robots={robots}
   structuredData={structuredData}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <BlogPostWrapper client:only="react" />
 </Layout>

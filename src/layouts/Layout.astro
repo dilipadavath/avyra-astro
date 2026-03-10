@@ -12,11 +12,12 @@ interface Props {
   keywords?: string;
   ogImage?: string;
   canonicalUrl?: string;
-  structuredData?: Record<string, any>;
+  robots?: string;
+  structuredData?: Record<string, any> | Record<string, any>[];
 }
 
 const BASE_URL = "https://avyra.co.in";
-const DEFAULT_IMAGE = `${BASE_URL}/og-avyra.jpg`;
+const DEFAULT_IMAGE = `${BASE_URL}/assets/hero-kitchen-1.jpg`;
 
 const {
   title = "AVYRA | Premium SS 304 Stainless Steel Kitchens & Aluminium Wardrobes",
@@ -24,6 +25,7 @@ const {
   keywords,
   ogImage = DEFAULT_IMAGE,
   canonicalUrl = "/",
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
   structuredData,
 } = Astro.props;
 
@@ -52,9 +54,6 @@ const canonical = canonicalUrl.startsWith('http')
       gtag('config', 'G-DCGLEMYXXE');
     </script>
     
-    {/* Performance & Caching Optimization */}
-    <meta http-equiv="Cache-Control" content="public, max-age=3600" />
-    
     {/* DNS Prefetch & Preconnect for External Resources */}
     <link rel="dns-prefetch" href="https://avyra.co.in" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -62,13 +61,6 @@ const canonical = canonicalUrl.startsWith('http')
     
     {/* Sitemap */}
     <link rel="sitemap" href="https://avyra.co.in/sitemap.xml" />
-    
-    {/* Prefetch critical API endpoints */}
-    <link rel="prefetch" href="https://avyra.co.in/blogs-cms9384xk-dont-delete/wp-json/wp/v2/posts?_embed&per_page=100" as="fetch" crossorigin />
-    <link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" as="style" />
-    
-    {/* Preload Critical Resources */}
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     {/* Primary Meta Tags */}
     <title>{fullTitle}</title>
@@ -79,10 +71,6 @@ const canonical = canonicalUrl.startsWith('http')
     <meta name="creator" content="AVYRA Design" />
     <meta name="publisher" content="AVYRA" />
     <link rel="canonical" href={canonical} />
-    
-    {/* Preconnect to Google Fonts for faster loading */}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
     
     {/* Preload critical fonts */}
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" as="style" />
@@ -115,9 +103,9 @@ const canonical = canonicalUrl.startsWith('http')
     <meta name="ICBM" content="17.3850,78.4867" />
     
     {/* Robots and Indexing */}
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={robots} />
+    <meta name="googlebot" content={robots} />
+    <meta name="bingbot" content={robots} />
     
     {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
     
