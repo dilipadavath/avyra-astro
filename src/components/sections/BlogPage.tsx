@@ -84,7 +84,7 @@ const Blog = () => {
                     className="group"
                   >
                   <a 
-                    href={`/blog/${post.slug}`}
+                    href={`/blog/blog-post?post=${encodeURIComponent(post.slug)}`}
                     className="block cursor-pointer"
                   >
                     {/* Image */}

@@ -61,7 +61,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
                 title: wpPost.title.rendered || "",
                 excerpt: (wpPost.excerpt.rendered || "").replace(/<[^>]*>/g, "").trim(),
                 content: wpPost.content.rendered || "",
-                image: wpPost._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3C/svg%3E",
+                image: wpPost._embedded?.["wp:featuredmedia"]?.[0]?.source_url || wpPost._embedded?.["wp:featuredmedia"]?.[0]?.media_details?.sizes?.full?.source_url || wpPost.featured_image_url || "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect width='800' height='600' fill='%231a1a1a'/%3E%3C/svg%3E",
                 date: new Date(wpPost.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }),
                 category: categoryName || "Uncategorized",
                 readTime: `${Math.ceil((wpPost.content.rendered || "").replace(/<[^>]*>/g, "").split(/\s+/).length / 200)} min read`,
@@ -249,7 +249,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
                 {relatedPosts.map((relatedPost) => (
                   <a
                     key={relatedPost.id}
-                    href={`/blog/${relatedPost.slug}`}
+                    href={`/blog/blog-post?post=${encodeURIComponent(relatedPost.slug)}`}
                     className="group block cursor-pointer"
                   >
                     <div className="aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-card">
