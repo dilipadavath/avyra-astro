@@ -194,7 +194,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
             </div>
 
             <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-4xl"
+              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-none"
               dangerouslySetInnerHTML={{ __html: post.title }}
             />
           </motion.div>
@@ -204,7 +204,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
       {/* Content */}
       <section className="py-12 md:py-16 bg-background">
         <div className="container-premium">
-          <div className="max-w-3xl mx-auto">
+          <div className="w-full mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
