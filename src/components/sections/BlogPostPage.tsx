@@ -118,52 +118,205 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
         .blog-post-content.prose h5,
         .blog-post-content.prose h6 {
           color: #D4AF37 !important;
+          margin-bottom: 0.5rem !important;
         }
         .blog-post-content.prose h2 {
           font-size: 24px !important;
           line-height: 1.3 !important;
-          margin-bottom: 1rem !important;
+          margin-top: 1.2rem !important;
         }
         .blog-post-content.prose h3 {
           font-size: 18px !important;
           line-height: 1.3 !important;
-          margin-bottom: 0.875rem !important;
+          margin-top: 1.2rem !important;
+        }
+        .blog-post-content.prose p {
+          margin-bottom: 0.8rem !important;
+          line-height: 1.5 !important;
+        }
+        .blog-post-content.prose ul,
+        .blog-post-content.prose ol {
+          margin-top: 0.25rem !important;
+          margin-bottom: 0.9rem !important;
+        }
+        .blog-post-content.prose p + ul,
+        .blog-post-content.prose p + ol {
+          margin-top: 0.1rem !important;
+        }
+        .blog-post-content.prose li {
+          margin-bottom: 0.2rem !important;
+        }
+        /* Inline side-by-side list: add class "list-inline" to the WP list block */
+        .blog-post-content.prose ul.list-inline,
+        .blog-post-content.prose ol.list-inline {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          gap: 0.4rem 1.25rem !important;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+          list-style: none !important;
+        }
+        .blog-post-content.prose ul.list-inline li,
+        .blog-post-content.prose ol.list-inline li {
+          margin-bottom: 0 !important;
+          white-space: nowrap;
+        }
+        .blog-post-content.prose ul.list-inline li::before {
+          content: "•";
+          margin-right: 0.3rem;
+          color: #D4AF37;
+        }
+        @media (max-width: 580px) {
+          .blog-post-content.prose ul.list-inline,
+          .blog-post-content.prose ol.list-inline {
+            display: block !important;
+            padding-left: 1.25rem !important;
+            list-style: disc !important;
+          }
+          .blog-post-content.prose ul.list-inline li,
+          .blog-post-content.prose ol.list-inline li {
+            margin-bottom: 0.2rem !important;
+            white-space: normal;
+          }
+          .blog-post-content.prose ul.list-inline li::before {
+            content: none;
+          }
+        }
+        /* Two-column list: add class "two-columns" to the WP list block */
+        .blog-post-content.prose ul.two-columns,
+        .blog-post-content.prose ol.two-columns {
+          columns: 2 !important;
+          column-gap: 2rem !important;
+          padding-left: 1.25rem !important;
+        }
+        .blog-post-content.prose ul.two-columns li,
+        .blog-post-content.prose ol.two-columns li {
+          break-inside: avoid !important;
+        }
+        @media (max-width: 580px) {
+          .blog-post-content.prose ul.two-columns,
+          .blog-post-content.prose ol.two-columns {
+            columns: 1 !important;
+          }
+        }
+        /* WP Columns — side-by-side layout */
+        .blog-post-content.prose .wp-block-columns {
+          display: flex !important;
+          gap: 1.5rem !important;
+          margin: 0.5rem 0 0.75rem !important;
+        }
+        .blog-post-content.prose .wp-block-column {
+          flex: 1 !important;
+          min-width: 0 !important;
+        }
+        .blog-post-content.prose .wp-block-column h6 {
+          margin-bottom: 0.3rem !important;
+        }
+        @media (max-width: 580px) {
+          .blog-post-content.prose .wp-block-columns {
+            flex-direction: column !important;
+            gap: 0.75rem !important;
+          }
+        }
+        /* Section images — 480px wide, auto height */
+        .blog-post-content.prose .wp-block-image {
+          margin: 0.75rem 0 1rem !important;
+        }
+        .blog-post-content.prose .wp-block-image img {
+          width: 480px !important;
+          height: auto !important;
+          max-width: 100% !important;
+          border-radius: 8px !important;
+          display: block !important;
+          margin: 0 !important;
+        }
+        .blog-post-content.prose .wp-block-image figcaption {
+          display: none !important;
+        }
+        @media (max-width: 767px) {
+          .blog-post-content.prose .wp-block-image img {
+            width: 100% !important;
+          }
+        }
+        .blog-post-content.prose .wp-block-table,
+        .blog-post-content.prose figure.wp-block-table {
+          margin: 0.8rem 0 1.2rem !important;
+          overflow-x: auto !important;
+          -webkit-overflow-scrolling: touch;
+        }
+        .blog-post-content.prose table,
+        .blog-post-content.prose .wp-block-table table {
+          width: 100% !important;
+          table-layout: auto !important;
+          border-collapse: collapse !important;
+          border-spacing: 0 !important;
+          margin: 0 !important;
+          font-size: 0.92rem !important;
+          line-height: 1.15 !important;
+          white-space: nowrap !important;
+        }
+        .blog-post-content.prose table th,
+        .blog-post-content.prose table td,
+        .blog-post-content.prose .wp-block-table table th,
+        .blog-post-content.prose .wp-block-table table td {
+          padding: 7px !important;
+          vertical-align: middle !important;
+        }
+        .blog-post-content.prose table p,
+        .blog-post-content.prose .wp-block-table table p {
+          margin: 0 !important;
+          line-height: 1.15 !important;
+        }
+        @media (max-width: 767px) {
+          .blog-post-content.prose .wp-block-table,
+          .blog-post-content.prose figure.wp-block-table {
+            margin-left: -0.5rem !important;
+            margin-right: -0.5rem !important;
+            width: calc(100% + 1rem) !important;
+          }
+          .blog-post-content.prose table,
+          .blog-post-content.prose .wp-block-table table {
+            font-size: 0.82rem !important;
+            min-width: 500px !important;
+          }
+          .blog-post-content.prose table th,
+          .blog-post-content.prose table td,
+          .blog-post-content.prose .wp-block-table table th,
+          .blog-post-content.prose .wp-block-table table td {
+            padding: 5px 6px !important;
+          }
         }
         @media (min-width: 768px) {
           .blog-post-content.prose h2 {
             font-size: 28px !important;
             line-height: 1.3 !important;
-            margin-bottom: 1.25rem !important;
           }
           .blog-post-content.prose h3 {
             font-size: 20px !important;
             line-height: 1.3 !important;
-            margin-bottom: 1rem !important;
           }
         }
         @media (min-width: 1024px) {
           .blog-post-content.prose h2 {
             font-size: 32px !important;
             line-height: 1.3 !important;
-            margin-bottom: 1.5rem !important;
           }
           .blog-post-content.prose h3 {
             font-size: 24px !important;
             line-height: 1.3 !important;
-            margin-bottom: 1.25rem !important;
           }
         }
       `}</style>
 
       {/* Hero Section */}
-      <section className="min-h-[50vh] flex items-end relative pt-20">
+      <section className="min-h-[34vh] md:min-h-[40vh] flex items-end relative pt-14 md:pt-16">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('${post.image}')`,
           }}
         />
-        <div className="container-premium relative z-10 py-12">
+        <div className="container-premium relative z-10 py-6 md:py-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -193,16 +346,15 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
               )}
             </div>
 
-            <h1 
-              className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.title }}
-            />
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-foreground max-w-5xl leading-tight">
+              {post.title.replace(/<[^>]*>/g, "").trim()}
+            </h1>
           </motion.div>
         </div>
       </section>
 
       {/* Content */}
-      <section className="py-12 md:py-16 bg-background">
+      <section className="py-8 md:py-10 bg-background">
         <div className="container-premium">
           <div className="w-full mx-auto">
             <motion.div
