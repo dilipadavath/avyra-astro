@@ -139,6 +139,11 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
           margin-top: 0.25rem !important;
           margin-bottom: 0.9rem !important;
         }
+        .blog-post-content.prose ul {
+          list-style: none !important;
+          padding-left: 0 !important;
+          margin-left: 0 !important;
+        }
         .blog-post-content.prose p + ul,
         .blog-post-content.prose p + ol {
           margin-top: 0.1rem !important;
@@ -146,40 +151,43 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
         .blog-post-content.prose li {
           margin-bottom: 0.2rem !important;
         }
+        .blog-post-content.prose ul li {
+          position: relative !important;
+          padding-left: 1.6rem !important;
+        }
+        .blog-post-content.prose ul li::before {
+          content: "" !important;
+          position: absolute !important;
+          left: 0 !important;
+          top: 0.15rem !important;
+          width: 1.05rem !important;
+          height: 1.05rem !important;
+          background-repeat: no-repeat !important;
+          background-size: contain !important;
+          background-position: center !important;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21.801 10A10 10 0 1 1 17 3.335'/%3E%3Cpath d='m9 11 3 3L22 4'/%3E%3C/svg%3E") !important;
+        }
         /* Inline side-by-side list: add class "list-inline" to the WP list block */
         .blog-post-content.prose ul.list-inline,
         .blog-post-content.prose ol.list-inline {
           display: flex !important;
           flex-wrap: wrap !important;
           gap: 0.4rem 1.25rem !important;
-          padding-left: 0 !important;
-          margin-left: 0 !important;
-          list-style: none !important;
         }
         .blog-post-content.prose ul.list-inline li,
         .blog-post-content.prose ol.list-inline li {
           margin-bottom: 0 !important;
           white-space: nowrap;
         }
-        .blog-post-content.prose ul.list-inline li::before {
-          content: "•";
-          margin-right: 0.3rem;
-          color: #D4AF37;
-        }
         @media (max-width: 580px) {
           .blog-post-content.prose ul.list-inline,
           .blog-post-content.prose ol.list-inline {
             display: block !important;
-            padding-left: 1.25rem !important;
-            list-style: disc !important;
           }
           .blog-post-content.prose ul.list-inline li,
           .blog-post-content.prose ol.list-inline li {
             margin-bottom: 0.2rem !important;
             white-space: normal;
-          }
-          .blog-post-content.prose ul.list-inline li::before {
-            content: none;
           }
         }
         /* Two-column list: add class "two-columns" to the WP list block */
@@ -427,4 +435,5 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
 };
 
 export default BlogPost;
+
 
