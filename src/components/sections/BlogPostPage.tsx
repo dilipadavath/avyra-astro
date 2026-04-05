@@ -159,7 +159,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
           content: "" !important;
           position: absolute !important;
           left: 0 !important;
-          top: 0.15rem !important;
+          top: 0.35rem !important;
           width: 1.05rem !important;
           height: 1.05rem !important;
           background-repeat: no-repeat !important;
