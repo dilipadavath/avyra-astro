@@ -231,7 +231,7 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
           margin: 0.75rem 0 1rem !important;
         }
         .blog-post-content.prose .wp-block-image img {
-          width: 480px !important;
+          width: 540px !important;
           height: auto !important;
           max-width: 100% !important;
           border-radius: 8px !important;
