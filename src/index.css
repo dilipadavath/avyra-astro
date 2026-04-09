@@ -284,13 +284,14 @@ select:-webkit-autofill:active {
     display: grid !important;
     grid-template-columns: repeat(4, 1fr) !important;
     gap: 0.5rem 1rem !important;
-    list-style: none !important;
-    padding: 0 !important;
+    list-style: disc !important;
+    padding-left: 1.5em !important;
     margin: 0.75rem 0 1rem !important;
   }
   .blog-post-content.prose ul.avyra-spec-grid li,
   .prose ul.avyra-spec-grid li {
     padding-left: 0 !important;
+    display: list-item !important;
   }
   .blog-post-content.prose ul.avyra-spec-grid li::before,
   .prose ul.avyra-spec-grid li::before {
