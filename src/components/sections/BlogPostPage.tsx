@@ -151,11 +151,11 @@ const BlogPost = ({ post: initialPost }: BlogPostProps) => {
         .blog-post-content.prose li {
           margin-bottom: 0.2rem !important;
         }
-        .blog-post-content.prose ul li {
+        .blog-post-content.prose ul:not(.avyra-spec-grid):not(.avyra-plain-list) li {
           position: relative !important;
           padding-left: 1.6rem !important;
         }
-        .blog-post-content.prose ul li::before {
+        .blog-post-content.prose ul:not(.avyra-spec-grid):not(.avyra-plain-list) li::before {
           content: "" !important;
           position: absolute !important;
           left: 0 !important;
