@@ -277,6 +277,49 @@ select:-webkit-autofill:active {
   .prose a:hover {
     text-decoration: underline !important;
   }
+
+  /* Spec grid — 4-column horizontal row for Durability/Stain/Scratch/Cost */
+  .blog-post-content.prose ul.avyra-spec-grid,
+  .prose ul.avyra-spec-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.5rem 1rem !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0.75rem 0 1rem !important;
+  }
+  .blog-post-content.prose ul.avyra-spec-grid li,
+  .prose ul.avyra-spec-grid li {
+    padding-left: 0 !important;
+  }
+  .blog-post-content.prose ul.avyra-spec-grid li::before,
+  .prose ul.avyra-spec-grid li::before {
+    display: none !important;
+    content: "" !important;
+    width: 0 !important;
+    height: 0 !important;
+    background-image: none !important;
+  }
+
+  /* Plain bullet list override — use class="avyra-plain-list" in blog posts */
+  .blog-post-content.prose ul.avyra-plain-list,
+  .prose ul.avyra-plain-list {
+    list-style: disc !important;
+    padding-left: 1.5em !important;
+    margin-left: 0 !important;
+  }
+  .blog-post-content.prose ul.avyra-plain-list li,
+  .prose ul.avyra-plain-list li {
+    padding-left: 0 !important;
+  }
+  .blog-post-content.prose ul.avyra-plain-list li::before,
+  .prose ul.avyra-plain-list li::before {
+    display: none !important;
+    content: "" !important;
+    width: 0 !important;
+    height: 0 !important;
+    background-image: none !important;
+  }
   
   .prose code {
     font-size: inherit !important;
